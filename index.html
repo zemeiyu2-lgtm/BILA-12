@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F6B83F"><title>BILA 1.0｜本周一起走</title>
+<style>
+:root{--gold:#f6b83f;--gold2:#ffd979;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--shadow:0 10px 30px rgba(76,54,18,.08)}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:20px 20px 8px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.avatar{width:40px;height:40px;border-radius:50%;background:#fff3cf;display:grid;place-items:center;font-size:22px;border:2px solid #fff}.screen{padding:10px 20px}.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:24px 22px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.2)}.eyebrow{font-size:13px;font-weight:700;opacity:.76}.hero h1{font-size:29px;line-height:1.2;margin:8px 0}.hero p{margin:0;line-height:1.7;font-size:15px}.hero .bila{font-size:45px;position:absolute;right:18px;bottom:14px}.section-title{font-size:17px;margin:24px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:43%;background:var(--gold);border-radius:99px}.weekrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.weekrow strong{font-size:15px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.day{height:48px;border-radius:14px;background:#faf7f0;display:grid;place-items:center;font-size:12px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}.choice.selected{border-color:var(--gold);background:#fff7df}.note{font-size:13px;color:var(--muted);line-height:1.7}.quote{border-left:4px solid var(--gold);padding-left:13px;color:#5e574c;line-height:1.7}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:20}.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}.hidden{display:none}.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}.back{border:0;background:none;padding:6px 0;color:#7a6a4e;font-weight:700}.mascot{font-size:70px;text-align:center;padding:10px}.smallbtn{border:0;background:none;color:#8a681f;font-weight:700}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice-title{font-size:18px;line-height:1.5;margin:12px 0}.hint{background:#fff8e5;border-radius:16px;padding:12px 14px;font-size:13px;color:#6d5a32;line-height:1.6}.success{text-align:center}.success .mascot{padding-bottom:0}.modal{position:fixed;inset:0;background:rgba(38,31,19,.42);display:flex;align-items:flex-end;justify-content:center;z-index:50}.modal-card{width:min(480px,100%);background:#fffdf8;border-radius:26px 26px 0 0;padding:22px 20px 28px}.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.option-grid button{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:14px;cursor:pointer}.option-grid button.selected{border-color:var(--gold);background:#fff7df}.tiny{font-size:12px;color:var(--muted)}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style id="bila-v1-1">
+.time-greeting{
+  margin:4px 2px 12px;
+  font-size:15px;
+  font-weight:700;
+  color:#7b6a4e;
+}
+.gated-next:disabled{
+  opacity:.45 !important;
+  cursor:not-allowed;
+}
+</style>
+
+
+<style id="bila-v1-2-choice">
+.choice{
+  cursor:pointer;
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  transition:transform .12s ease,border-color .12s ease,background .12s ease,box-shadow .12s ease;
+}
+.choice:hover{transform:translateY(-1px)}
+.choice.selected{
+  border-color:var(--gold) !important;
+  background:#fff7df !important;
+  box-shadow:0 0 0 3px rgba(246,184,63,.16);
+}
+.choice:active{transform:scale(.99)}
+.gated-next.ready{box-shadow:0 8px 20px rgba(246,184,63,.24)}
+</style>
+
+
+<style id="bila-v1-3-choice-style">
+.choice{
+  display:block;
+  width:100%;
+  min-height:50px;
+  box-sizing:border-box;
+  cursor:pointer;
+  touch-action:manipulation;
+}
+.choice.selected{
+  outline:none;
+}
+.choice:focus-visible{
+  outline:3px solid rgba(246,184,63,.45);
+  outline-offset:2px;
+}
+.gated-next:disabled{
+  pointer-events:none;
+}
+</style>
+
+
+<style id="bila-v1-4-choice">
+.choice.selected{
+  border-color:var(--gold) !important;
+  background:#fff7df !important;
+  box-shadow:0 0 0 3px rgba(246,184,63,.16);
+}
+.gated-next.ready{
+  opacity:1 !important;
+  pointer-events:auto !important;
+}
+</style>
+
+</head>
+<body>
+
+
+
+<main class="app">
+<header class="top"><div class="brand"><div class="fish">🐟</div><div><b>BILA</b><small>本周一起走</small></div></div></header>
+
+<section id="welcome" class="screen"><div id="timeGreeting" class="time-greeting"></div>
+<div class="hero"><span class="eyebrow">恩道教会 · 第1周</span><h1>听见以后，活出来</h1><p>雅各书 1:22–25<br>每天几分钟，把听见的带进生活。</p><div class="bila">🐟</div></div>
+<div class="section-title">先告诉我一件事</div>
+<div class="card"><h2 style="margin:0 0 8px">你今天参加聚会了吗？</h2><p class="note">点一下你的答案即可进入下一步。没有对错。</p><button class="btn primary" onclick="setAttendance(true)">我参加了聚会</button><button class="btn secondary" style="margin-top:10px" onclick="setAttendance(false)">我今天没有参加</button></div>
+<div class="card"><p class="quote">不用一下子改变很多。先花几分钟，想一个真实的问题。</p></div>
+</section>
+
+<section id="home" class="screen hidden">
+<div class="hero"><span class="eyebrow">恩道教会 · 第1周</span><h1>听见以后，活出来</h1><p>雅各书 1:22–25<br><span id="attendanceLine">今天，一起想一个问题。</span></p><div class="bila">🐟</div></div>
+<div class="section-title">本周进度</div><div class="card"><div class="weekrow"><strong>连续参与 <span id="streak">1</span> 天</strong><span class="tag" id="points">+5 ⭐</span></div><div class="progress"><i id="progressBar"></i></div><div class="days" style="margin-top:12px"><div class="day done">日<br>✓</div><div class="day today">一<br>今</div><div class="day">二</div><div class="day">三</div><div class="day">四</div><div class="day">五</div><div class="day">六</div></div></div>
+<div class="section-title">今天</div><div class="card"><span class="tag">每日3–5分钟</span><h2 style="margin:12px 0 8px">今天，我们先想一个很简单的问题。</h2><p class="note">没有标准答案。只要选最像你平时反应的那个。</p><button class="btn primary" onclick="show('question1')">开始今天</button></div>
+<div class="card"><div class="weekrow"><strong>🐟 Bila想对你说</strong><span>💛</span></div><p class="quote">不用一下子改变很多。今天只做一件小事，就很好。</p></div>
+</section>
+
+<section id="question1" class="screen hidden">
+<button class="back" onclick="show('home')">← 返回</button><div class="section-title">今天 · 主日回应</div>
+<div class="card"><span class="tag">先想想自己</span><h2 class="choice-title">听到一件你觉得“很有道理”、也觉得自己应该做到的事情时，你通常会怎样？</h2><p class="note">请选择一个最像你平时反应的答案。</p>
+<button class="choice" onclick="selectOne(this)">A．觉得有道理，但不一定去做</button>
+<button class="choice" onclick="selectOne(this)">B．先记住，以后有机会再做</button>
+<button class="choice" onclick="selectOne(this)">C．马上想想，自己可以怎么做</button>
+<button class="choice" onclick="selectOne(this)">D．听的时候有感觉，后来就忘了</button>
+<div class="hint" style="margin-top:14px">没有“好学生答案”。我们只是先看看自己的真实反应。</div>
+<button id="q1next" class="btn primary gated-next" style="margin-top:14px;opacity:.5" disabled onclick="show('question2')">继续</button></div>
+</section>
+
+<section id="question2" class="screen hidden"><button class="back" onclick="show('question1')">← 返回</button><div class="section-title">主日回应 · 2/3</div><div class="card"><span class="tag">圣经理解</span><h2 class="choice-title">雅各提醒我们：听见圣经以后，下一步应该做什么？</h2><p class="note">雅各书 1:22：不要单单听道，还要“行道”。</p><button class="choice" onclick="selectOne(this)">A．记住更多内容</button><button class="choice" onclick="selectOne(this)">B．把听见的真理带进生活</button><button class="choice" onclick="selectOne(this)">C．参加更多活动</button><button class="choice" onclick="selectOne(this)">D．告诉别人自己听过</button><button id="q2next" class="btn primary gated-next" style="margin-top:14px;opacity:.5"  onclick="show('question3')">继续</button></div></section>
+
+<section id="question3" class="screen hidden"><button class="back" onclick="show('question2')">← 返回</button><div class="section-title">主日回应 · 3/3</div><div class="card"><span class="tag">想想自己</span><h2 class="choice-title">最近有没有一件事，是你已经知道应该做，却一直没有行动？</h2><p class="note">可以诚实回答，不需要给别人看。</p><button class="choice" onclick="selectOne(this)">有，而且我很清楚是哪一件</button><button class="choice" onclick="selectOne(this)">好像有，但我还说不清楚</button><button class="choice" onclick="selectOne(this)">暂时没有想到</button><button class="choice" onclick="selectOne(this)">我现在不想回答</button><button id="q3next" class="btn primary gated-next" style="margin-top:14px;opacity:.5"  onclick="show('response')">完成今天的回应</button></div></section>
+
+<section id="response" class="screen hidden"><div class="card success"><div class="mascot">🐟</div><h2>很好，今天先到这里。</h2><p class="note">今天不是考试。重要的是，你愿意停下来想一想。</p><div class="hint" style="text-align:left;margin:14px 0">这一周，我们只练习一件事：<strong>听见以后，试着活出来。</strong></div><button class="btn primary" onclick="show('practice')">看看本周实践</button><button class="btn ghost" style="margin-top:10px" onclick="show('home')">回到首页</button></div></section>
+
+<section id="practice" class="screen hidden"><button class="back" onclick="show('home')">← 返回</button><div class="hero"><span class="eyebrow">本周实践</span><h1>做一点小的</h1><p>找一件你已经知道应该做，却一直没有做的事情。</p><div class="bila">🐟</div></div><div class="section-title">今天想做哪一件？</div><div class="card"><button class="choice" onclick="selectOne(this)">主动关心一个人</button><button class="choice" onclick="selectOne(this)">向一个人道歉</button><button class="choice" onclick="selectOne(this)">帮助一个人</button><button class="choice" onclick="selectOne(this)">完成一件一直拖延的事情</button><button class="choice" onclick="selectOne(this)">自己写一个小行动</button><button id="practiceDone" class="btn primary gated-next" style="margin-top:10px;opacity:.5"  onclick="donePractice()">我今天完成了</button><p class="note" style="margin-top:12px;text-align:center">不用证明给别人看。这里记录的是你的真实行动。</p></div></section>
+
+<section id="today" class="screen hidden"><button class="back" onclick="show('home')">← 返回</button><div class="section-title">每日成长</div><div class="card"><span class="tag">圣经理解</span><h2 class="choice-title">今天想继续想一想：为什么“听见”和“实行”要放在一起？</h2><p class="note">“只是你们要行道，不要单单听道，自己欺哄自己。”——雅各书 1:22</p><button class="choice" onclick="selectOne(this)">A．因为记住更多经文最重要</button><button class="choice" onclick="selectOne(this)">B．因为真理需要进入生活</button><button class="choice" onclick="selectOne(this)">C．因为基督徒必须参加更多活动</button><button class="choice" onclick="selectOne(this)">D．因为听道本身没有意义</button><button class="btn primary" style="margin-top:14px" onclick="show('practice')">继续</button></div></section>
+
+<section id="partner" class="screen hidden"><div class="section-title">伙伴</div><div class="card"><div class="mascot">🐟</div><h2 style="text-align:center">一个人也可以开始</h2><p class="note" style="text-align:center">如果有一个真实的人一起走，可能会更有力量。</p><button class="btn primary" onclick="invite()">邀请我认识的人</button><button class="btn secondary" style="margin-top:10px" onclick="alert('先自己开始也没关系。以后有合适的人，再邀请他一起走。')">暂时没有伙伴</button></div><div class="card"><strong>伙伴原则</strong><p class="note">现实认识的人优先；教会关系优先；线上连接只是辅助。双方确认后才建立伙伴关系。</p></div></section>
+
+<section id="me" class="screen hidden"><div class="section-title">我的成长</div><div class="card"><div class="weekrow"><strong>本周参与</strong><span class="tag" id="mePoints">5 ⭐</span></div><div class="two"><div><small class="note">完成</small><h2 id="meDays">1 天</h2></div><div><small class="note">实践</small><h2 id="mePractice">0 次</h2></div></div></div><div class="card"><strong>隐私</strong><p class="note">个人回应默认只有自己可见。你主动分享时，才会进入伙伴关系。</p></div></section>
+</main>
+<nav class="nav"><button class="active" onclick="nav('home',this)"><b>⌂</b>今日</button><button onclick="nav('today',this)"><b>◉</b>回应</button><button onclick="nav('partner',this)"><b>♡</b>伙伴</button><button onclick="nav('me',this)"><b>○</b>我的</button></nav>
+</div>
+<script>
+let attendance=null,practiceCount=0,points=5,streak=1;
+
+function updateGreeting(){
+  const el=document.getElementById('timeGreeting');
+  if(!el) return;
+  const h=new Date().getHours();
+  let greeting='你好';
+  if(h>=5 && h<11) greeting='早上好';
+  else if(h>=11 && h<13) greeting='中午好';
+  else if(h>=13 && h<18) greeting='下午好';
+  else greeting='晚上好';
+  el.textContent=greeting+'，今天我们一起走几分钟。';
+}
+
+function setAttendance(value){attendance=value;document.getElementById('attendanceLine').textContent=value?'你今天听过讲道。现在，一起想一想。':'没参加聚会也没关系。先看看今天的信息。';show('home');}
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function nav(id,el){show(id);document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));el.classList.add('active');}
+function selectOne(el){
+  const choice = el.closest('.choice') || el;
+  const screen = choice.closest('.screen') || document;
+  const choices = Array.from(screen.querySelectorAll('.choice'));
+  choices.forEach(x=>x.classList.remove('selected'));
+  choice.classList.add('selected');
+
+  // Keep the selected value in state when the page uses data-value.
+  const value = choice.dataset.value || choice.getAttribute('data-value') || choice.textContent.trim();
+  if(screen.id === 'attendance') attendance = value;
+
+  // Conventional behavior: selecting an option enables the next step.
+  const next = screen.querySelector('.gated-next');
+  if(next){
+    next.disabled = false;
+    next.removeAttribute('disabled');
+    next.style.opacity = '1';
+    next.style.pointerEvents = 'auto';
+    next.classList.add('ready');
+  }
+
+  // Make the entire card keyboard/mouse friendly.
+  choice.setAttribute('aria-pressed','true');
+  choices.filter(x=>x!==choice).forEach(x=>x.setAttribute('aria-pressed','false'));
+}
+function donePractice(){practiceCount=1;points+=10;document.getElementById('points').textContent='+'+points+' ⭐';document.getElementById('mePoints').textContent=points+' ⭐';document.getElementById('mePractice').textContent=practiceCount+' 次';alert('已记录今天的实践。+10 ⭐\n积分只是鼓励参与，真正重要的是生活中的改变。');show('home');}
+function invite(){if(navigator.clipboard){navigator.clipboard.writeText(location.href).catch(()=>{});}alert('邀请链接已准备好。第一版建议邀请你现实中认识的人。');}
+updateGreeting();
+show('welcome');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="bila-v1-3-choice-js">
+(function(){
+  function prepareChoices(){
+    document.querySelectorAll('.choice').forEach(function(choice){
+      choice.setAttribute('role','button');
+      choice.setAttribute('tabindex','0');
+    });
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',prepareChoices);
+  }else{
+    prepareChoices();
+  }
+})();
+</script>
+
+</body></html>
