@@ -102,12 +102,12 @@
 
 <div id="settings" class="modal settings hidden">
 <div class="modal-card">
-<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">BILA提醒</h2><button id="settingsCloseBtn" class="iconbtn" type="button" onmousedown="window.__closeBilaSettings(event)" ontouchstart="window.__closeBilaSettings(event)" onclick="window.__closeBilaSettings(event)">✕</button></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">BILA提醒</h2><button id="settingsCloseBtn" class="iconbtn" type="button" >✕</button></div>
 <p class="note">默认每天晚上 20:00 提醒。浏览器需要允许通知。</p>
 <div class="switchrow"><span>开启20:00提醒</span><button type="button" class="btn secondary" style="width:auto;position:relative;z-index:110;pointer-events:auto" id="notifyBtn">开启</button></div>
-<button id="testReminderBtn" class="btn ghost" type="button">测试一次提醒</button>
+<button id="testReminderBtn" class="btn ghost" type="button">测试一次提醒</button><div id="reminderStatus" class="tiny" style="margin-top:10px;min-height:20px"></div>
 <p class="tiny" style="margin-top:12px">说明：当前V1.0在网页打开期间可以按20:00提醒；要实现关闭网页后仍稳定推送，需要下一阶段接入Web Push服务。</p>
-<button id="settingsDoneBtn" type="button" class="btn primary" onmousedown="window.__closeBilaSettings(event)" ontouchstart="window.__closeBilaSettings(event)" onclick="window.__closeBilaSettings(event)" style="margin-top:12px;position:relative;z-index:1000;pointer-events:auto;touch-action:manipulation">完成</button>
+<button id="settingsDoneBtn" type="button" class="btn primary"  style="margin-top:12px;position:relative;z-index:1000;pointer-events:auto;touch-action:manipulation">完成</button>
 </div>
 </div>
 
@@ -403,14 +403,19 @@ function openCatchup(){
 function closeCatchup(){document.getElementById('catchup').classList.add('hidden');}
 function openSettings(){document.getElementById('settings').classList.remove('hidden');updateReminderButton();}
 function closeSettings(){document.getElementById('settings').classList.add('hidden');}
-window.__closeBilaSettings=function(e){if(e){e.preventDefault();e.stopPropagation();}closeSettings();return false;}
 function updateReminderButton(){const b=document.getElementById('notifyBtn');if(!b)return;b.textContent=state.reminder.enabled?'已开启 20:00':'开启 20:00';}
+function setReminderStatus(msg){const el=document.getElementById('reminderStatus');if(el)el.textContent=msg||'';}
 async function toggleReminder(){
-  if(!('Notification' in window)){alert('当前浏览器不支持通知。');return;}
-  const p=await Notification.requestPermission(); if(p!=='granted'){alert('没有获得通知权限。');return;}
-  state.reminder.enabled=true;save();updateReminderButton();alert('已开启每天20:00提醒。请保持BILA页面打开以进行本轮V1.0测试。');
+  if(!('Notification' in window)){setReminderStatus('当前浏览器不支持通知。');return;}
+  const p=await Notification.requestPermission();
+  if(p!=='granted'){setReminderStatus('未获得通知权限。请点击地址栏左侧的锁形图标 → 网站权限 → 通知 → 允许，然后重新开启。');return;}
+  state.reminder.enabled=true;save();updateReminderButton();setReminderStatus('已开启每天20:00提醒。请保持BILA页面打开进行本轮试用。');
 }
-function testReminder(){if(!('Notification'in window)){alert('浏览器不支持通知');return;} if(Notification.permission==='granted'){new Notification('BILA｜今天也一起走几分钟',{body:'今天的BILA还在等你。花几分钟，看看今天的经文吧。'});}else alert('请先开启20:00提醒。');}
+function testReminder(){
+  if(!('Notification'in window)){setReminderStatus('当前浏览器不支持通知。');return;}
+  if(Notification.permission==='granted'){new Notification('BILA｜今天也一起走几分钟',{body:'今天的BILA还在等你。花几分钟，看看今天的经文吧。'});setReminderStatus('测试提醒已发送。');}
+  else setReminderStatus('请先获得通知权限，再测试提醒。');
+}
 function checkReminder(){
   if(!state.reminder.enabled || Notification.permission!=='granted')return;
   const now=new Date(), h=now.getHours(), m=now.getMinutes(), date=now.toISOString().slice(0,10);
@@ -425,8 +430,6 @@ function renderReport(){
 }
 function saveFinal(){['final1','final2','final3','final4'].forEach((id,i)=>state.final[i]=document.getElementById(id).value.trim());save();alert('21日回顾已保存。');}
 function saveReview(){const w=currentDayIndex()<7?1:currentDayIndex()<14?2:3;['review1','review2','review3','review4'].forEach((id,i)=>state.reviews[w+'-'+i]=document.getElementById(id).value.trim());save();alert('本周回顾已保存。');}
-document.addEventListener('mousedown',function(e){const b=e.target&&e.target.closest?e.target.closest('#settingsDoneBtn,#settingsCloseBtn'):null;if(b){e.preventDefault();e.stopPropagation();closeSettings();}},true);
-document.addEventListener('touchstart',function(e){const b=e.target&&e.target.closest?e.target.closest('#settingsDoneBtn,#settingsCloseBtn'):null;if(b){e.preventDefault();e.stopPropagation();closeSettings();}},true);
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
 document.addEventListener('pointerup',function(e){
   const b=e.target && e.target.closest ? e.target.closest('button') : null;
