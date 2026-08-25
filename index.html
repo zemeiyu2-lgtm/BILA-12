@@ -4,292 +4,430 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#F6B83F">
-<title>BILA 1.1｜7日完整体验</title>
+<link rel="manifest" href="manifest.webmanifest">
+<title>BILA｜21日一起走</title>
 <style>
-:root{--gold:#f6b83f;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--red:#c96b5b;--shadow:0 10px 30px rgba(76,54,18,.08)}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
-.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:88px}
-.top{padding:18px 20px 8px;display:flex;justify-content:space-between;align-items:center}
-.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}
-.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
-.screen{padding:10px 20px}.hidden{display:none}
-.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:22px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.2)}
-.eyebrow{font-size:13px;font-weight:700;opacity:.76}.hero h1{font-size:28px;line-height:1.2;margin:8px 0}.hero p{margin:0;line-height:1.7;font-size:15px}.hero .bila{font-size:43px;position:absolute;right:18px;bottom:12px}
-.section-title{font-size:17px;margin:22px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}
-.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:.25s}
-.weekrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
-.day{height:45px;border-radius:13px;background:#faf7f0;display:grid;place-items:center;font-size:11px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.day.locked{opacity:.55}
-.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.danger{background:#fff0ed;color:#9a463a;border:1px solid #f0c8c0}
-.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}
-.choice.selected{border-color:var(--gold);background:#fff7df;box-shadow:0 0 0 3px rgba(246,184,63,.14)}
-.note{font-size:13px;color:var(--muted);line-height:1.7}.quote{border-left:4px solid var(--gold);padding-left:13px;color:#5e574c;line-height:1.7}
-.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}
-.hint{background:#fff8e5;border-radius:16px;padding:12px 14px;font-size:13px;color:#6d5a32;line-height:1.6}
-.success{text-align:center}.mascot{font-size:66px;text-align:center;padding:8px}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.two .card{margin:0}
-.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:74px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);z-index:20}
-.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}
-.small{font-size:12px}.center{text-align:center}.muted{color:var(--muted)}.stat{font-size:24px;font-weight:800}
+:root{--gold:#f6b83f;--gold2:#ffd979;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--shadow:0 10px 30px rgba(76,54,18,.08)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:18px 20px 8px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px}.iconbtn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer}.screen{padding:10px 20px}.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:23px 21px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.2)}.eyebrow{font-size:13px;font-weight:700;opacity:.76}.hero h1{font-size:27px;line-height:1.25;margin:8px 0}.hero p{margin:0;line-height:1.7;font-size:15px}.hero .bila{font-size:45px;position:absolute;right:18px;bottom:14px}.section-title{font-size:17px;margin:23px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}.weekrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{height:46px;border-radius:14px;background:#faf7f0;display:grid;place-items:center;font-size:11px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.note{font-size:13px;color:var(--muted);line-height:1.7}.quote{border-left:4px solid var(--gold);padding-left:13px;color:#5e574c;line-height:1.7}.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}.back{border:0;background:none;padding:6px 0;color:#7a6a4e;font-weight:700}.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}.choice.selected{border-color:var(--gold);background:#fff7df}.success{text-align:center}.mascot{font-size:70px;text-align:center;padding:8px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hidden{display:none}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);z-index:20}.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}.modal{position:fixed;inset:0;background:rgba(38,31,19,.42);display:flex;align-items:flex-end;justify-content:center;z-index:50}.modal-card{width:min(480px,100%);background:#fffdf8;border-radius:26px 26px 0 0;padding:22px 20px 28px}.textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:16px;padding:12px;font:inherit;resize:vertical}.switchrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0}.tiny{font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
 <main class="app">
-<header class="top"><div class="brand"><div class="fish">🐟</div><div><b>BILA</b><small>7日完整体验</small></div></div></header>
+<header class="top">
+  <div class="brand"><div class="fish">🐟</div><div><b>BILA</b><small>21日一起走</small></div></div>
+  <button class="iconbtn" onclick="openSettings()">⚙️</button>
+</header>
 
-<section id="start" class="screen">
-  <div class="hero"><span class="eyebrow">BILA-12 · 7日实验</span><h1>听见以后，试着活出来</h1><p>每天3–5分钟。一个问题、一点圣经、一个小行动。</p><div class="bila">🐟</div></div>
-  <div class="section-title">先开始</div>
-  <div class="card">
-    <p class="note">这次不是测试成绩，而是测试你愿不愿意连续7天回来。</p>
-    <button class="btn primary" onclick="startTrial()">开始7日体验</button>
-  </div>
-  <div class="hint">实验期间请尽量每天回来一次。即使某天错过，也不用放弃；系统会记录延误。</div>
-</section>
+<section id="home" class="screen">
+  <div class="hero"><span class="eyebrow" id="weekLabel">2026试用 · 第1周</span><h1 id="heroTitle">恩典没有围墙</h1><p id="heroTheme">看见自己的边界</p><div class="bila">🐟</div></div>
 
-<section id="home" class="screen hidden">
-  <div class="hero"><span class="eyebrow" id="weekLabel">第1天 / 7天</span><h1 id="dayTitle">听见以后，活出来</h1><p id="dayIntro">今天只做一件小事。</p><div class="bila">🐟</div></div>
-  <div class="section-title">7日进度</div>
+  <div class="section-title">21日进度</div>
   <div class="card">
-    <div class="weekrow"><strong>连续跟随 <span id="streak">0</span> 天</strong><span class="tag" id="points">0 ⭐</span></div>
+    <div class="weekrow"><strong>连续参与 <span id="streak">0</span> 天</strong><span class="tag" id="points">0 ⭐</span></div>
     <div class="progress"><i id="progressBar"></i></div>
-    <div class="days" id="days"></div>
+    <div class="tiny" style="margin-top:8px" id="progressText">0 / 21 天</div>
+    <div class="days" style="margin-top:12px" id="days"></div>
   </div>
-  <div id="delayBox" class="card hidden"></div>
+
   <div class="section-title">今天</div>
   <div class="card">
-    <span class="tag">每日3–5分钟</span>
-    <h2 id="todayPrompt" style="margin:12px 0 8px"></h2>
-    <p class="note" id="todayNote"></p>
-    <button id="startTodayBtn" class="btn primary" onclick="show('question')">开始今天</button>
+    <span class="tag" id="todayTag">每日几分钟</span>
+    <h2 style="margin:12px 0 8px" id="todayTitle"></h2>
+    <p class="note" id="todayQuestion"></p>
+    <button class="btn primary" onclick="openToday()">开始今天</button>
+    <button class="btn ghost" style="margin-top:9px" onclick="openCatchup()">查看补做</button>
   </div>
-  <div class="card"><p class="quote">不用一下子改变很多。真实地走一天，再走一天。</p></div>
+
+  <div class="card"><p class="quote" id="bilaMessage">慢慢来，我们一起走。今天只做一件小事。</p></div>
 </section>
 
-<section id="question" class="screen hidden">
-  <button class="back btn ghost" onclick="show('home')" style="margin-bottom:12px">← 返回</button>
-  <div class="section-title" id="qTitle">今天 · 1/3</div>
-  <div class="card">
-    <span class="tag" id="qTag">先想想自己</span>
-    <h2 class="choice-title" id="qText"></h2>
-    <p class="note" id="qNote"></p>
-    <div id="choices"></div>
-    <button id="qNext" class="btn primary" style="margin-top:12px;opacity:.5" disabled onclick="nextQuestion()">继续</button>
-  </div>
+<section id="today" class="screen hidden">
+<button class="back" onclick="show('home')">← 返回</button>
+<div class="section-title" id="todayHead"></div>
+<div class="card">
+  <span class="tag">今日问题</span>
+  <h2 class="choice-title" id="q"></h2>
+  <p class="note">不用写标准答案。诚实回答就可以。</p>
+</div>
+<div class="card">
+  <span class="tag">经文与思考</span>
+  <p class="quote" id="scripture"></p>
+  <p class="note" id="think"></p>
+  <textarea class="textarea" id="reflection" placeholder="写下你的想法……（可选）"></textarea>
+</div>
+<div class="card">
+  <span class="tag">今日行动</span>
+  <p id="action"></p>
+  <button class="btn primary" onclick="completeToday()">我完成了今天的操练</button>
+  <p class="tiny" style="text-align:center;margin-top:10px">积分只是鼓励参与，不评价属灵程度。</p>
+</div>
 </section>
 
-<section id="verse" class="screen hidden">
-  <button class="back btn ghost" onclick="show('question')" style="margin-bottom:12px">← 返回</button>
-  <div class="section-title">经文与思考</div>
-  <div class="card">
-    <span class="tag">圣经</span>
-    <h2 id="verseRef" class="choice-title"></h2>
-    <p class="quote" id="verseText"></p>
-    <h3>想一想</h3>
-    <p class="note" id="reflectText"></p>
-    <textarea id="reflection" style="width:100%;min-height:110px;border:1px solid var(--line);border-radius:16px;padding:12px;font:inherit;resize:vertical" placeholder="可以写几句话，也可以只写一个词。"></textarea>
-    <button class="btn primary" style="margin-top:12px" onclick="show('practice')">继续今天的行动</button>
-  </div>
+<section id="review" class="screen hidden">
+<button class="back" onclick="show('home')">← 返回</button>
+<div class="section-title">周回顾</div>
+<div class="card"><span class="tag" id="reviewWeek"></span><h2 id="reviewTitle"></h2><p class="note">这一周不是考试，只是回头看看神在你里面做了什么。</p></div>
+<div class="card">
+<p><strong>我发现了什么？</strong></p><textarea class="textarea" id="review1"></textarea>
+<p><strong>我回应了什么？</strong></p><textarea class="textarea" id="review2"></textarea>
+<p><strong>我实践了什么？</strong></p><textarea class="textarea" id="review3"></textarea>
+<p><strong>下一步是什么？</strong></p><textarea class="textarea" id="review4"></textarea>
+<button class="btn primary" onclick="saveReview()">保存本周回顾</button>
+</div>
 </section>
 
-<section id="practice" class="screen hidden">
-  <button class="back btn ghost" onclick="show('verse')" style="margin-bottom:12px">← 返回</button>
-  <div class="hero"><span class="eyebrow">今日行动</span><h1 id="practiceTitle">做一点小的</h1><p id="practiceText"></p><div class="bila">🐟</div></div>
-  <div class="section-title">今天选一个</div>
-  <div class="card">
-    <div id="practiceChoices"></div>
-    <button id="practiceDone" class="btn primary" style="margin-top:10px;opacity:.5" disabled onclick="completeToday()">我今天完成了</button>
-    <p class="note center" style="margin-top:12px">不用证明给别人看。这里记录的是你的真实行动。</p>
-  </div>
-</section>
-
-<section id="done" class="screen hidden">
-  <div class="card success">
-    <div class="mascot">🐟</div>
-    <h2 id="doneTitle">完成啦！</h2>
-    <p class="note" id="doneText"></p>
-    <div class="hint" style="text-align:left;margin:14px 0">
-      <strong id="earned"></strong><br>
-      积分只是鼓励参与，真正重要的是生活中的改变。
-    </div>
-    <button class="btn primary" onclick="show('home')">回到今天</button>
-  </div>
-</section>
-
-<section id="me" class="screen hidden">
-  <div class="section-title">我的7日体验</div>
-  <div class="card">
-    <div class="two">
-      <div><small class="note">已完成</small><div class="stat"><span id="doneDays">0</span> 天</div></div>
-      <div><small class="note">积分</small><div class="stat"><span id="mePoints">0</span> ⭐</div></div>
-    </div>
-  </div>
-  <div class="card">
-    <strong>积分怎么用？</strong>
-    <p class="note">如果某一天错过，下一次回来会形成“延误”。可以使用10积分消除一次延误，让这次7日体验继续保持完整。</p>
-    <button id="clearDelayBtn" class="btn secondary" onclick="clearDelay()">用10积分消除一次延误</button>
-  </div>
-  <div class="card">
-    <strong>实验提醒</strong>
-    <p class="note">这7天不追求高分，也不比较别人。我们只观察：你是否愿意回来、是否愿意行动、连续使用是否自然。</p>
-  </div>
+<section id="report" class="screen hidden">
+<button class="back" onclick="show('home')">← 返回</button>
+<div class="section-title">21日成长回顾</div>
+<div class="card success"><div class="mascot">🐟</div><h2>你已经走过21日试用。</h2><p class="note">你不是完成了21个任务，而是练习把真理带进真实生活。</p></div>
+<div class="card">
+<div class="two"><div><small class="note">完成</small><h2 id="rDays">0 天</h2></div><div><small class="note">积分</small><h2 id="rPoints">0 ⭐</h2></div></div>
+<div class="two"><div><small class="note">实践</small><h2 id="rPractice">0 次</h2></div><div><small class="note">最长连续</small><h2 id="rStreak">0 天</h2></div></div>
+</div>
+<div class="card">
+<p><strong>我的发现</strong></p><textarea class="textarea" id="final1"></textarea>
+<p><strong>我的改变</strong></p><textarea class="textarea" id="final2"></textarea>
+<p><strong>我的关系行动</strong></p><textarea class="textarea" id="final3"></textarea>
+<p><strong>我的下一步</strong></p><textarea class="textarea" id="final4"></textarea>
+<button class="btn primary" onclick="saveFinal()">保存21日回顾</button>
+</div>
 </section>
 </main>
 
 <nav class="nav">
 <button class="active" onclick="nav('home',this)"><b>⌂</b>今日</button>
-<button onclick="nav('me',this)"><b>○</b>我的</button>
-<button onclick="resetTrial()"><b>↺</b>重置实验</button>
+<button onclick="nav('review',this)"><b>◷</b>回顾</button>
+<button onclick="nav('report',this)"><b>○</b>我的</button>
 </nav>
+
+<div id="settings" class="modal hidden">
+<div class="modal-card">
+<h2 style="margin-top:0">BILA提醒</h2>
+<p class="note">默认每天晚上 20:00 提醒。浏览器需要允许通知。</p>
+<div class="switchrow"><span>开启20:00提醒</span><button class="btn secondary" style="width:auto" id="notifyBtn" onclick="toggleReminder()">开启</button></div>
+<button class="btn ghost" onclick="testReminder()">测试一次提醒</button>
+<p class="tiny" style="margin-top:12px">说明：当前V1.0在网页打开期间可以按20:00提醒；要实现关闭网页后仍稳定推送，需要下一阶段接入Web Push服务。</p>
+<button class="btn primary" style="margin-top:12px" onclick="closeSettings()">完成</button>
+</div>
+</div>
+
+<div id="catchup" class="modal hidden">
+<div class="modal-card">
+<h2 style="margin-top:0">补做</h2>
+<p class="note">昨天没有完成也没关系。可以补做，但补做不会增加连续天数。</p>
+<div id="catchupList"></div>
+<button class="btn ghost" style="margin-top:10px" onclick="closeCatchup()">返回</button>
+</div>
+</div>
 
 <script>
 const DAYS = [
- {title:"听见以后，活出来",intro:"先看看自己听见真理以后通常怎么做。",prompt:"听到一件你觉得很有道理、也觉得自己应该做到的事情时，你通常会怎样？",note:"没有“好学生答案”，只选最像自己的。",choices:["觉得有道理，但不一定去做","先记住，以后有机会再做","马上想想，自己可以怎么做","听的时候有感觉，后来就忘了"],verse:"雅各书 1:22–25",verseText:"只是你们要行道，不要单单听道，自己欺哄自己。",reflect:"今天的经文提醒我：听见以后，我可以怎样多走一步？",practice:"今天找一件你已经知道应该做、却一直没有做的小事。",actions:["主动关心一个人","完成一件一直拖延的小事","向一个人表达感谢","自己写一个小行动"]},
- {title:"先听，再回应",intro:"今天练习把“快快地听”放进一个真实关系。",prompt:"当别人说了一件让你不舒服的话，你通常最容易怎样？",note:"不需要选择理想答案，只选择真实反应。",choices:["马上反驳","表面不说，心里生气","先听完，再决定怎么回应","直接避开，不再谈"],verse:"雅各书 1:19–20",verseText:"各人要快快地听，慢慢地说，慢慢地动怒。",reflect:"今天哪一个关系最需要我先听一听？",practice:"今天遇到不舒服的话，先停10秒，再回应。",actions:["先听完再回答","深呼吸后再说话","问一句“你的意思是什么？”","今天少说一句冲动的话"]},
- {title:"真理进入生活",intro:"今天不增加知识，只找一个可以实行的地方。",prompt:"你知道一个正确的做法，却迟迟没有行动时，最常见的原因是什么？",note:"诚实比漂亮答案更有价值。",choices:["太忙","怕麻烦","不知道从哪里开始","其实是不想面对"],verse:"雅各书 1:22",verseText:"不要单单听道，自己欺哄自己；总要行道。",reflect:"我今天可以从哪一个最小行动开始？",practice:"把一个“应该做”缩小成今天就能完成的一步。",actions:["完成一个拖延的小任务","主动做一次正确的选择","把计划变成一个具体动作","今天就开始，不等完美"]},
- {title:"不要只看见自己",intro:"今天练习把真理带到别人身上。",prompt:"当别人需要帮助时，你最容易出现什么反应？",note:"观察自己，不评价自己。",choices:["觉得与我无关","想帮助，但常常忘了","先看看自己能做什么","帮助别人，但希望被看见"],verse:"雅各书 2:14–17",verseText:"若是弟兄或是姐妹，赤身露体，又缺了日用的饮食……却不给他们身体所需用的，这有什么益处呢？",reflect:"今天有没有一个具体的人，需要我做一点什么？",practice:"今天做一个不需要别人表扬的小帮助。",actions:["主动帮助一个人","给一个人实际支持","关心一个被忽略的人","默默完成一件有益的事"]},
- {title:"让行动成为习惯",intro:"连续几天以后，看看自己真正发生了什么。",prompt:"连续做一件小事时，什么最容易让你放弃？",note:"今天开始观察自己的坚持模式。",choices:["一忙就忘","觉得没有马上看到效果","一次没做到就想放弃","其实不觉得重要"],verse:"雅各书 1:25",verseText:"惟有详细察看那全备、使人自由之律法的，并且时常如此……这人既不是听了就忘，乃是实在行出来。",reflect:"什么小行动值得我继续做？",practice:"今天重复前几天一个对自己真正有帮助的小行动。",actions:["重复一个好习惯","今天再做一次","把行动安排进日程","请自己记住这件小事"]},
- {title:"在关系中活出来",intro:"今天把“行道”放到最真实的关系里。",prompt:"当你意识到自己说错或做错时，你通常怎样处理？",note:"承认并不等于失败。",choices:["解释自己为什么没错","假装没发生","承认并尝试修复","等别人先说"],verse:"雅各书 1:19–20；3:17–18",verseText:"你们各人要快快地听，慢慢地说，慢慢地动怒。",reflect:"今天有没有一段关系需要我先迈一步？",practice:"今天主动修复一个可以修复的小关系。",actions:["主动道歉","主动联系一个人","先听对方说完","停止一次争论"]},
- {title:"七日回顾：我愿意继续吗？",intro:"今天不再增加任务，回头看看这7天。",prompt:"这7天里，哪一个小行动最可能真正留在你的生活中？",note:"没有标准答案。请选最真实的一项。",choices:["我开始更愿意停下来想一想","我更愿意把经文带进生活","我发现自己需要继续练习","我暂时还没有明显改变"],verse:"雅各书 1:22–25",verseText:"乃是实在行出来，就在他所行的事上必然得福。",reflect:"这7天，我认识了自己什么？接下来我愿意继续什么？",practice:"选择一个未来7天仍愿意继续的小行动。",actions:["继续一个本周行动","确定下周一个小目标","找一个真实的人一起成长","把一个改变写下来"]}
+  {
+    "d": "2026-08-30",
+    "w": 1,
+    "title": "恩典没有围墙",
+    "theme": "看见自己的边界",
+    "scripture": "路加福音 4:22–30",
+    "q": "主日信息中，哪一句话最触动我？",
+    "think": "我有没有发现自己对神的恩典有某些固定想象？",
+    "action": "写下一句话：“我今天重新认识到神的恩典……”"
+  },
+  {
+    "d": "2026-08-31",
+    "w": 1,
+    "title": "我的围墙在哪里？",
+    "theme": "看见自己的边界",
+    "scripture": "路加福音 4:24–27",
+    "q": "我对哪一类人最容易产生距离？",
+    "think": "耶稣用以利亚、以利沙的例子，挑战人把神的恩典限制在自己群体里的想法。",
+    "action": "诚实写下一个自己容易排斥或忽略的人群。"
+  },
+  {
+    "d": "2026-09-01",
+    "w": 1,
+    "title": "我为什么建立围墙？",
+    "theme": "看见自己的边界",
+    "scripture": "路加福音 4:28–29",
+    "q": "我为什么不愿意接近某些人？",
+    "think": "距离感可能来自恐惧、偏见、过去经验，也可能来自骄傲。今天先诚实观察自己。",
+    "action": "记录一个具体例子，今天不急着改变别人，只观察自己的内心。"
+  },
+  {
+    "d": "2026-09-02",
+    "w": 1,
+    "title": "我要怎样回应？",
+    "theme": "回应恩典",
+    "scripture": "路加福音 4:25–27",
+    "q": "如果神的恩典比我的边界更大，我需要改变什么？",
+    "think": "门训不是先要求别人改变，而是先让神的恩典改变我的眼光。",
+    "action": "完成一句话：“主啊，我愿意放下________。”"
+  },
+  {
+    "d": "2026-09-03",
+    "w": 1,
+    "title": "跨出一步",
+    "theme": "进入生活",
+    "scripture": "路加福音 4:18–19",
+    "q": "我今天可以主动接近谁？",
+    "think": "耶稣的使命总是进入真实人的处境。",
+    "action": "主动问候、帮助或倾听一个平时容易忽略的人。"
+  },
+  {
+    "d": "2026-09-04",
+    "w": 1,
+    "title": "学会看见人",
+    "theme": "进入关系",
+    "scripture": "路加福音 4:18",
+    "q": "如果用耶稣的眼光看这个人，我会看见什么？",
+    "think": "人不只是“某一类人”，而是神所看见的人。",
+    "action": "今天认真倾听一个人，不急着评价。"
+  },
+  {
+    "d": "2026-09-05",
+    "w": 1,
+    "title": "第一周回顾",
+    "theme": "反馈与调整",
+    "scripture": "路加福音 4:18–19",
+    "q": "我这一周发现了自己的哪一道“围墙”？",
+    "think": "回顾不是考试，而是看见神在我里面已经开始的工作。",
+    "action": "写下：我发现什么？我回应什么？我实践什么？下一步是什么？"
+  },
+  {
+    "d": "2026-09-06",
+    "w": 2,
+    "title": "耶稣正在呼召谁？",
+    "theme": "回应呼召",
+    "scripture": "路加福音 5:1–5",
+    "q": "彼得为什么愿意听耶稣的话？",
+    "think": "彼得不是等所有问题解决以后才回应，他先听见并愿意顺服。",
+    "action": "写下：“今天我感觉主提醒我……”"
+  },
+  {
+    "d": "2026-09-07",
+    "w": 2,
+    "title": "顺服一个已经知道的真理",
+    "theme": "具体顺服",
+    "scripture": "路加福音 5:4–6",
+    "q": "彼得有没有等到所有问题都解决才顺服？",
+    "think": "跟随基督常常从一个已经知道、却还没有行动的真理开始。",
+    "action": "今天完成一件自己已经知道应该做、却一直拖延的事情。"
+  },
+  {
+    "d": "2026-09-08",
+    "w": 2,
+    "title": "我的“网”是什么？",
+    "theme": "舍下与跟随",
+    "scripture": "路加福音 5:8–11",
+    "q": "我现在最难放下的是什么？",
+    "think": "安全感、面子、舒适、控制、金钱、习惯或自己的计划，都可能成为“网”。",
+    "action": "选择一个最真实的“网”，写下来。"
+  },
+  {
+    "d": "2026-09-09",
+    "w": 2,
+    "title": "我愿意回应吗？",
+    "theme": "作出决定",
+    "scripture": "路加福音 5:10–11",
+    "q": "如果我要更真实地跟随耶稣，我需要改变什么？",
+    "think": "回应不需要一次改变所有事情，只需要一个真实而具体的下一步。",
+    "action": "完成：“我愿意跟随主，在________上迈一步。”"
+  },
+  {
+    "d": "2026-09-10",
+    "w": 2,
+    "title": "今天做一个决定",
+    "theme": "实践跟随",
+    "scripture": "路加福音 5:11",
+    "q": "今天我可以做哪一个具体决定？",
+    "think": "把昨天的回应变成今天可以完成的行动。",
+    "action": "今天完成一个与你昨天回应直接对应的行动。"
+  },
+  {
+    "d": "2026-09-11",
+    "w": 2,
+    "title": "跟随会影响关系",
+    "theme": "见证与分享",
+    "scripture": "路加福音 5:10",
+    "q": "我的跟随有没有让身边的人看见一点不同？",
+    "think": "跟随耶稣不会让门徒越来越封闭，而会逐渐影响身边的人。",
+    "action": "向一个可信任的人分享：“我最近正在学习跟随耶稣的一件事。”"
+  },
+  {
+    "d": "2026-09-12",
+    "w": 2,
+    "title": "第二周回顾",
+    "theme": "反馈与调整",
+    "scripture": "路加福音 5:1–11",
+    "q": "我这周真正“放下”了什么？",
+    "think": "回顾：我听见了什么？我放下了什么？我做了什么？我还需要继续什么？",
+    "action": "完成四句记录：我听见／我放下／我行动／我继续。"
+  },
+  {
+    "d": "2026-09-13",
+    "w": 3,
+    "title": "耶稣看见利未",
+    "theme": "看见人",
+    "scripture": "路加福音 5:27",
+    "q": "耶稣首先做了什么？",
+    "think": "耶稣先看见利未，再呼召利未。门徒关系从真正看见一个人开始。",
+    "action": "今天主动注意一个平时容易被忽略的人。"
+  },
+  {
+    "d": "2026-09-14",
+    "w": 3,
+    "title": "耶稣为什么呼召他？",
+    "theme": "接纳与呼召",
+    "scripture": "路加福音 5:27–28",
+    "q": "利未在被呼召以前，是一个怎样的人？",
+    "think": "耶稣没有要求利未先变好才跟随。恩典先临到人，然后生命开始改变。",
+    "action": "想一想：我有没有认为某些人“还不值得接近”？"
+  },
+  {
+    "d": "2026-09-15",
+    "w": 3,
+    "title": "我最容易忽略谁？",
+    "theme": "面对真实关系",
+    "scripture": "路加福音 5:29–32",
+    "q": "我生活中有没有一个人正在被我忽略？",
+    "think": "今天先诚实面对自己，不急着寻找正确答案。",
+    "action": "写下这个人的名字，今天先不要改变他，只是看见他。"
+  },
+  {
+    "d": "2026-09-16",
+    "w": 3,
+    "title": "主动走近",
+    "theme": "关系行动",
+    "scripture": "路加福音 5:27",
+    "q": "如果我要跟随耶稣，我今天可以走近谁？",
+    "think": "跟随基督会把我们带向真实的人，而不是只停留在个人思想里。",
+    "action": "主动问候这个人。"
+  },
+  {
+    "d": "2026-09-17",
+    "w": 3,
+    "title": "倾听",
+    "theme": "关系实践",
+    "scripture": "路加福音 5:30–32",
+    "q": "我能不能少说一点，多听一点？",
+    "think": "耶稣进入人的真实处境。倾听是走近人的一种具体方式。",
+    "action": "今天认真听一个人的故事或需要，不急着给建议。"
+  },
+  {
+    "d": "2026-09-18",
+    "w": 3,
+    "title": "让恩典进入关系",
+    "theme": "实际关怀",
+    "scripture": "路加福音 5:31–32",
+    "q": "我怎样让这个人感受到一点基督的恩典？",
+    "think": "恩典不是抽象概念，它可以通过陪伴、帮助、鼓励和实际行动被看见。",
+    "action": "做一件具体关怀：帮助、鼓励、陪伴、祷告或实际解决一个小需要。"
+  },
+  {
+    "d": "2026-09-19",
+    "w": 3,
+    "title": "21日总回顾",
+    "theme": "成长与继续",
+    "scripture": "路加福音 5:27–32",
+    "q": "这21天，我有没有更像一个跟随耶稣的人？",
+    "think": "回顾三条线：我看见了什么围墙？我放下了什么？我走近了谁？",
+    "action": "写下：我的发现／我的改变／我的关系行动／我的下一步。"
+  }
 ];
-
-let state = JSON.parse(localStorage.getItem("bila_v11_state") || "null") || {
- startDate:null, completed:[], points:0, streak:0, delayUsed:0, reflection:{}, actions:{}
-};
-let qIndex=0, selected=null, selectedAction=null;
-
-function save(){localStorage.setItem("bila_v11_state",JSON.stringify(state));}
-function startTrial(){
-  if(!state.startDate){state.startDate=new Date().toISOString().slice(0,10);save();}
-  render();show("home");
+const START = '2026-08-30';
+const END = '2026-09-19';
+const KEY = 'bila16_v1';
+let state = JSON.parse(localStorage.getItem(KEY) || '{}');
+state.completed = state.completed || {};
+state.reflections = state.reflections || {};
+state.reviews = state.reviews || {};
+state.final = state.final || {};
+state.reminder = state.reminder || {enabled:false,lastDate:null};
+state.practice = state.practice || {};
+function save(){localStorage.setItem(KEY,JSON.stringify(state));}
+function isoToday(){return new Date().toISOString().slice(0,10);}
+function indexForDate(d){return DAYS.findIndex(x=>x.d===d);}
+function currentDayIndex(){
+  const now=new Date(); const today=now.toISOString().slice(0,10);
+  let i=indexForDate(today); if(i>=0)return i;
+  if(today<START)return 0; return DAYS.length-1;
 }
-function dayIndex(){
-  if(!state.startDate) return 0;
-  const a=new Date(state.startDate+"T00:00:00"), b=new Date();
-  const d=Math.floor((new Date(b.getFullYear(),b.getMonth(),b.getDate())-a)/86400000);
-  return Math.max(0,Math.min(6,d));
+function completedCount(){return Object.keys(state.completed).filter(k=>state.completed[k]).length;}
+function streak(){
+  let best=0,run=0, prev=null;
+  DAYS.forEach(x=>{if(state.completed[x.d]){if(prev && daysBetween(prev,x.d)===1)run++;else run=1;best=Math.max(best,run);prev=x.d;}});
+  return best;
 }
-function currentDay(){return dayIndex();}
-function render(){
-  const d=currentDay(), item=DAYS[d];
-  document.getElementById("weekLabel").textContent=`第${d+1}天 / 7天`;
-  document.getElementById("dayTitle").textContent=item.title;
-  document.getElementById("dayIntro").textContent=item.intro;
-  document.getElementById("todayPrompt").textContent=item.prompt;
-  document.getElementById("todayNote").textContent=item.note;
-  document.getElementById("streak").textContent=state.streak;
-  document.getElementById("points").textContent=state.points+" ⭐";
-  document.getElementById("mePoints").textContent=state.points;
-  document.getElementById("doneDays").textContent=state.completed.length;
-  document.getElementById("progressBar").style.width=(state.completed.length/7*100)+"%";
-  const days=document.getElementById("days"); days.innerHTML="";
-  for(let i=0;i<7;i++){
-    const el=document.createElement("div");
-    el.className="day "+(state.completed.includes(i)?"done ":"")+(i===d?"today ":"")+(i>d?"locked":"");
-    el.innerHTML=(i+1)+"<br>"+(state.completed.includes(i)?"✓":"");
-    days.appendChild(el);
-  }
-  const delay = state.startDate && state.completed.length>0 && !state.completed.includes(d) && d>0 && !state.completed.includes(d-1);
-  const box=document.getElementById("delayBox");
-  if(delay){
-    box.classList.remove("hidden");
-    box.innerHTML="<strong>出现了一次延误</strong><p class='note'>没关系。你可以继续今天，也可以到“我的”里使用10积分消除一次延误。</p>";
-  }else box.classList.add("hidden");
-  document.getElementById("startTodayBtn").textContent=state.completed.includes(d)?"今天已经完成":"开始今天";
-  document.getElementById("clearDelayBtn").disabled = state.points<10 || state.delayUsed>=1;
-  document.getElementById("clearDelayBtn").textContent = state.delayUsed>=1 ? "本次体验已使用过一次延误消除" : "用10积分消除一次延误";
+function daysBetween(a,b){return Math.round((new Date(b)-new Date(a))/86400000);}
+function activeStreak(){
+  let run=0, last=null;
+  for(let i=DAYS.length-1;i>=0;i--){if(state.completed[DAYS[i].d]){if(!last)run=1;else if(daysBetween(DAYS[i].d,last)===1)run++;else break;last=DAYS[i].d;} else if(last) break;}
+  return run;
 }
-function show(id){
-  document.querySelectorAll(".screen").forEach(x=>x.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
-  if(id==="home"||id==="me")render();
+function update(){
+  const i=currentDayIndex(), d=DAYS[i], done=completedCount();
+  document.getElementById('weekLabel').textContent=`2026试用 · 第${d.w}周`;
+  document.getElementById('heroTitle').textContent=d.title;
+  document.getElementById('heroTheme').textContent=d.theme;
+  document.getElementById('streak').textContent=activeStreak();
+  document.getElementById('points').textContent=(done*10)+' ⭐';
+  document.getElementById('progressBar').style.width=Math.round(done/21*100)+'%';
+  document.getElementById('progressText').textContent=`${done} / 21 天`;
+  document.getElementById('todayTag').textContent=`Day ${i+1} · ${d.d}`;
+  document.getElementById('todayTitle').textContent=d.title;
+  document.getElementById('todayQuestion').textContent=d.q;
+  const box=document.getElementById('days'); box.innerHTML='';
+  const weekStart=Math.floor(i/7)*7;
+  DAYS.slice(weekStart,weekStart+7).forEach((x,j)=>{let el=document.createElement('div');el.className='day '+(state.completed[x.d]?'done':'')+((weekStart+j)===i?' today':'');el.innerHTML=`${weekStart+j+1}<br>${state.completed[x.d]?'✓':''}`;box.appendChild(el)});
+  document.getElementById('bilaMessage').textContent=state.completed[d.d]?'今天已经完成啦。慢慢来，我们一起走。':'今天只做一件小事，就很好。';
+  updateReminderButton();
 }
-function nav(id,el){
-  if(id==="home" && !state.startDate){show("start");return;}
-  show(id);
-  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
-  el.classList.add("active");
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
+function nav(id,el){show(id);document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));el.classList.add('active');if(id==='report')renderReport();}
+function openToday(){
+  const d=DAYS[currentDayIndex()]; document.getElementById('todayHead').textContent=`Day ${currentDayIndex()+1} · ${d.d} · ${d.title}`;
+  document.getElementById('q').textContent=d.q;document.getElementById('scripture').textContent=d.scripture;
+  document.getElementById('think').textContent=d.think;document.getElementById('action').textContent=d.action;
+  document.getElementById('reflection').value=state.reflections[d.d]||'';
+  show('today');
 }
-function beginQuestions(){
-  if(state.completed.includes(currentDay())){show("done");return;}
-  qIndex=0;selected=null;loadQuestion();show("question");
-}
-document.getElementById("startTodayBtn").onclick=beginQuestions;
-function loadQuestion(){
-  const item=DAYS[currentDay()];
-  document.getElementById("qTitle").textContent=`今天 · ${qIndex+1}/3`;
-  document.getElementById("qTag").textContent=qIndex===0?"先想想自己":qIndex===1?"圣经理解":"想想自己";
-  const sets=[
-    [item.prompt,item.note,item.choices],
-    ["雅各今天的提醒，最接近哪一个意思？","请选一个最接近经文重点的答案。",["把圣经记得更多","让真理进入真实生活","参加更多活动","只要听过就够了"]],
-    ["今天你最愿意在哪一件真实的事情上回应？","选择一个你愿意面对的方向。",item.actions]
-  ];
-  const s=sets[qIndex];
-  document.getElementById("qText").textContent=s[0];
-  document.getElementById("qNote").textContent=s[1];
-  const c=document.getElementById("choices");c.innerHTML="";
-  s[2].forEach((t,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=String.fromCharCode(65+i)+"．"+t;b.onclick=()=>{c.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selected=t;document.getElementById("qNext").disabled=false;document.getElementById("qNext").style.opacity="1";};c.appendChild(b);});
-  document.getElementById("qNext").textContent=qIndex<2?"继续":"进入经文与思考";
-  document.getElementById("qNext").disabled=true;document.getElementById("qNext").style.opacity=".5";
-}
-function nextQuestion(){
-  if(qIndex<2){qIndex++;loadQuestion();}else{
-    const item=DAYS[currentDay()];
-    document.getElementById("verseRef").textContent=item.verse;
-    document.getElementById("verseText").textContent="“"+item.verseText+"”";
-    document.getElementById("reflectText").textContent=item.reflect;
-    document.getElementById("reflection").value=state.reflection[currentDay()]||"";
-    show("verse");
-  }
-}
-function openPractice(){
-  const item=DAYS[currentDay()];
-  document.getElementById("practiceTitle").textContent=item.title;
-  document.getElementById("practiceText").textContent=item.practice;
-  const c=document.getElementById("practiceChoices");c.innerHTML="";
-  selectedAction=state.actions[currentDay()]||null;
-  item.actions.forEach(t=>{const b=document.createElement("button");b.className="choice"+(selectedAction===t?" selected":"");b.textContent=t;b.onclick=()=>{c.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selectedAction=t;document.getElementById("practiceDone").disabled=false;document.getElementById("practiceDone").style.opacity="1";};c.appendChild(b);});
-  document.getElementById("practiceDone").disabled=!selectedAction;document.getElementById("practiceDone").style.opacity=selectedAction?"1":".5";
-  show("practice");
-}
-document.querySelector('#verse .btn.primary').onclick=()=>openPractice();
-
 function completeToday(){
-  const d=currentDay();
-  if(state.completed.includes(d)){show("done");return;}
-  const reflection=document.getElementById("reflection").value.trim();
-  if(reflection) state.reflection[d]=reflection;
-  if(selectedAction) state.actions[d]=selectedAction;
-  state.completed.push(d); state.completed.sort((a,b)=>a-b);
-  state.points += 10;
-  state.streak = computeStreak();
-  save(); render();
-  document.getElementById("doneTitle").textContent=d===6?"7日体验完成！":"今天完成了！";
-  document.getElementById("doneText").textContent=d===6?"谢谢你走完这7天。现在最重要的是看看什么值得继续。":"今天没有白来。明天再回来走几分钟。";
-  document.getElementById("earned").textContent="今日 +10 ⭐ 　累计 "+state.points+" ⭐";
-  show("done");
+  const d=DAYS[currentDayIndex()]; state.completed[d.d]=true; state.reflections[d.d]=document.getElementById('reflection').value.trim();state.practice[d.d]=true;save();alert('完成啦！今天没有白来。+10 ⭐\\n积分只是鼓励参与，真正重要的是生活中的改变。');update();show('home');
 }
-function computeStreak(){
-  if(!state.completed.length)return 0;
-  let s=0;
-  for(let i=0;i<7;i++){if(state.completed.includes(i))s++;else break;}
-  return s;
+function openCatchup(){
+  const today=currentDayIndex();const missed=DAYS.slice(0,today).filter(x=>!state.completed[x.d]);
+  const box=document.getElementById('catchupList');box.innerHTML='';
+  if(!missed.length){box.innerHTML='<p class="note">目前没有需要补做的日子。今天继续就好。</p>';}
+  missed.slice(-7).forEach(d=>{let b=document.createElement('button');b.className='btn secondary';b.style.margin='6px 0';b.textContent=`补做 ${d.d} · ${d.title}`;b.onclick=()=>{state.completed[d.d]=true;state.practice[d.d]=true;save();alert('已记录补做。补做不会增加连续天数。');openCatchup();update();};box.appendChild(b);});
+  document.getElementById('catchup').classList.remove('hidden');
 }
-function clearDelay(){
-  if(state.points<10){alert("积分不足。完成一天可获得10积分。");return;}
-  if(state.delayUsed>=1){alert("本次7日体验已经使用过一次延误消除。");return;}
-  state.points-=10;state.delayUsed=1;save();render();alert("已使用10积分消除一次延误。继续今天的体验即可。");
+function closeCatchup(){document.getElementById('catchup').classList.add('hidden');}
+function openSettings(){document.getElementById('settings').classList.remove('hidden');updateReminderButton();}
+function closeSettings(){document.getElementById('settings').classList.add('hidden');}
+function updateReminderButton(){const b=document.getElementById('notifyBtn');if(!b)return;b.textContent=state.reminder.enabled?'已开启 20:00':'开启 20:00';}
+async function toggleReminder(){
+  if(!('Notification' in window)){alert('当前浏览器不支持通知。');return;}
+  const p=await Notification.requestPermission(); if(p!=='granted'){alert('没有获得通知权限。');return;}
+  state.reminder.enabled=true;save();updateReminderButton();alert('已开启每天20:00提醒。请保持BILA页面打开以进行本轮V1.0测试。');
 }
-function resetTrial(){
-  if(confirm("确定重置本次7日体验吗？所有进度和积分都会清除。")){
-    localStorage.removeItem("bila_v11_state");location.reload();
+function testReminder(){if(!('Notification'in window)){alert('浏览器不支持通知');return;} if(Notification.permission==='granted'){new Notification('BILA｜今天也一起走几分钟',{body:'今天的BILA还在等你。花几分钟，看看今天的经文吧。'});}else alert('请先开启20:00提醒。');}
+function checkReminder(){
+  if(!state.reminder.enabled || Notification.permission!=='granted')return;
+  const now=new Date(), h=now.getHours(), m=now.getMinutes(), date=now.toISOString().slice(0,10);
+  if(h===20 && m<=10 && state.reminder.lastDate!==date && !state.completed[date]){
+    new Notification('BILA｜今天也一起走几分钟',{body:'今天的BILA还在等你。花几分钟，看看今天的经文吧。'});
+    state.reminder.lastDate=date;save();
   }
 }
-document.getElementById("verse").addEventListener("input",()=>{state.reflection[currentDay()]=document.getElementById("reflection").value;save();});
-render();
-if(!state.startDate)show("start");else show("home");
+function renderReport(){
+  const done=completedCount();document.getElementById('rDays').textContent=done+' 天';document.getElementById('rPoints').textContent=(done*10)+' ⭐';document.getElementById('rPractice').textContent=Object.keys(state.practice).length+' 次';document.getElementById('rStreak').textContent=streak()+' 天';
+  ['final1','final2','final3','final4'].forEach((id,i)=>document.getElementById(id).value=state.final[i]||'');
+}
+function saveFinal(){['final1','final2','final3','final4'].forEach((id,i)=>state.final[i]=document.getElementById(id).value.trim());save();alert('21日回顾已保存。');}
+function saveReview(){const w=currentDayIndex()<7?1:currentDayIndex()<14?2:3;['review1','review2','review3','review4'].forEach((id,i)=>state.reviews[w+'-'+i]=document.getElementById(id).value.trim());save();alert('本周回顾已保存。');}
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
+setInterval(checkReminder,30000);
+checkReminder();
+update();
 </script>
 </body>
 </html>
