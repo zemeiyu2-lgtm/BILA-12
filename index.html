@@ -1,220 +1,295 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F6B83F"><title>BILA 1.0｜本周一起走</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F6B83F">
+<title>BILA 1.1｜7日完整体验</title>
 <style>
-:root{--gold:#f6b83f;--gold2:#ffd979;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--shadow:0 10px 30px rgba(76,54,18,.08)}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:20px 20px 8px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.avatar{width:40px;height:40px;border-radius:50%;background:#fff3cf;display:grid;place-items:center;font-size:22px;border:2px solid #fff}.screen{padding:10px 20px}.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:24px 22px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.2)}.eyebrow{font-size:13px;font-weight:700;opacity:.76}.hero h1{font-size:29px;line-height:1.2;margin:8px 0}.hero p{margin:0;line-height:1.7;font-size:15px}.hero .bila{font-size:45px;position:absolute;right:18px;bottom:14px}.section-title{font-size:17px;margin:24px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:43%;background:var(--gold);border-radius:99px}.weekrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.weekrow strong{font-size:15px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.day{height:48px;border-radius:14px;background:#faf7f0;display:grid;place-items:center;font-size:12px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}.choice.selected{border-color:var(--gold);background:#fff7df}.note{font-size:13px;color:var(--muted);line-height:1.7}.quote{border-left:4px solid var(--gold);padding-left:13px;color:#5e574c;line-height:1.7}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:20}.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}.hidden{display:none}.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}.back{border:0;background:none;padding:6px 0;color:#7a6a4e;font-weight:700}.mascot{font-size:70px;text-align:center;padding:10px}.smallbtn{border:0;background:none;color:#8a681f;font-weight:700}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice-title{font-size:18px;line-height:1.5;margin:12px 0}.hint{background:#fff8e5;border-radius:16px;padding:12px 14px;font-size:13px;color:#6d5a32;line-height:1.6}.success{text-align:center}.success .mascot{padding-bottom:0}.modal{position:fixed;inset:0;background:rgba(38,31,19,.42);display:flex;align-items:flex-end;justify-content:center;z-index:50}.modal-card{width:min(480px,100%);background:#fffdf8;border-radius:26px 26px 0 0;padding:22px 20px 28px}.option-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.option-grid button{border:1.5px solid var(--line);background:#fff;border-radius:16px;padding:14px;cursor:pointer}.option-grid button.selected{border-color:var(--gold);background:#fff7df}.tiny{font-size:12px;color:var(--muted)}
+:root{--gold:#f6b83f;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--red:#c96b5b;--shadow:0 10px 30px rgba(76,54,18,.08)}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
+.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:88px}
+.top{padding:18px 20px 8px;display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}
+.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.screen{padding:10px 20px}.hidden{display:none}
+.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:22px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.2)}
+.eyebrow{font-size:13px;font-weight:700;opacity:.76}.hero h1{font-size:28px;line-height:1.2;margin:8px 0}.hero p{margin:0;line-height:1.7;font-size:15px}.hero .bila{font-size:43px;position:absolute;right:18px;bottom:12px}
+.section-title{font-size:17px;margin:22px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}
+.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:.25s}
+.weekrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.day{height:45px;border-radius:13px;background:#faf7f0;display:grid;place-items:center;font-size:11px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.day.locked{opacity:.55}
+.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.danger{background:#fff0ed;color:#9a463a;border:1px solid #f0c8c0}
+.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}
+.choice.selected{border-color:var(--gold);background:#fff7df;box-shadow:0 0 0 3px rgba(246,184,63,.14)}
+.note{font-size:13px;color:var(--muted);line-height:1.7}.quote{border-left:4px solid var(--gold);padding-left:13px;color:#5e574c;line-height:1.7}
+.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}
+.hint{background:#fff8e5;border-radius:16px;padding:12px 14px;font-size:13px;color:#6d5a32;line-height:1.6}
+.success{text-align:center}.mascot{font-size:66px;text-align:center;padding:8px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.two .card{margin:0}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:74px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);z-index:20}
+.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}
+.small{font-size:12px}.center{text-align:center}.muted{color:var(--muted)}.stat{font-size:24px;font-weight:800}
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<style id="bila-v1-1">
-.time-greeting{
-  margin:4px 2px 12px;
-  font-size:15px;
-  font-weight:700;
-  color:#7b6a4e;
-}
-.gated-next:disabled{
-  opacity:.45 !important;
-  cursor:not-allowed;
-}
-</style>
-
-
-<style id="bila-v1-2-choice">
-.choice{
-  cursor:pointer;
-  user-select:none;
-  -webkit-tap-highlight-color:transparent;
-  transition:transform .12s ease,border-color .12s ease,background .12s ease,box-shadow .12s ease;
-}
-.choice:hover{transform:translateY(-1px)}
-.choice.selected{
-  border-color:var(--gold) !important;
-  background:#fff7df !important;
-  box-shadow:0 0 0 3px rgba(246,184,63,.16);
-}
-.choice:active{transform:scale(.99)}
-.gated-next.ready{box-shadow:0 8px 20px rgba(246,184,63,.24)}
-</style>
-
-
-<style id="bila-v1-3-choice-style">
-.choice{
-  display:block;
-  width:100%;
-  min-height:50px;
-  box-sizing:border-box;
-  cursor:pointer;
-  touch-action:manipulation;
-}
-.choice.selected{
-  outline:none;
-}
-.choice:focus-visible{
-  outline:3px solid rgba(246,184,63,.45);
-  outline-offset:2px;
-}
-.gated-next:disabled{
-  pointer-events:none;
-}
-</style>
-
-
-<style id="bila-v1-4-choice">
-.choice.selected{
-  border-color:var(--gold) !important;
-  background:#fff7df !important;
-  box-shadow:0 0 0 3px rgba(246,184,63,.16);
-}
-.gated-next.ready{
-  opacity:1 !important;
-  pointer-events:auto !important;
-}
-</style>
-
 </head>
 <body>
-
-
-
 <main class="app">
-<header class="top"><div class="brand"><div class="fish">🐟</div><div><b>BILA</b><small>本周一起走</small></div></div></header>
+<header class="top"><div class="brand"><div class="fish">🐟</div><div><b>BILA</b><small>7日完整体验</small></div></div></header>
 
-<section id="welcome" class="screen"><div id="timeGreeting" class="time-greeting"></div>
-<div class="hero"><span class="eyebrow">恩道教会 · 第1周</span><h1>听见以后，活出来</h1><p>雅各书 1:22–25<br>每天几分钟，把听见的带进生活。</p><div class="bila">🐟</div></div>
-<div class="section-title">先告诉我一件事</div>
-<div class="card"><h2 style="margin:0 0 8px">你今天参加聚会了吗？</h2><p class="note">点一下你的答案即可进入下一步。没有对错。</p><button class="btn primary" onclick="setAttendance(true)">我参加了聚会</button><button class="btn secondary" style="margin-top:10px" onclick="setAttendance(false)">我今天没有参加</button></div>
-<div class="card"><p class="quote">不用一下子改变很多。先花几分钟，想一个真实的问题。</p></div>
+<section id="start" class="screen">
+  <div class="hero"><span class="eyebrow">BILA-12 · 7日实验</span><h1>听见以后，试着活出来</h1><p>每天3–5分钟。一个问题、一点圣经、一个小行动。</p><div class="bila">🐟</div></div>
+  <div class="section-title">先开始</div>
+  <div class="card">
+    <p class="note">这次不是测试成绩，而是测试你愿不愿意连续7天回来。</p>
+    <button class="btn primary" onclick="startTrial()">开始7日体验</button>
+  </div>
+  <div class="hint">实验期间请尽量每天回来一次。即使某天错过，也不用放弃；系统会记录延误。</div>
 </section>
 
 <section id="home" class="screen hidden">
-<div class="hero"><span class="eyebrow">恩道教会 · 第1周</span><h1>听见以后，活出来</h1><p>雅各书 1:22–25<br><span id="attendanceLine">今天，一起想一个问题。</span></p><div class="bila">🐟</div></div>
-<div class="section-title">本周进度</div><div class="card"><div class="weekrow"><strong>连续参与 <span id="streak">1</span> 天</strong><span class="tag" id="points">+5 ⭐</span></div><div class="progress"><i id="progressBar"></i></div><div class="days" style="margin-top:12px"><div class="day done">日<br>✓</div><div class="day today">一<br>今</div><div class="day">二</div><div class="day">三</div><div class="day">四</div><div class="day">五</div><div class="day">六</div></div></div>
-<div class="section-title">今天</div><div class="card"><span class="tag">每日3–5分钟</span><h2 style="margin:12px 0 8px">今天，我们先想一个很简单的问题。</h2><p class="note">没有标准答案。只要选最像你平时反应的那个。</p><button class="btn primary" onclick="show('question1')">开始今天</button></div>
-<div class="card"><div class="weekrow"><strong>🐟 Bila想对你说</strong><span>💛</span></div><p class="quote">不用一下子改变很多。今天只做一件小事，就很好。</p></div>
+  <div class="hero"><span class="eyebrow" id="weekLabel">第1天 / 7天</span><h1 id="dayTitle">听见以后，活出来</h1><p id="dayIntro">今天只做一件小事。</p><div class="bila">🐟</div></div>
+  <div class="section-title">7日进度</div>
+  <div class="card">
+    <div class="weekrow"><strong>连续跟随 <span id="streak">0</span> 天</strong><span class="tag" id="points">0 ⭐</span></div>
+    <div class="progress"><i id="progressBar"></i></div>
+    <div class="days" id="days"></div>
+  </div>
+  <div id="delayBox" class="card hidden"></div>
+  <div class="section-title">今天</div>
+  <div class="card">
+    <span class="tag">每日3–5分钟</span>
+    <h2 id="todayPrompt" style="margin:12px 0 8px"></h2>
+    <p class="note" id="todayNote"></p>
+    <button id="startTodayBtn" class="btn primary" onclick="show('question')">开始今天</button>
+  </div>
+  <div class="card"><p class="quote">不用一下子改变很多。真实地走一天，再走一天。</p></div>
 </section>
 
-<section id="question1" class="screen hidden">
-<button class="back" onclick="show('home')">← 返回</button><div class="section-title">今天 · 主日回应</div>
-<div class="card"><span class="tag">先想想自己</span><h2 class="choice-title">听到一件你觉得“很有道理”、也觉得自己应该做到的事情时，你通常会怎样？</h2><p class="note">请选择一个最像你平时反应的答案。</p>
-<button class="choice" onclick="selectOne(this)">A．觉得有道理，但不一定去做</button>
-<button class="choice" onclick="selectOne(this)">B．先记住，以后有机会再做</button>
-<button class="choice" onclick="selectOne(this)">C．马上想想，自己可以怎么做</button>
-<button class="choice" onclick="selectOne(this)">D．听的时候有感觉，后来就忘了</button>
-<div class="hint" style="margin-top:14px">没有“好学生答案”。我们只是先看看自己的真实反应。</div>
-<button id="q1next" class="btn primary gated-next" style="margin-top:14px;opacity:.5" disabled onclick="show('question2')">继续</button></div>
+<section id="question" class="screen hidden">
+  <button class="back btn ghost" onclick="show('home')" style="margin-bottom:12px">← 返回</button>
+  <div class="section-title" id="qTitle">今天 · 1/3</div>
+  <div class="card">
+    <span class="tag" id="qTag">先想想自己</span>
+    <h2 class="choice-title" id="qText"></h2>
+    <p class="note" id="qNote"></p>
+    <div id="choices"></div>
+    <button id="qNext" class="btn primary" style="margin-top:12px;opacity:.5" disabled onclick="nextQuestion()">继续</button>
+  </div>
 </section>
 
-<section id="question2" class="screen hidden"><button class="back" onclick="show('question1')">← 返回</button><div class="section-title">主日回应 · 2/3</div><div class="card"><span class="tag">圣经理解</span><h2 class="choice-title">雅各提醒我们：听见圣经以后，下一步应该做什么？</h2><p class="note">雅各书 1:22：不要单单听道，还要“行道”。</p><button class="choice" onclick="selectOne(this)">A．记住更多内容</button><button class="choice" onclick="selectOne(this)">B．把听见的真理带进生活</button><button class="choice" onclick="selectOne(this)">C．参加更多活动</button><button class="choice" onclick="selectOne(this)">D．告诉别人自己听过</button><button id="q2next" class="btn primary gated-next" style="margin-top:14px;opacity:.5"  onclick="show('question3')">继续</button></div></section>
+<section id="verse" class="screen hidden">
+  <button class="back btn ghost" onclick="show('question')" style="margin-bottom:12px">← 返回</button>
+  <div class="section-title">经文与思考</div>
+  <div class="card">
+    <span class="tag">圣经</span>
+    <h2 id="verseRef" class="choice-title"></h2>
+    <p class="quote" id="verseText"></p>
+    <h3>想一想</h3>
+    <p class="note" id="reflectText"></p>
+    <textarea id="reflection" style="width:100%;min-height:110px;border:1px solid var(--line);border-radius:16px;padding:12px;font:inherit;resize:vertical" placeholder="可以写几句话，也可以只写一个词。"></textarea>
+    <button class="btn primary" style="margin-top:12px" onclick="show('practice')">继续今天的行动</button>
+  </div>
+</section>
 
-<section id="question3" class="screen hidden"><button class="back" onclick="show('question2')">← 返回</button><div class="section-title">主日回应 · 3/3</div><div class="card"><span class="tag">想想自己</span><h2 class="choice-title">最近有没有一件事，是你已经知道应该做，却一直没有行动？</h2><p class="note">可以诚实回答，不需要给别人看。</p><button class="choice" onclick="selectOne(this)">有，而且我很清楚是哪一件</button><button class="choice" onclick="selectOne(this)">好像有，但我还说不清楚</button><button class="choice" onclick="selectOne(this)">暂时没有想到</button><button class="choice" onclick="selectOne(this)">我现在不想回答</button><button id="q3next" class="btn primary gated-next" style="margin-top:14px;opacity:.5"  onclick="show('response')">完成今天的回应</button></div></section>
+<section id="practice" class="screen hidden">
+  <button class="back btn ghost" onclick="show('verse')" style="margin-bottom:12px">← 返回</button>
+  <div class="hero"><span class="eyebrow">今日行动</span><h1 id="practiceTitle">做一点小的</h1><p id="practiceText"></p><div class="bila">🐟</div></div>
+  <div class="section-title">今天选一个</div>
+  <div class="card">
+    <div id="practiceChoices"></div>
+    <button id="practiceDone" class="btn primary" style="margin-top:10px;opacity:.5" disabled onclick="completeToday()">我今天完成了</button>
+    <p class="note center" style="margin-top:12px">不用证明给别人看。这里记录的是你的真实行动。</p>
+  </div>
+</section>
 
-<section id="response" class="screen hidden"><div class="card success"><div class="mascot">🐟</div><h2>很好，今天先到这里。</h2><p class="note">今天不是考试。重要的是，你愿意停下来想一想。</p><div class="hint" style="text-align:left;margin:14px 0">这一周，我们只练习一件事：<strong>听见以后，试着活出来。</strong></div><button class="btn primary" onclick="show('practice')">看看本周实践</button><button class="btn ghost" style="margin-top:10px" onclick="show('home')">回到首页</button></div></section>
+<section id="done" class="screen hidden">
+  <div class="card success">
+    <div class="mascot">🐟</div>
+    <h2 id="doneTitle">完成啦！</h2>
+    <p class="note" id="doneText"></p>
+    <div class="hint" style="text-align:left;margin:14px 0">
+      <strong id="earned"></strong><br>
+      积分只是鼓励参与，真正重要的是生活中的改变。
+    </div>
+    <button class="btn primary" onclick="show('home')">回到今天</button>
+  </div>
+</section>
 
-<section id="practice" class="screen hidden"><button class="back" onclick="show('home')">← 返回</button><div class="hero"><span class="eyebrow">本周实践</span><h1>做一点小的</h1><p>找一件你已经知道应该做，却一直没有做的事情。</p><div class="bila">🐟</div></div><div class="section-title">今天想做哪一件？</div><div class="card"><button class="choice" onclick="selectOne(this)">主动关心一个人</button><button class="choice" onclick="selectOne(this)">向一个人道歉</button><button class="choice" onclick="selectOne(this)">帮助一个人</button><button class="choice" onclick="selectOne(this)">完成一件一直拖延的事情</button><button class="choice" onclick="selectOne(this)">自己写一个小行动</button><button id="practiceDone" class="btn primary gated-next" style="margin-top:10px;opacity:.5"  onclick="donePractice()">我今天完成了</button><p class="note" style="margin-top:12px;text-align:center">不用证明给别人看。这里记录的是你的真实行动。</p></div></section>
-
-<section id="today" class="screen hidden"><button class="back" onclick="show('home')">← 返回</button><div class="section-title">每日成长</div><div class="card"><span class="tag">圣经理解</span><h2 class="choice-title">今天想继续想一想：为什么“听见”和“实行”要放在一起？</h2><p class="note">“只是你们要行道，不要单单听道，自己欺哄自己。”——雅各书 1:22</p><button class="choice" onclick="selectOne(this)">A．因为记住更多经文最重要</button><button class="choice" onclick="selectOne(this)">B．因为真理需要进入生活</button><button class="choice" onclick="selectOne(this)">C．因为基督徒必须参加更多活动</button><button class="choice" onclick="selectOne(this)">D．因为听道本身没有意义</button><button class="btn primary" style="margin-top:14px" onclick="show('practice')">继续</button></div></section>
-
-<section id="partner" class="screen hidden"><div class="section-title">伙伴</div><div class="card"><div class="mascot">🐟</div><h2 style="text-align:center">一个人也可以开始</h2><p class="note" style="text-align:center">如果有一个真实的人一起走，可能会更有力量。</p><button class="btn primary" onclick="invite()">邀请我认识的人</button><button class="btn secondary" style="margin-top:10px" onclick="alert('先自己开始也没关系。以后有合适的人，再邀请他一起走。')">暂时没有伙伴</button></div><div class="card"><strong>伙伴原则</strong><p class="note">现实认识的人优先；教会关系优先；线上连接只是辅助。双方确认后才建立伙伴关系。</p></div></section>
-
-<section id="me" class="screen hidden"><div class="section-title">我的成长</div><div class="card"><div class="weekrow"><strong>本周参与</strong><span class="tag" id="mePoints">5 ⭐</span></div><div class="two"><div><small class="note">完成</small><h2 id="meDays">1 天</h2></div><div><small class="note">实践</small><h2 id="mePractice">0 次</h2></div></div></div><div class="card"><strong>隐私</strong><p class="note">个人回应默认只有自己可见。你主动分享时，才会进入伙伴关系。</p></div></section>
+<section id="me" class="screen hidden">
+  <div class="section-title">我的7日体验</div>
+  <div class="card">
+    <div class="two">
+      <div><small class="note">已完成</small><div class="stat"><span id="doneDays">0</span> 天</div></div>
+      <div><small class="note">积分</small><div class="stat"><span id="mePoints">0</span> ⭐</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <strong>积分怎么用？</strong>
+    <p class="note">如果某一天错过，下一次回来会形成“延误”。可以使用10积分消除一次延误，让这次7日体验继续保持完整。</p>
+    <button id="clearDelayBtn" class="btn secondary" onclick="clearDelay()">用10积分消除一次延误</button>
+  </div>
+  <div class="card">
+    <strong>实验提醒</strong>
+    <p class="note">这7天不追求高分，也不比较别人。我们只观察：你是否愿意回来、是否愿意行动、连续使用是否自然。</p>
+  </div>
+</section>
 </main>
-<nav class="nav"><button class="active" onclick="nav('home',this)"><b>⌂</b>今日</button><button onclick="nav('today',this)"><b>◉</b>回应</button><button onclick="nav('partner',this)"><b>♡</b>伙伴</button><button onclick="nav('me',this)"><b>○</b>我的</button></nav>
-</div>
+
+<nav class="nav">
+<button class="active" onclick="nav('home',this)"><b>⌂</b>今日</button>
+<button onclick="nav('me',this)"><b>○</b>我的</button>
+<button onclick="resetTrial()"><b>↺</b>重置实验</button>
+</nav>
+
 <script>
-let attendance=null,practiceCount=0,points=5,streak=1;
+const DAYS = [
+ {title:"听见以后，活出来",intro:"先看看自己听见真理以后通常怎么做。",prompt:"听到一件你觉得很有道理、也觉得自己应该做到的事情时，你通常会怎样？",note:"没有“好学生答案”，只选最像自己的。",choices:["觉得有道理，但不一定去做","先记住，以后有机会再做","马上想想，自己可以怎么做","听的时候有感觉，后来就忘了"],verse:"雅各书 1:22–25",verseText:"只是你们要行道，不要单单听道，自己欺哄自己。",reflect:"今天的经文提醒我：听见以后，我可以怎样多走一步？",practice:"今天找一件你已经知道应该做、却一直没有做的小事。",actions:["主动关心一个人","完成一件一直拖延的小事","向一个人表达感谢","自己写一个小行动"]},
+ {title:"先听，再回应",intro:"今天练习把“快快地听”放进一个真实关系。",prompt:"当别人说了一件让你不舒服的话，你通常最容易怎样？",note:"不需要选择理想答案，只选择真实反应。",choices:["马上反驳","表面不说，心里生气","先听完，再决定怎么回应","直接避开，不再谈"],verse:"雅各书 1:19–20",verseText:"各人要快快地听，慢慢地说，慢慢地动怒。",reflect:"今天哪一个关系最需要我先听一听？",practice:"今天遇到不舒服的话，先停10秒，再回应。",actions:["先听完再回答","深呼吸后再说话","问一句“你的意思是什么？”","今天少说一句冲动的话"]},
+ {title:"真理进入生活",intro:"今天不增加知识，只找一个可以实行的地方。",prompt:"你知道一个正确的做法，却迟迟没有行动时，最常见的原因是什么？",note:"诚实比漂亮答案更有价值。",choices:["太忙","怕麻烦","不知道从哪里开始","其实是不想面对"],verse:"雅各书 1:22",verseText:"不要单单听道，自己欺哄自己；总要行道。",reflect:"我今天可以从哪一个最小行动开始？",practice:"把一个“应该做”缩小成今天就能完成的一步。",actions:["完成一个拖延的小任务","主动做一次正确的选择","把计划变成一个具体动作","今天就开始，不等完美"]},
+ {title:"不要只看见自己",intro:"今天练习把真理带到别人身上。",prompt:"当别人需要帮助时，你最容易出现什么反应？",note:"观察自己，不评价自己。",choices:["觉得与我无关","想帮助，但常常忘了","先看看自己能做什么","帮助别人，但希望被看见"],verse:"雅各书 2:14–17",verseText:"若是弟兄或是姐妹，赤身露体，又缺了日用的饮食……却不给他们身体所需用的，这有什么益处呢？",reflect:"今天有没有一个具体的人，需要我做一点什么？",practice:"今天做一个不需要别人表扬的小帮助。",actions:["主动帮助一个人","给一个人实际支持","关心一个被忽略的人","默默完成一件有益的事"]},
+ {title:"让行动成为习惯",intro:"连续几天以后，看看自己真正发生了什么。",prompt:"连续做一件小事时，什么最容易让你放弃？",note:"今天开始观察自己的坚持模式。",choices:["一忙就忘","觉得没有马上看到效果","一次没做到就想放弃","其实不觉得重要"],verse:"雅各书 1:25",verseText:"惟有详细察看那全备、使人自由之律法的，并且时常如此……这人既不是听了就忘，乃是实在行出来。",reflect:"什么小行动值得我继续做？",practice:"今天重复前几天一个对自己真正有帮助的小行动。",actions:["重复一个好习惯","今天再做一次","把行动安排进日程","请自己记住这件小事"]},
+ {title:"在关系中活出来",intro:"今天把“行道”放到最真实的关系里。",prompt:"当你意识到自己说错或做错时，你通常怎样处理？",note:"承认并不等于失败。",choices:["解释自己为什么没错","假装没发生","承认并尝试修复","等别人先说"],verse:"雅各书 1:19–20；3:17–18",verseText:"你们各人要快快地听，慢慢地说，慢慢地动怒。",reflect:"今天有没有一段关系需要我先迈一步？",practice:"今天主动修复一个可以修复的小关系。",actions:["主动道歉","主动联系一个人","先听对方说完","停止一次争论"]},
+ {title:"七日回顾：我愿意继续吗？",intro:"今天不再增加任务，回头看看这7天。",prompt:"这7天里，哪一个小行动最可能真正留在你的生活中？",note:"没有标准答案。请选最真实的一项。",choices:["我开始更愿意停下来想一想","我更愿意把经文带进生活","我发现自己需要继续练习","我暂时还没有明显改变"],verse:"雅各书 1:22–25",verseText:"乃是实在行出来，就在他所行的事上必然得福。",reflect:"这7天，我认识了自己什么？接下来我愿意继续什么？",practice:"选择一个未来7天仍愿意继续的小行动。",actions:["继续一个本周行动","确定下周一个小目标","找一个真实的人一起成长","把一个改变写下来"]}
+];
 
-function updateGreeting(){
-  const el=document.getElementById('timeGreeting');
-  if(!el) return;
-  const h=new Date().getHours();
-  let greeting='你好';
-  if(h>=5 && h<11) greeting='早上好';
-  else if(h>=11 && h<13) greeting='中午好';
-  else if(h>=13 && h<18) greeting='下午好';
-  else greeting='晚上好';
-  el.textContent=greeting+'，今天我们一起走几分钟。';
+let state = JSON.parse(localStorage.getItem("bila_v11_state") || "null") || {
+ startDate:null, completed:[], points:0, streak:0, delayUsed:0, reflection:{}, actions:{}
+};
+let qIndex=0, selected=null, selectedAction=null;
+
+function save(){localStorage.setItem("bila_v11_state",JSON.stringify(state));}
+function startTrial(){
+  if(!state.startDate){state.startDate=new Date().toISOString().slice(0,10);save();}
+  render();show("home");
 }
-
-function setAttendance(value){attendance=value;document.getElementById('attendanceLine').textContent=value?'你今天听过讲道。现在，一起想一想。':'没参加聚会也没关系。先看看今天的信息。';show('home');}
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
-function nav(id,el){show(id);document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));el.classList.add('active');}
-function selectOne(el){
-  const choice = el.closest('.choice') || el;
-  const screen = choice.closest('.screen') || document;
-  const choices = Array.from(screen.querySelectorAll('.choice'));
-  choices.forEach(x=>x.classList.remove('selected'));
-  choice.classList.add('selected');
-
-  // Keep the selected value in state when the page uses data-value.
-  const value = choice.dataset.value || choice.getAttribute('data-value') || choice.textContent.trim();
-  if(screen.id === 'attendance') attendance = value;
-
-  // Conventional behavior: selecting an option enables the next step.
-  const next = screen.querySelector('.gated-next');
-  if(next){
-    next.disabled = false;
-    next.removeAttribute('disabled');
-    next.style.opacity = '1';
-    next.style.pointerEvents = 'auto';
-    next.classList.add('ready');
-  }
-
-  // Make the entire card keyboard/mouse friendly.
-  choice.setAttribute('aria-pressed','true');
-  choices.filter(x=>x!==choice).forEach(x=>x.setAttribute('aria-pressed','false'));
+function dayIndex(){
+  if(!state.startDate) return 0;
+  const a=new Date(state.startDate+"T00:00:00"), b=new Date();
+  const d=Math.floor((new Date(b.getFullYear(),b.getMonth(),b.getDate())-a)/86400000);
+  return Math.max(0,Math.min(6,d));
 }
-function donePractice(){practiceCount=1;points+=10;document.getElementById('points').textContent='+'+points+' ⭐';document.getElementById('mePoints').textContent=points+' ⭐';document.getElementById('mePractice').textContent=practiceCount+' 次';alert('已记录今天的实践。+10 ⭐\n积分只是鼓励参与，真正重要的是生活中的改变。');show('home');}
-function invite(){if(navigator.clipboard){navigator.clipboard.writeText(location.href).catch(()=>{});}alert('邀请链接已准备好。第一版建议邀请你现实中认识的人。');}
-updateGreeting();
-show('welcome');
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script id="bila-v1-3-choice-js">
-(function(){
-  function prepareChoices(){
-    document.querySelectorAll('.choice').forEach(function(choice){
-      choice.setAttribute('role','button');
-      choice.setAttribute('tabindex','0');
-    });
+function currentDay(){return dayIndex();}
+function render(){
+  const d=currentDay(), item=DAYS[d];
+  document.getElementById("weekLabel").textContent=`第${d+1}天 / 7天`;
+  document.getElementById("dayTitle").textContent=item.title;
+  document.getElementById("dayIntro").textContent=item.intro;
+  document.getElementById("todayPrompt").textContent=item.prompt;
+  document.getElementById("todayNote").textContent=item.note;
+  document.getElementById("streak").textContent=state.streak;
+  document.getElementById("points").textContent=state.points+" ⭐";
+  document.getElementById("mePoints").textContent=state.points;
+  document.getElementById("doneDays").textContent=state.completed.length;
+  document.getElementById("progressBar").style.width=(state.completed.length/7*100)+"%";
+  const days=document.getElementById("days"); days.innerHTML="";
+  for(let i=0;i<7;i++){
+    const el=document.createElement("div");
+    el.className="day "+(state.completed.includes(i)?"done ":"")+(i===d?"today ":"")+(i>d?"locked":"");
+    el.innerHTML=(i+1)+"<br>"+(state.completed.includes(i)?"✓":"");
+    days.appendChild(el);
   }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',prepareChoices);
-  }else{
-    prepareChoices();
+  const delay = state.startDate && state.completed.length>0 && !state.completed.includes(d) && d>0 && !state.completed.includes(d-1);
+  const box=document.getElementById("delayBox");
+  if(delay){
+    box.classList.remove("hidden");
+    box.innerHTML="<strong>出现了一次延误</strong><p class='note'>没关系。你可以继续今天，也可以到“我的”里使用10积分消除一次延误。</p>";
+  }else box.classList.add("hidden");
+  document.getElementById("startTodayBtn").textContent=state.completed.includes(d)?"今天已经完成":"开始今天";
+  document.getElementById("clearDelayBtn").disabled = state.points<10 || state.delayUsed>=1;
+  document.getElementById("clearDelayBtn").textContent = state.delayUsed>=1 ? "本次体验已使用过一次延误消除" : "用10积分消除一次延误";
+}
+function show(id){
+  document.querySelectorAll(".screen").forEach(x=>x.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(id==="home"||id==="me")render();
+}
+function nav(id,el){
+  if(id==="home" && !state.startDate){show("start");return;}
+  show(id);
+  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+  el.classList.add("active");
+}
+function beginQuestions(){
+  if(state.completed.includes(currentDay())){show("done");return;}
+  qIndex=0;selected=null;loadQuestion();show("question");
+}
+document.getElementById("startTodayBtn").onclick=beginQuestions;
+function loadQuestion(){
+  const item=DAYS[currentDay()];
+  document.getElementById("qTitle").textContent=`今天 · ${qIndex+1}/3`;
+  document.getElementById("qTag").textContent=qIndex===0?"先想想自己":qIndex===1?"圣经理解":"想想自己";
+  const sets=[
+    [item.prompt,item.note,item.choices],
+    ["雅各今天的提醒，最接近哪一个意思？","请选一个最接近经文重点的答案。",["把圣经记得更多","让真理进入真实生活","参加更多活动","只要听过就够了"]],
+    ["今天你最愿意在哪一件真实的事情上回应？","选择一个你愿意面对的方向。",item.actions]
+  ];
+  const s=sets[qIndex];
+  document.getElementById("qText").textContent=s[0];
+  document.getElementById("qNote").textContent=s[1];
+  const c=document.getElementById("choices");c.innerHTML="";
+  s[2].forEach((t,i)=>{const b=document.createElement("button");b.className="choice";b.textContent=String.fromCharCode(65+i)+"．"+t;b.onclick=()=>{c.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selected=t;document.getElementById("qNext").disabled=false;document.getElementById("qNext").style.opacity="1";};c.appendChild(b);});
+  document.getElementById("qNext").textContent=qIndex<2?"继续":"进入经文与思考";
+  document.getElementById("qNext").disabled=true;document.getElementById("qNext").style.opacity=".5";
+}
+function nextQuestion(){
+  if(qIndex<2){qIndex++;loadQuestion();}else{
+    const item=DAYS[currentDay()];
+    document.getElementById("verseRef").textContent=item.verse;
+    document.getElementById("verseText").textContent="“"+item.verseText+"”";
+    document.getElementById("reflectText").textContent=item.reflect;
+    document.getElementById("reflection").value=state.reflection[currentDay()]||"";
+    show("verse");
   }
-})();
-</script>
+}
+function openPractice(){
+  const item=DAYS[currentDay()];
+  document.getElementById("practiceTitle").textContent=item.title;
+  document.getElementById("practiceText").textContent=item.practice;
+  const c=document.getElementById("practiceChoices");c.innerHTML="";
+  selectedAction=state.actions[currentDay()]||null;
+  item.actions.forEach(t=>{const b=document.createElement("button");b.className="choice"+(selectedAction===t?" selected":"");b.textContent=t;b.onclick=()=>{c.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");selectedAction=t;document.getElementById("practiceDone").disabled=false;document.getElementById("practiceDone").style.opacity="1";};c.appendChild(b);});
+  document.getElementById("practiceDone").disabled=!selectedAction;document.getElementById("practiceDone").style.opacity=selectedAction?"1":".5";
+  show("practice");
+}
+document.querySelector('#verse .btn.primary').onclick=()=>openPractice();
 
-</body></html>
+function completeToday(){
+  const d=currentDay();
+  if(state.completed.includes(d)){show("done");return;}
+  const reflection=document.getElementById("reflection").value.trim();
+  if(reflection) state.reflection[d]=reflection;
+  if(selectedAction) state.actions[d]=selectedAction;
+  state.completed.push(d); state.completed.sort((a,b)=>a-b);
+  state.points += 10;
+  state.streak = computeStreak();
+  save(); render();
+  document.getElementById("doneTitle").textContent=d===6?"7日体验完成！":"今天完成了！";
+  document.getElementById("doneText").textContent=d===6?"谢谢你走完这7天。现在最重要的是看看什么值得继续。":"今天没有白来。明天再回来走几分钟。";
+  document.getElementById("earned").textContent="今日 +10 ⭐ 　累计 "+state.points+" ⭐";
+  show("done");
+}
+function computeStreak(){
+  if(!state.completed.length)return 0;
+  let s=0;
+  for(let i=0;i<7;i++){if(state.completed.includes(i))s++;else break;}
+  return s;
+}
+function clearDelay(){
+  if(state.points<10){alert("积分不足。完成一天可获得10积分。");return;}
+  if(state.delayUsed>=1){alert("本次7日体验已经使用过一次延误消除。");return;}
+  state.points-=10;state.delayUsed=1;save();render();alert("已使用10积分消除一次延误。继续今天的体验即可。");
+}
+function resetTrial(){
+  if(confirm("确定重置本次7日体验吗？所有进度和积分都会清除。")){
+    localStorage.removeItem("bila_v11_state");location.reload();
+  }
+}
+document.getElementById("verse").addEventListener("input",()=>{state.reflection[currentDay()]=document.getElementById("reflection").value;save();});
+render();
+if(!state.startDate)show("start");else show("home");
+</script>
+</body>
+</html>
