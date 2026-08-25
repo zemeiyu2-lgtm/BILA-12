@@ -431,24 +431,18 @@ function renderReport(){
 function saveFinal(){['final1','final2','final3','final4'].forEach((id,i)=>state.final[i]=document.getElementById(id).value.trim());save();alert('21日回顾已保存。');}
 function saveReview(){const w=currentDayIndex()<7?1:currentDayIndex()<14?2:3;['review1','review2','review3','review4'].forEach((id,i)=>state.reviews[w+'-'+i]=document.getElementById(id).value.trim());save();alert('本周回顾已保存。');}
 if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
-document.addEventListener('pointerup',function(e){
-  const b=e.target && e.target.closest ? e.target.closest('button') : null;
-  if(!b)return;
-  if(b.id==='settingsDoneBtn' || b.id==='settingsCloseBtn'){
-    e.preventDefault(); e.stopPropagation();
-    const el=document.getElementById('settings'); if(el) el.classList.add('hidden');
-  }
-}, true);
-document.addEventListener('click',function(e){
-  const id=e.target && e.target.closest ? e.target.closest('button')?.id : '';
-  if(id==='settingsDoneBtn' || id==='settingsCloseBtn'){
-    e.preventDefault(); e.stopPropagation();
-    const el=document.getElementById('settings'); if(el) el.classList.add('hidden');
-    return;
-  }
-  if(id==='notifyBtn'){e.preventDefault(); e.stopPropagation(); toggleReminder(); return;}
-  if(id==='testReminderBtn'){e.preventDefault(); e.stopPropagation(); testReminder(); return;}
-}, true);
+function bindSettingsButtons(){
+  const settings=document.getElementById('settings');
+  const done=document.getElementById('settingsDoneBtn');
+  const close=document.getElementById('settingsCloseBtn');
+  const notify=document.getElementById('notifyBtn');
+  const test=document.getElementById('testReminderBtn');
+  if(done) done.addEventListener('click', function(){ settings.classList.add('hidden'); });
+  if(close) close.addEventListener('click', function(){ settings.classList.add('hidden'); });
+  if(notify) notify.addEventListener('click', function(){ toggleReminder(); });
+  if(test) test.addEventListener('click', function(){ testReminder(); });
+}
+bindSettingsButtons();
 setInterval(checkReminder,30000);
 checkReminder();
 update();
