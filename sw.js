@@ -1,3 +1,3 @@
-// BILA V1.8 trial build: Service Worker intentionally disabled.
+// BILA V1.9 test build: no offline cache by design.
 self.addEventListener('install', () => self.skipWaiting());
-self.addEventListener('activate', event => event.waitUntil(self.registration.unregister()));
+self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));

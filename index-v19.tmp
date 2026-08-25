@@ -100,14 +100,14 @@
 <button onclick="nav('report',this)"><b>○</b>我的</button>
 </nav>
 
-<div id="settings" class="modal settings hidden" hidden aria-hidden="true">
+<div id="settings" class="modal settings hidden">
 <div class="modal-card">
-<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">BILA提醒</h2><button id="settingsCloseBtn" class="iconbtn" type="button" onclick="event.preventDefault();event.stopPropagation();closeSettings();return false;">✕</button></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">BILA提醒</h2><button id="settingsCloseBtn" class="iconbtn" type="button" onclick="closeSettings()">✕</button></div>
 <p class="note">默认每天晚上 20:00 提醒。浏览器需要允许通知。</p>
 <div class="switchrow"><span>开启20:00提醒</span><button type="button" class="btn secondary" style="width:auto;position:relative;z-index:110;pointer-events:auto" id="notifyBtn">开启</button></div>
 <button id="testReminderBtn" class="btn ghost" type="button">测试一次提醒</button><div id="reminderStatus" class="tiny" style="margin-top:10px;min-height:20px"></div>
 <p class="tiny" style="margin-top:12px">说明：当前V1.0在网页打开期间可以按20:00提醒；要实现关闭网页后仍稳定推送，需要下一阶段接入Web Push服务。</p>
-<button id="settingsDoneBtn" type="button" class="btn primary settings-done" onclick="event.preventDefault();event.stopPropagation();closeSettings();return false;">完成</button>
+<button id="settingsDoneBtn" type="button" class="btn primary settings-done" onclick="closeSettings()">完成</button>
 </div>
 </div>
 
@@ -409,24 +409,8 @@ function openCatchup(){
   document.getElementById('catchup').classList.remove('hidden');
 }
 function closeCatchup(){document.getElementById('catchup').classList.add('hidden');}
-function openSettings(){
-  const el=document.getElementById('settings');
-  if(!el)return;
-  el.classList.remove('hidden');
-  el.removeAttribute('hidden');
-  el.setAttribute('aria-hidden','false');
-  el.style.display='flex';
-  updateReminderButton();
-}
-function closeSettings(){
-  const el=document.getElementById('settings');
-  if(!el)return;
-  el.classList.add('hidden');
-  el.setAttribute('hidden','');
-  el.setAttribute('aria-hidden','true');
-  el.style.display='none';
-  document.body.focus?.();
-}
+function openSettings(){document.getElementById('settings').classList.remove('hidden');updateReminderButton();}
+function closeSettings(){document.getElementById('settings').classList.add('hidden');}
 function updateReminderButton(){const b=document.getElementById('notifyBtn');if(!b)return;b.textContent=state.reminder.enabled?'已开启 20:00':'开启 20:00';}
 function setReminderStatus(msg){const el=document.getElementById('reminderStatus');if(el)el.textContent=msg||'';}
 async function toggleReminder(){
