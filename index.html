@@ -2,579 +2,91 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F6B83F">
-<link rel="manifest" href="manifest.webmanifest">
-<title>BILA｜21日一起走｜V2.1 内容接入版</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BILA｜Day 1 发现式门训原型</title>
 <style>
-:root{--gold:#f6b83f;--gold2:#ffd979;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--shadow:0 10px 30px rgba(76,54,18,.08)}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:18px 20px 8px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px}.iconbtn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px;cursor:pointer;pointer-events:auto;position:relative;z-index:2}.screen{padding:10px 20px}.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:23px 21px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-50px;top:-50px;background:rgba(255,255,255,.2)}.eyebrow{font-size:13px;font-weight:700;opacity:.76}.hero h1{font-size:27px;line-height:1.25;margin:8px 0}.hero p{margin:0;line-height:1.7;font-size:15px}.hero .bila{font-size:45px;position:absolute;right:18px;bottom:14px}.section-title{font-size:17px;margin:23px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}.weekrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px}.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{height:46px;border-radius:14px;background:#faf7f0;display:grid;place-items:center;font-size:11px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer;pointer-events:auto;position:relative;z-index:2;-webkit-tap-highlight-color:transparent}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.note{font-size:13px;color:var(--muted);line-height:1.7}.quote{border-left:4px solid var(--gold);padding-left:13px;color:#5e574c;line-height:1.7}.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}.back{border:0;background:none;padding:6px 0;color:#7a6a4e;font-weight:700}.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}.choice.selected{border-color:var(--gold);background:#fff7df}.success{text-align:center}.mascot{font-size:70px;text-align:center;padding:8px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hidden{display:none}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);z-index:20}.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}.modal{position:fixed;inset:0;background:rgba(38,31,19,.42);display:flex;align-items:flex-end;justify-content:center;z-index:100;opacity:1;visibility:visible}.modal[hidden]{display:none!important}.modal-card{position:relative;width:min(480px,100%);max-height:90vh;overflow:auto;background:#fffdf8;border-radius:26px 26px 0 0;padding:22px 20px 28px;pointer-events:auto}.modal button{pointer-events:auto;cursor:pointer}.modal .btn{position:relative;z-index:1}.textarea{width:100%;min-height:110px;border:1px solid var(--line);border-radius:16px;padding:12px;font:inherit;resize:vertical}.switchrow{display:flex;justify-content:space-between;align-items:center;padding:10px 0}.tiny{font-size:12px;color:var(--muted)}.settings-done{margin-top:12px;display:block;position:relative;z-index:200;pointer-events:auto;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation}.settings-done:active{transform:translateY(1px)}.scripture-text{font-size:16px;line-height:2;color:#403a32;white-space:pre-wrap}
+*{box-sizing:border-box}body{margin:0;background:#f5f3ee;color:#26332d;font-family:"Microsoft YaHei",Arial,sans-serif}
+.app{max-width:720px;margin:auto;min-height:100vh;background:#fff;padding:28px 22px 44px}
+.badge{font-size:13px;color:#6c7771;margin-bottom:10px}.title{font-size:30px;margin:0 0 8px}.lead{font-size:16px;color:#65716b;line-height:1.7}
+.card{border:1px solid #e4e8e4;border-radius:16px;padding:20px;margin:16px 0}.label{font-size:13px;color:#6d7872;margin-bottom:9px}
+.life{font-size:19px;font-weight:700;line-height:1.6}.scripture{font-size:16px;line-height:2;white-space:pre-line}
+.hint{font-size:15px;color:#59645e;line-height:1.7}.options{display:grid;gap:10px;margin-top:14px}
+.option{width:100%;border:1px solid #dce2dd;border-radius:12px;padding:14px;background:#fafbf9;color:#29352f;text-align:left;font-size:16px;cursor:pointer}
+.option:hover{border-color:#728b7b}.option.selected{border:2px solid #587563;background:#f0f5f1}
+.small{font-size:13px;color:#7a847f;margin:12px 0}.hidden{display:none}.result{font-size:16px;line-height:1.9}
 </style>
 </head>
 <body>
-<main class="app">
-<header class="top">
-  <div class="brand"><div class="fish">🐟</div><div><b>BILA</b><small>21日一起走</small></div></div>
-  <button class="iconbtn" onclick="openSettings()">⚙️</button>
-</header>
-
-<section id="home" class="screen">
-  <div class="hero"><span class="eyebrow" id="weekLabel">2026试用 · 第1周</span><h1 id="heroTitle">恩典没有围墙</h1><p id="heroTheme">看见自己的边界</p><div class="bila">🐟</div></div>
-
-  <div class="section-title">21日进度</div>
-  <div class="card">
-    <div class="weekrow"><strong>连续参与 <span id="streak">0</span> 天</strong><span class="tag" id="points">0 ⭐</span></div>
-    <div class="progress"><i id="progressBar"></i></div>
-    <div class="tiny" style="margin-top:8px" id="progressText">0 / 21 天</div>
-    <div class="days" style="margin-top:12px" id="days"></div>
-  </div>
-
-  <div class="section-title">今天</div>
-  <div class="card">
-    <span class="tag" id="todayTag">每日几分钟</span>
-    <h2 style="margin:12px 0 8px" id="todayTitle"></h2>
-    <p class="note" id="todayQuestion"></p>
-    <button class="btn primary" onclick="openToday()">开始今天</button>
-    <button class="btn ghost" style="margin-top:9px" onclick="openCatchup()">查看补做</button>
-  </div>
-
-  <div class="card"><p class="quote" id="bilaMessage">慢慢来，我们一起走。今天只做一件小事。</p></div>
-</section>
-
-<section id="today" class="screen hidden">
-<button class="back" onclick="show('home')">← 返回</button>
-<div class="section-title" id="todayHead"></div>
+<div class="app">
+<div class="badge">BILA｜发现式门训 · Day 1 原型 V0.1</div>
+<h1 class="title">恩典没有围墙</h1>
+<div class="lead">今天不急着找答案。先从经文里发现一个让你停下来的词。</div>
 
 <div class="card">
-  <span class="tag">今日主题</span>
-  <h2 id="todayThemeTitle" style="margin:12px 0 8px"></h2>
-  <p class="quote" id="lifeGuide"></p>
+<div class="label">生活导向</div>
+<div class="life">让神的恩典越过我的界限。</div>
 </div>
 
 <div class="card">
-  <span class="tag">今日经文 · 和合本</span>
-  <p class="tiny" id="scriptureRef" style="margin:10px 0 8px"></p>
-  <p class="scripture-text" id="scriptureText"></p>
+<div class="label">今日经文 · 和合本</div>
+<div class="scripture">路加福音 4:22–30
+
+众人都称赞他，并希奇他口中所出的恩言；又说：「这不是约瑟的儿子吗？」耶稣对他们说：「你们必引这俗语向我说：『医生，你医治自己吧！我们听见你在迦百农所行的事，也当行在你自己家乡里。』」又说：「我实在告诉你们，没有先知在自己家乡被人悦纳的。我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。」会堂里的人听见这话，都怒气满胸，就起来撵他出城。他们的城造在山上；他们带他到山崖，要把他推下去。他却从他们中间直行，过去了。</div>
 </div>
 
-<div class="card">
-  <span class="tag">今日问题</span>
-  <h2 class="choice-title" id="q"></h2>
-  <p class="note">不用写标准答案。诚实回答就可以。</p>
-</div>
+<div class="card" id="s1">
+<div class="label">第一步 · 发现</div>
+<div class="hint">从经文里选一个今天最先让你停下来的词。</div>
+<div class="options">
+<button class="option" data-v="恩言">恩言</button>
+<button class="option" data-v="家乡">家乡</button>
+<button class="option" data-v="乃缦">乃缦</button>
+<button class="option" data-v="怒气">怒气</button>
+</div></div>
 
-<div class="card">
-  <span class="tag">思考引导</span>
-  <p class="note" id="think"></p>
-  <textarea class="textarea" id="reflection" placeholder="写下你的想法……（可选）"></textarea>
-</div>
+<div class="card hidden" id="s2">
+<div class="label">第二步 · 再想一步</div>
+<div class="hint">你为什么会注意到这个词？不需要解释很多，选一个最接近的。</div>
+<div class="small" id="word"></div>
+<div class="options">
+<button class="option" data-v="想到自己">它让我想到自己</button>
+<button class="option" data-v="想到一个人">它让我想到一个人</button>
+<button class="option" data-v="想到最近的事">它让我想到最近的一件事</button>
+<button class="option" data-v="很重要但说不清">我觉得它很重要，但还说不清</button>
+</div></div>
 
-<div class="card">
-  <span class="tag">今日操练</span>
-  <p id="action"></p>
-  <button class="btn primary" onclick="completeToday()">我完成了今天的操练</button>
-  <p class="tiny" style="text-align:center;margin-top:10px">积分只是鼓励参与，不评价属灵程度。</p>
-</div>
-</section>
+<div class="card hidden" id="s3">
+<div class="label">第三步 · 我的发现</div>
+<div class="hint">把刚才的发现带回自己的生活。这里没有标准答案。</div>
+<div class="options">
+<button class="option" data-v="我看见自己的界限">我看见自己的界限</button>
+<button class="option" data-v="我想到需要接纳的人">我想到需要接纳的人</button>
+<button class="option" data-v="我重新看见神的恩典">我重新看见神的恩典</button>
+<button class="option" data-v="我还在思考">我还在思考</button>
+</div></div>
 
-<section id="review" class="screen hidden">
-<button class="back" onclick="show('home')">← 返回</button>
-<div class="section-title">周回顾</div>
-<div class="card"><span class="tag" id="reviewWeek"></span><h2 id="reviewTitle"></h2><p class="note">这一周不是考试，只是回头看看神在你里面做了什么。</p></div>
-<div class="card">
-<p><strong>我发现了什么？</strong></p><textarea class="textarea" id="review1"></textarea>
-<p><strong>我回应了什么？</strong></p><textarea class="textarea" id="review2"></textarea>
-<p><strong>我实践了什么？</strong></p><textarea class="textarea" id="review3"></textarea>
-<p><strong>下一步是什么？</strong></p><textarea class="textarea" id="review4"></textarea>
-<button class="btn primary" onclick="saveReview()">保存本周回顾</button>
-</div>
-</section>
+<div class="card hidden" id="s4">
+<div class="label">第四步 · 带进今天</div>
+<div class="hint">选择一个最小、真实、今天可以完成的回应。</div>
+<div class="options">
+<button class="option" data-v="主动问候一个人">主动问候一个平时容易忽略的人</button>
+<button class="option" data-v="认真听一个人">认真听一个人的故事，不急着评价</button>
+<button class="option" data-v="为一个人祷告">为一个我不容易接纳的人祷告</button>
+<button class="option" data-v="继续观察">今天先继续观察自己的反应</button>
+</div></div>
 
-<section id="report" class="screen hidden">
-<button class="back" onclick="show('home')">← 返回</button>
-<div class="section-title">21日成长回顾</div>
-<div class="card success"><div class="mascot">🐟</div><h2>你已经走过21日试用。</h2><p class="note">你不是完成了21个任务，而是练习把真理带进真实生活。</p></div>
-<div class="card">
-<div class="two"><div><small class="note">完成</small><h2 id="rDays">0 天</h2></div><div><small class="note">积分</small><h2 id="rPoints">0 ⭐</h2></div></div>
-<div class="two"><div><small class="note">实践</small><h2 id="rPractice">0 次</h2></div><div><small class="note">最长连续</small><h2 id="rStreak">0 天</h2></div></div>
-</div>
-<div class="card">
-<p><strong>我的发现</strong></p><textarea class="textarea" id="final1"></textarea>
-<p><strong>我的改变</strong></p><textarea class="textarea" id="final2"></textarea>
-<p><strong>我的关系行动</strong></p><textarea class="textarea" id="final3"></textarea>
-<p><strong>我的下一步</strong></p><textarea class="textarea" id="final4"></textarea>
-<button class="btn primary" onclick="saveFinal()">保存21日回顾</button>
-</div>
-</section>
-</main>
-
-<nav class="nav">
-<button class="active" onclick="nav('home',this)"><b>⌂</b>今日</button>
-<button onclick="nav('review',this)"><b>◷</b>回顾</button>
-<button onclick="nav('report',this)"><b>○</b>我的</button>
-</nav>
-
-<div id="settings" class="modal settings hidden" hidden aria-hidden="true">
-<div class="modal-card">
-<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">BILA提醒</h2><button id="settingsCloseBtn" class="iconbtn" type="button">✕</button></div>
-<p class="note">默认每天晚上 20:00 提醒。浏览器需要允许通知。</p>
-<div class="switchrow"><span>开启20:00提醒</span><button type="button" class="btn secondary" style="width:auto;position:relative;z-index:110;pointer-events:auto" id="notifyBtn">开启</button></div>
-<button id="testReminderBtn" class="btn ghost" type="button">测试一次提醒</button><div id="reminderStatus" class="tiny" style="margin-top:10px;min-height:20px"></div>
-<p class="tiny" style="margin-top:12px">说明：当前试用版在网页打开期间可以按20:00提醒；要实现关闭网页后仍稳定推送，需要下一阶段接入Web Push服务。</p>
-<button id="settingsDoneBtn" type="button" class="btn primary settings-done">完成</button>
+<div class="card hidden" id="done">
+<div class="label">我的 Day 1</div>
+<div class="result" id="summary"></div>
 </div>
 </div>
-
-<div id="catchup" class="modal catchup hidden" hidden aria-hidden="true">
-<div class="modal-card">
-<div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">补做</h2><button id="catchupCloseBtn" class="iconbtn" type="button">✕</button></div>
-<p class="note">昨天没有完成也没关系。可以补做，但补做不会增加连续天数。</p>
-<div id="catchupList"></div>
-<div id="catchupTestArea" class="tiny" style="margin-top:10px"></div>
-<button id="catchupBackBtn" type="button" class="btn ghost" style="margin-top:10px">返回</button>
-</div>
-</div>
-
 <script>
-const DAYS = [
-  {
-    "d": "2026-08-30",
-    "w": 1,
-    "type": "主日",
-    "title": "恩典没有围墙",
-    "guide": "神的恩典超越人的边界。",
-    "scripture": "路加福音 4:22–30",
-    "scriptureText": "众人都称赞他，并希奇他口中所出的恩言；又说：「这不是约瑟的儿子吗？」耶稣对他们说：「你们必引这俗语向我说：『医生，你医治自己吧！我们听见你在迦百农所行的事，也当行在你自己家乡里。』」又说：「我实在告诉你们，没有先知在自己家乡被人悦纳的。我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。会堂里的人听见这话，都怒气满胸，就起来撵他出城。他们的城造在山上；他们带他到山崖，要把他推下去。他却从他们中间直行，过去了。",
-    "q": "我愿意让神的恩典突破我习惯的界限。",
-    "think": "主日信息中，哪一句话最触动我？",
-    "action": "我有没有发现自己对神的恩典有某些固定想象？"
-  },
-  {
-    "d": "2026-08-31",
-    "w": 1,
-    "type": "每日 Day 2",
-    "title": "我的围墙在哪里？",
-    "guide": "今天先看见一个人，不急着评断他。",
-    "scripture": "路加福音 4:24–27",
-    "scriptureText": "又说：「我实在告诉你们，没有先知在自己家乡被人悦纳的。我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。」",
-    "q": "我对哪一类人最容易产生距离？",
-    "think": "耶稣提醒人，神的恩典不能被我们的群体边界限制。",
-    "action": "诚实写下一个自己容易排斥或忽略的人群。"
-  },
-  {
-    "d": "2026-09-01",
-    "w": 1,
-    "type": "每日 Day 3",
-    "title": "我为什么建立围墙？",
-    "guide": "今天先观察自己的反应，再决定怎样回应。",
-    "scripture": "路加福音 4:28–29",
-    "scriptureText": "会堂里的人听见这话，都怒气满胸，就起来撵他出城。他们的城造在山上；他们带他到山崖，要把他推下去。",
-    "q": "我为什么不愿意接近某些人？",
-    "think": "距离感可能来自恐惧、偏见、过去经验，也可能来自骄傲；先诚实观察自己。",
-    "action": "记录一个具体例子，今天不急着改变别人，只观察自己的内心。"
-  },
-  {
-    "d": "2026-09-02",
-    "w": 1,
-    "type": "每日 Day 4",
-    "title": "我要怎样回应？",
-    "guide": "先让神改变我的眼光，再改变我的行动。",
-    "scripture": "路加福音 4:25–27",
-    "scriptureText": "我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。",
-    "q": "如果神的恩典比我的边界更大，我需要改变什么？",
-    "think": "门训不是先要求别人改变，而是先让神的恩典改变我的眼光。",
-    "action": "完成一句话：「主啊，我愿意放下________。」"
-  },
-  {
-    "d": "2026-09-03",
-    "w": 1,
-    "type": "每日 Day 5",
-    "title": "跨出一步",
-    "guide": "今天主动靠近一个我容易忽略的人。",
-    "scripture": "路加福音 4:18–19",
-    "scriptureText": "「主的灵在我身上，因为他用膏膏我，叫我传福音给贫穷的人；差遣我报告：被掳的得释放，瞎眼的得看见，叫那受压制的得自由，报告神悦纳人的禧年。」",
-    "q": "我今天可以主动接近谁？",
-    "think": "耶稣的使命总是进入真实人的处境。",
-    "action": "主动问候、帮助或倾听一个平时容易忽略的人。"
-  },
-  {
-    "d": "2026-09-04",
-    "w": 1,
-    "type": "每日 Day 6",
-    "title": "学会看见人",
-    "guide": "今天用耶稣的眼光看一个具体的人。",
-    "scripture": "路加福音 4:18",
-    "scriptureText": "「主的灵在我身上，因为他用膏膏我，叫我传福音给贫穷的人。」",
-    "q": "如果用耶稣的眼光看这个人，我会看见什么？",
-    "think": "人不只是某一类人，而是神所看见的人。",
-    "action": "今天认真倾听一个人，不急着评价。"
-  },
-  {
-    "d": "2026-09-05",
-    "w": 1,
-    "type": "每日 Day 7",
-    "title": "第一周回顾",
-    "guide": "停下来，看见神这一周已经在我里面做了什么。",
-    "scripture": "路加福音 4:18–19",
-    "scriptureText": "「主的灵在我身上，因为他用膏膏我，叫我传福音给贫穷的人；差遣我报告：被掳的得释放，瞎眼的得看见，叫那受压制的得自由，报告神悦纳人的禧年。」",
-    "q": "我这一周发现了自己的哪一道「围墙」？",
-    "think": "回顾不是考试，而是看见神在我里面已经开始的工作。",
-    "action": "写下：我发现什么？我回应什么？我实践什么？下一步是什么？"
-  },
-  {
-    "d": "2026-09-06",
-    "w": 2,
-    "type": "主日",
-    "title": "耶稣正在呼召谁？",
-    "guide": "今天不要等一切都明白，先回应主已经说的话。",
-    "scripture": "路加福音 5:1–5",
-    "scriptureText": "耶稣站在革尼撒勒湖边，众人拥挤他，要听神的道。他见有两只船湾在湖边；打鱼的人却离开船洗网去了。有一只船是西门的，耶稣就上去，请他把船撑开，稍微离岸，就坐下，从船上教训众人。讲完了，对西门说：「把船开到水深之处，下网打鱼。」西门说：「夫子，我们整夜劳力，并没有打着什么。但依从你的话，我就下网。」",
-    "q": "彼得为什么愿意听耶稣的话？",
-    "think": "彼得不是等所有问题解决以后才回应，他先听见并愿意顺服。",
-    "action": "写下：「今天我感觉主提醒我……」"
-  },
-  {
-    "d": "2026-09-07",
-    "w": 2,
-    "type": "每日 Day 9",
-    "title": "顺服一个已经知道的真理",
-    "guide": "今天把一个已经知道的真理变成行动。",
-    "scripture": "路加福音 5:4–6",
-    "scriptureText": "讲完了，对西门说：「把船开到水深之处，下网打鱼。」西门说：「夫子，我们整夜劳力，并没有打着什么。但依从你的话，我就下网。」他们下了网，就圈住许多鱼，网险些裂开。",
-    "q": "彼得有没有等到所有问题都解决才顺服？",
-    "think": "跟随基督常常从一个已经知道、却还没有行动的真理开始。",
-    "action": "今天完成一件自己已经知道应该做、却一直拖延的事情。"
-  },
-  {
-    "d": "2026-09-08",
-    "w": 2,
-    "type": "每日 Day 10",
-    "title": "我的「网」是什么？",
-    "guide": "今天诚实面对一个我最难放下的东西。",
-    "scripture": "路加福音 5:8–11",
-    "scriptureText": "西门‧彼得看见，就俯伏在耶稣膝前，说：「主啊，离开我，我是个罪人！」他和一切同在的人都惊讶这一网所打的鱼。他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。",
-    "q": "我现在最难放下的是什么？",
-    "think": "安全感、面子、舒适、控制、金钱、习惯或自己的计划，都可能成为「网」。",
-    "action": "选择一个最真实的「网」，写下来。"
-  },
-  {
-    "d": "2026-09-09",
-    "w": 2,
-    "type": "每日 Day 11",
-    "title": "我愿意回应吗？",
-    "guide": "今天只走出一个真实而具体的跟随步骤。",
-    "scripture": "路加福音 5:10–11",
-    "scriptureText": "他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。",
-    "q": "如果我要更真实地跟随耶稣，我需要改变什么？",
-    "think": "回应不需要一次改变所有事情，只需要一个真实而具体的下一步。",
-    "action": "完成：「我愿意跟随主，在________上迈一步。」"
-  },
-  {
-    "d": "2026-09-10",
-    "w": 2,
-    "type": "每日 Day 12",
-    "title": "今天做一个决定",
-    "guide": "今天把昨天的回应变成一个具体决定。",
-    "scripture": "路加福音 5:11",
-    "scriptureText": "他们把两只船拢了岸，就撇下所有的，跟从了耶稣。",
-    "q": "今天我可以做哪一个具体决定？",
-    "think": "把昨天的回应变成今天可以完成的行动。",
-    "action": "今天完成一个与你昨天回应直接对应的行动。"
-  },
-  {
-    "d": "2026-09-11",
-    "w": 2,
-    "type": "每日 Day 13",
-    "title": "跟随会影响关系",
-    "guide": "今天让一个身边的人看见你的跟随。",
-    "scripture": "路加福音 5:10",
-    "scriptureText": "他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」",
-    "q": "我的跟随有没有让身边的人看见一点不同？",
-    "think": "跟随耶稣不会让门徒越来越封闭，而会逐渐影响身边的人。",
-    "action": "向一个可信任的人分享：「我最近正在学习跟随耶稣的一件事。」"
-  },
-  {
-    "d": "2026-09-12",
-    "w": 2,
-    "type": "每日 Day 14",
-    "title": "第二周回顾",
-    "guide": "停下来确认：我听见了什么，又真正做了什么？",
-    "scripture": "路加福音 5:1–11",
-    "scriptureText": "耶稣站在革尼撒勒湖边，众人拥挤他，要听神的道。他见有两只船湾在湖边；打鱼的人却离开船洗网去了。有一只船是西门的，耶稣就上去，请他把船撑开，稍微离岸，就坐下，从船上教训众人。讲完了，对西门说：「把船开到水深之处，下网打鱼。」西门说：「夫子，我们整夜劳力，并没有打着什么。但依从你的话，我就下网。」他们下了网，就圈住许多鱼，网险些裂开，便招呼那只船上的同伴来帮助。他们就来，把鱼装满了两只船，甚至船要沉下去。西门‧彼得看见，就俯伏在耶稣膝前，说：「主啊，离开我，我是个罪人！」他和一切同在的人都惊讶这一网所打的鱼。他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。",
-    "q": "我这周真正「放下」了什么？",
-    "think": "回顾：我听见了什么？我放下了什么？我做了什么？我还需要继续什么？",
-    "action": "完成四句记录：我听见／我放下／我行动／我继续。"
-  },
-  {
-    "d": "2026-09-13",
-    "w": 3,
-    "type": "主日",
-    "title": "耶稣看见利未",
-    "guide": "今天先看见人，再决定怎样走近他。",
-    "scripture": "路加福音 5:27–32",
-    "scriptureText": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」他就撇下所有的，起来，跟从了耶稣。利未在自己家里为耶稣大摆筵席，有许多税吏和别人和他们一同坐席。法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」",
-    "q": "耶稣首先做了什么？",
-    "think": "耶稣先看见利未，再呼召利未。门徒关系从真正看见一个人开始。",
-    "action": "今天主动注意一个平时容易被忽略的人。"
-  },
-  {
-    "d": "2026-09-14",
-    "w": 3,
-    "type": "每日 Day 16",
-    "title": "耶稣为什么呼召他？",
-    "guide": "不要等别人先变好，才决定是否靠近。",
-    "scripture": "路加福音 5:27–28",
-    "scriptureText": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」他就撇下所有的，起来，跟从了耶稣。",
-    "q": "我有没有认为某些人必须先改变才值得接近？",
-    "think": "耶稣没有要求利未先变好才跟随。恩典先临到人，然后生命开始改变。",
-    "action": "写下一个你容易先评断的人，并为他祷告。"
-  },
-  {
-    "d": "2026-09-15",
-    "w": 3,
-    "type": "每日 Day 17",
-    "title": "我最容易忽略谁？",
-    "guide": "今天不要改变这个人，先真正看见他。",
-    "scripture": "路加福音 5:29–32",
-    "scriptureText": "利未在自己家里为耶稣大摆筵席，有许多税吏和别人和他们一同坐席。法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」",
-    "q": "我生活中有没有一个人正在被我忽略？",
-    "think": "先诚实面对自己，不急着寻找漂亮答案。",
-    "action": "写下这个人的名字，并决定今天怎样真正看见他。"
-  },
-  {
-    "d": "2026-09-16",
-    "w": 3,
-    "type": "每日 Day 18",
-    "title": "主动走近",
-    "guide": "跟随耶稣，会把我带向真实的人。",
-    "scripture": "路加福音 5:27",
-    "scriptureText": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」",
-    "q": "如果我要跟随耶稣，我今天可以走近谁？",
-    "think": "跟随基督会把我们带向真实的人，而不是只停留在个人思想里。",
-    "action": "主动问候这个人。"
-  },
-  {
-    "d": "2026-09-17",
-    "w": 3,
-    "type": "每日 Day 19",
-    "title": "倾听",
-    "guide": "今天少一点急着说，多一点认真听。",
-    "scripture": "路加福音 5:30–32",
-    "scriptureText": "法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」",
-    "q": "我能不能少说一点，多听一点？",
-    "think": "倾听是进入一个人真实处境的一种具体方式。",
-    "action": "今天认真听一个人的故事或需要，不急着给建议。"
-  },
-  {
-    "d": "2026-09-18",
-    "w": 3,
-    "type": "每日 Day 20",
-    "title": "让恩典进入关系",
-    "guide": "让人从我的行动中感受到一点基督的恩典。",
-    "scripture": "路加福音 5:31–32",
-    "scriptureText": "耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」",
-    "q": "我怎样让这个人感受到一点基督的恩典？",
-    "think": "恩典不是抽象概念，它可以通过陪伴、帮助、鼓励和实际行动被看见。",
-    "action": "做一件具体关怀：帮助、鼓励、陪伴、祷告或实际解决一个小需要。"
-  },
-  {
-    "d": "2026-09-19",
-    "w": 3,
-    "type": "每日 Day 21",
-    "title": "21日总回顾",
-    "guide": "把这21天的发现带进下一步真实生活。",
-    "scripture": "路加福音 5:27–32",
-    "scriptureText": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」他就撇下所有的，起来，跟从了耶稣。利未在自己家里为耶稣大摆筵席，有许多税吏和别人和他们一同坐席。法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」",
-    "q": "这21天，我有没有更像一个跟随耶稣的人？",
-    "think": "回顾三条线：我看见了什么围墙？我放下了什么？我走近了谁？",
-    "action": "写下：我的发现／我的改变／我的关系行动／我的下一步。"
-  }
-];
-const START = '2026-08-30';
-const END = '2026-09-19';
-const KEY = 'bila16_v1';
-let state = {};
-try {
-  const raw = localStorage.getItem(KEY);
-  state = raw ? JSON.parse(raw) : {};
-} catch (e) {
-  console.warn('BILA本地数据异常，已自动重置。', e);
-  try { localStorage.removeItem(KEY); } catch (_) {}
-  state = {};
-}
-state.completed = state.completed || {};
-state.reflections = state.reflections || {};
-state.reviews = state.reviews || {};
-state.final = state.final || {};
-state.reminder = state.reminder || {enabled:false,lastDate:null};
-state.practice = state.practice || {};
-function save(){localStorage.setItem(KEY,JSON.stringify(state));}
-function isoToday(){return new Date().toISOString().slice(0,10);}
-function indexForDate(d){return DAYS.findIndex(x=>x.d===d);}
-function currentDayIndex(){
-  const now=new Date(); const today=now.toISOString().slice(0,10);
-  let i=indexForDate(today); if(i>=0)return i;
-  if(today<START)return 0; return DAYS.length-1;
-}
-function completedCount(){return Object.keys(state.completed).filter(k=>state.completed[k]).length;}
-function streak(){
-  let best=0,run=0, prev=null;
-  DAYS.forEach(x=>{if(state.completed[x.d]){if(prev && daysBetween(prev,x.d)===1)run++;else run=1;best=Math.max(best,run);prev=x.d;}});
-  return best;
-}
-function daysBetween(a,b){return Math.round((new Date(b)-new Date(a))/86400000);}
-function activeStreak(){
-  let run=0, last=null;
-  for(let i=DAYS.length-1;i>=0;i--){if(state.completed[DAYS[i].d]){if(!last)run=1;else if(daysBetween(DAYS[i].d,last)===1)run++;else break;last=DAYS[i].d;} else if(last) break;}
-  return run;
-}
-function update(){
-  const i=currentDayIndex(), d=DAYS[i], done=completedCount();
-  document.getElementById('weekLabel').textContent=`2026试用 · 第${d.w}周`;
-  document.getElementById('heroTitle').textContent=d.title;
-  document.getElementById('heroTheme').textContent=d.theme;
-  document.getElementById('streak').textContent=activeStreak();
-  document.getElementById('points').textContent=(done*10)+' ⭐';
-  document.getElementById('progressBar').style.width=Math.round(done/21*100)+'%';
-  document.getElementById('progressText').textContent=`${done} / 21 天`;
-  document.getElementById('todayTag').textContent=`Day ${i+1} · ${d.d}`;
-  document.getElementById('todayTitle').textContent=d.title;
-  document.getElementById('todayQuestion').textContent=d.q;
-  const box=document.getElementById('days'); box.innerHTML='';
-  const weekStart=Math.floor(i/7)*7;
-  DAYS.slice(weekStart,weekStart+7).forEach((x,j)=>{let el=document.createElement('div');el.className='day '+(state.completed[x.d]?'done':'')+((weekStart+j)===i?' today':'');el.innerHTML=`${weekStart+j+1}<br>${state.completed[x.d]?'✓':''}`;box.appendChild(el)});
-  document.getElementById('bilaMessage').textContent=state.completed[d.d]?'今天已经完成啦。慢慢来，我们一起走。':'今天只做一件小事，就很好。';
-  updateReminderButton();
-}
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});}
-function nav(id,el){show(id);document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));el.classList.add('active');if(id==='report')renderReport();}
-function openToday(){
-  const i=currentDayIndex(), d=DAYS[i];
-  document.getElementById('todayHead').textContent=`Day ${i+1} · ${d.d}`;
-  document.getElementById('todayThemeTitle').textContent=d.title;
-  document.getElementById('lifeGuide').textContent=d.guide;
-  document.getElementById('scriptureRef').textContent=`${d.scripture}｜和合本`;
-  document.getElementById('scriptureText').textContent=d.scriptureText;
-  document.getElementById('q').textContent=d.q;
-  document.getElementById('think').textContent=d.think;
-  document.getElementById('action').textContent=d.action;
-  document.getElementById('reflection').value=state.reflections[d.d]||'';
-  show('today');
-}
-function completeToday(){
-  const d=DAYS[currentDayIndex()];
-  state.completed[d.d]=true;
-  state.reflections[d.d]=document.getElementById('reflection').value.trim();
-  state.practice[d.d]=true;
-  save();
-  update();
-  document.getElementById('bilaMessage').textContent='今天已经完成啦。真理已经进入今天的生活。';
-  show('home');
-}
-function setModal(id, open){
-  const el=document.getElementById(id);
-  if(!el)return;
-  if(open){
-    el.hidden=false;
-    el.classList.remove('hidden');
-    el.setAttribute('aria-hidden','false');
-    el.style.display='flex';
-  }else{
-    el.hidden=true;
-    el.classList.add('hidden');
-    el.setAttribute('aria-hidden','true');
-    el.style.display='none';
-  }
-}
-function openCatchup(){
-  const today=currentDayIndex();
-  const missed=DAYS.slice(0,today).filter(x=>!state.completed[x.d]);
-  const box=document.getElementById('catchupList');
-  const testArea=document.getElementById('catchupTestArea');
-  box.innerHTML=''; testArea.innerHTML='';
-  if(!missed.length){
-    box.innerHTML='<p class="note">目前没有需要补做的日子。今天继续就好。</p>';
-    if(today===0){
-      const b=document.createElement('button');
-      b.type='button'; b.className='btn secondary'; b.textContent='测试补做 Day 1';
-      b.addEventListener('click',function(){
-        const d=DAYS[0];
-        state.completed[d.d]=true; state.practice[d.d]=true; save(); update();
-        testArea.textContent='测试补做已记录：Day 1。补做不会增加连续天数。';
-        openCatchup();
-      });
-      testArea.appendChild(b);
-    }
-  }else{
-    missed.slice(-7).forEach(d=>{
-      const b=document.createElement('button');
-      b.type='button'; b.className='btn secondary'; b.style.margin='6px 0';
-      b.textContent=`补做 ${d.d} · ${d.title}`;
-      b.addEventListener('click',function(){
-        state.completed[d.d]=true; state.practice[d.d]=true; save(); update();
-        box.innerHTML='<p class="note">已记录补做。补做不会增加连续天数。</p>';
-        testArea.innerHTML='';
-      });
-      box.appendChild(b);
-    });
-  }
-  setModal('catchup',true);
-}
-function closeCatchup(){setModal('catchup',false);}
-
-function openSettings(){
-  setModal('settings',true);
-  updateReminderButton();
-}
-function closeSettings(){setModal('settings',false);}
-
-function updateReminderButton(){const b=document.getElementById('notifyBtn');if(!b)return;b.textContent=state.reminder.enabled?'已开启 20:00':'开启 20:00';}
-function setReminderStatus(msg){const el=document.getElementById('reminderStatus');if(el)el.textContent=msg||'';}
-async function toggleReminder(){
-  if(!('Notification' in window)){setReminderStatus('当前浏览器不支持通知。');return;}
-  const p=await Notification.requestPermission();
-  if(p!=='granted'){setReminderStatus('未获得通知权限。请点击地址栏左侧的锁形图标 → 网站权限 → 通知 → 允许，然后重新开启。');return;}
-  state.reminder.enabled=true;save();updateReminderButton();setReminderStatus('已开启每天20:00提醒。请保持BILA页面打开进行本轮试用。');
-}
-function testReminder(){
-  if(!('Notification'in window)){setReminderStatus('当前浏览器不支持通知。');return;}
-  if(Notification.permission==='granted'){new Notification('BILA｜今天也一起走几分钟',{body:'今天的BILA还在等你。花几分钟，看看今天的经文吧。'});setReminderStatus('测试提醒已发送。');}
-  else setReminderStatus('请先获得通知权限，再测试提醒。');
-}
-function checkReminder(){
-  if(!state.reminder.enabled || Notification.permission!=='granted')return;
-  const now=new Date(), h=now.getHours(), m=now.getMinutes(), date=now.toISOString().slice(0,10);
-  if(h===20 && m<=10 && state.reminder.lastDate!==date && !state.completed[date]){
-    new Notification('BILA｜今天也一起走几分钟',{body:'今天的BILA还在等你。花几分钟，看看今天的经文吧。'});
-    state.reminder.lastDate=date;save();
-  }
-}
-function renderReport(){
-  const done=completedCount();document.getElementById('rDays').textContent=done+' 天';document.getElementById('rPoints').textContent=(done*10)+' ⭐';document.getElementById('rPractice').textContent=Object.keys(state.practice).length+' 次';document.getElementById('rStreak').textContent=streak()+' 天';
-  ['final1','final2','final3','final4'].forEach((id,i)=>document.getElementById(id).value=state.final[i]||'');
-}
-function saveFinal(){['final1','final2','final3','final4'].forEach((id,i)=>state.final[i]=document.getElementById(id).value.trim());save();}
-function saveReview(){const w=currentDayIndex()<7?1:currentDayIndex()<14?2:3;['review1','review2','review3','review4'].forEach((id,i)=>state.reviews[w+'-'+i]=document.getElementById(id).value.trim());save();}
-// V2.0：统一管理两个弹窗的打开/关闭，所有关闭按钮使用标准 click 事件。
-function bindModalEvents(){
-  const bind=(id,fn)=>{const el=document.getElementById(id); if(el) el.addEventListener('click',fn);};
-  bind('settingsCloseBtn',closeSettings);
-  bind('settingsDoneBtn',closeSettings);
-  bind('catchupCloseBtn',closeCatchup);
-  bind('catchupBackBtn',closeCatchup);
-  bind('notifyBtn',toggleReminder);
-  bind('testReminderBtn',testReminder);
-}
-if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bindModalEvents); else bindModalEvents();
-
-// V2.0：试用阶段暂不注册 Service Worker，避免旧缓存影响按钮与页面更新。
-// 如果浏览器中已有旧 Service Worker，主动注销。
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then(function(regs){ regs.forEach(function(r){ r.unregister(); }); }).catch(function(){});
-}
-setInterval(checkReminder,30000);
-checkReminder();
-update();
+const state={};
+function select(btn){btn.parentElement.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));btn.classList.add("selected")}
+function show(id){document.getElementById(id).classList.remove("hidden");document.getElementById(id).scrollIntoView({behavior:"smooth",block:"center"})}
+document.querySelectorAll("#s1 .option").forEach(b=>b.onclick=()=>{select(b);state.word=b.dataset.v;document.getElementById("word").textContent="你选择了：「"+state.word+"」";show("s2")});
+document.querySelectorAll("#s2 .option").forEach(b=>b.onclick=()=>{select(b);state.reason=b.dataset.v;show("s3")});
+document.querySelectorAll("#s3 .option").forEach(b=>b.onclick=()=>{select(b);state.discovery=b.dataset.v;show("s4")});
+document.querySelectorAll("#s4 .option").forEach(b=>b.onclick=()=>{select(b);state.action=b.dataset.v;document.getElementById("summary").innerHTML="我今天发现的词：<b>"+state.word+"</b><br>我注意它的原因："+state.reason+"<br>我的发现："+state.discovery+"<br>我的今日回应："+state.action;show("done")});
 </script>
-</body>
-</html>
+</body></html>
