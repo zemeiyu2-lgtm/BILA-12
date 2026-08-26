@@ -2,91 +2,115 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>BILA｜Day 1 发现式门训原型</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F6B83F">
+<title>BILA 2.0｜21天门训试验 V1.1</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f5f3ee;color:#26332d;font-family:"Microsoft YaHei",Arial,sans-serif}
-.app{max-width:720px;margin:auto;min-height:100vh;background:#fff;padding:28px 22px 44px}
-.badge{font-size:13px;color:#6c7771;margin-bottom:10px}.title{font-size:30px;margin:0 0 8px}.lead{font-size:16px;color:#65716b;line-height:1.7}
-.card{border:1px solid #e4e8e4;border-radius:16px;padding:20px;margin:16px 0}.label{font-size:13px;color:#6d7872;margin-bottom:9px}
-.life{font-size:19px;font-weight:700;line-height:1.6}.scripture{font-size:16px;line-height:2;white-space:pre-line}
-.hint{font-size:15px;color:#59645e;line-height:1.7}.options{display:grid;gap:10px;margin-top:14px}
-.option{width:100%;border:1px solid #dce2dd;border-radius:12px;padding:14px;background:#fafbf9;color:#29352f;text-align:left;font-size:16px;cursor:pointer}
-.option:hover{border-color:#728b7b}.option.selected{border:2px solid #587563;background:#f0f5f1}
-.small{font-size:13px;color:#7a847f;margin:12px 0}.hidden{display:none}.result{font-size:16px;line-height:1.9}
+:root{--gold:#f6b83f;--cream:#fffaf0;--ink:#292722;--muted:#777168;--card:#fff;--line:#eee3cd;--green:#69a66f;--shadow:0 10px 30px rgba(76,54,18,.08)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fff8e9,#fffdf8 58%,#f8fbf7);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}
+.app{max-width:480px;margin:auto;min-height:100vh;padding-bottom:92px}.top{padding:18px 20px 8px;display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:10px}.fish{width:44px;height:44px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:27px;box-shadow:var(--shadow)}.brand b{font-size:20px}.brand small{display:block;color:var(--muted);font-size:12px}.avatar{width:40px;height:40px;border-radius:50%;background:#fff3cf;display:grid;place-items:center;font-size:22px}
+.screen{padding:10px 20px}.hero{background:linear-gradient(135deg,#ffd875,#f5b43a);border-radius:28px;padding:24px 22px;color:#3d2a0d;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero h1{font-size:28px;line-height:1.25;margin:8px 0}.hero p{margin:0;line-height:1.7}.eyebrow{font-size:13px;font-weight:700;opacity:.75}.section-title{font-size:17px;margin:22px 2px 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);margin-bottom:12px}.tag{display:inline-block;padding:6px 10px;border-radius:99px;background:#fff1c8;color:#8b5b00;font-size:12px;font-weight:700}.note{font-size:13px;color:var(--muted);line-height:1.7}.verse{font-size:15px;line-height:1.9;background:#fffaf0;border-radius:16px;padding:14px}.guide{font-size:16px;line-height:1.7;font-weight:700}.btn{width:100%;border:0;border-radius:16px;padding:14px 16px;font-weight:800;cursor:pointer}.primary{background:var(--gold);color:#3b2a10}.secondary{background:#fff7df;color:#765116;border:1px solid #f2d797}.ghost{background:#f7f6f2;color:#615e58}.choice{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px;margin:9px 0;cursor:pointer;line-height:1.45}.choice.selected{border-color:var(--gold);background:#fff7df}.hidden{display:none}.back{border:0;background:none;padding:6px 0;color:#7a6a4e;font-weight:700}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);z-index:20}.nav button{border:0;background:transparent;color:#89837a;font-size:11px}.nav button b{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:#9a680d}.progress{height:8px;background:#eee7da;border-radius:99px;overflow:hidden}.progress i{display:block;height:100%;background:var(--gold);border-radius:99px}.daygrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{height:42px;border-radius:12px;background:#faf7f0;display:grid;place-items:center;font-size:11px;color:#8c867a}.day.done{background:#fff0c7;color:#8b5b00}.day.today{background:var(--gold);color:#3d2a0d;font-weight:800}.tiny{font-size:12px;color:var(--muted)}.toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#292722;color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;z-index:60;display:none}
 </style>
 </head>
 <body>
-<div class="app">
-<div class="badge">BILA｜发现式门训 · Day 1 原型 V0.1</div>
-<h1 class="title">恩典没有围墙</h1>
-<div class="lead">今天不急着找答案。先从经文里发现一个让你停下来的词。</div>
+<main class="app">
+<header class="top"><div class="brand"><div class="fish">🐟</div><div><b>BILA 2.0</b><small>21天一起走 · V1.1</small></div></div><div class="avatar">🙂</div></header>
 
-<div class="card">
-<div class="label">生活导向</div>
-<div class="life">让神的恩典越过我的界限。</div>
-</div>
+<section id="home" class="screen">
+<div class="hero"><span class="eyebrow" id="weekLabel">第1周 · 恩典</span><h1 id="homeTitle">恩典没有围墙</h1><p id="homeGuide">神的恩典超越人的边界。</p></div>
+<div class="section-title">21天进度</div>
+<div class="card"><div style="display:flex;justify-content:space-between"><strong><span id="doneCount">0</span> / 21 天</strong><span class="tag" id="todayTag">今天</span></div><div class="progress" style="margin-top:12px"><i id="progress"></i></div><div class="daygrid" id="daygrid" style="margin-top:12px"></div></div>
+<div class="section-title">今天</div>
+<div class="card"><span class="tag" id="mode">关键词发现</span><h2 id="todayTitle" style="margin:12px 0 8px"></h2><p class="note" id="todayPrompt"></p><button class="btn primary" onclick="openDay()">进入今天</button></div>
+<div class="card"><div class="guide" id="todayGuide"></div><p class="tiny" style="margin-bottom:0">不评分，不比较。每天只花几分钟，真实地想一想。</p></div>
+</section>
 
-<div class="card">
-<div class="label">今日经文 · 和合本</div>
-<div class="scripture">路加福音 4:22–30
+<section id="day" class="screen hidden">
+<button class="back" onclick="show('home')">← 返回</button>
+<div class="section-title"><span id="dayType"></span> · <span id="dayDate"></span></div>
+<div class="card"><span class="tag" id="dayMode"></span><h2 id="dayTitle"></h2><p class="guide" id="dayGuide"></p></div>
+<div class="card"><div class="section-title" style="margin-top:0">经文</div><p class="tiny" id="dayRef"></p><div class="verse" id="dayVerse"></div></div>
+<div class="card"><div class="section-title" style="margin-top:0">思考入口</div><p class="note">从下面选一个最接近你现在注意到的内容。</p><div id="choices"></div><p class="tiny">没有标准答案。选择只是帮助你开始思考。</p></div>
+<div class="card"><div class="section-title" style="margin-top:0">今日思考引导</div><p id="dayPrompt"></p><div class="hint" id="dayEntry"></div></div>
+<div class="card"><div class="section-title" style="margin-top:0">生活导向</div><p class="guide" id="dayLife"></p><div class="section-title">今日操练</div><p id="dayPractice"></p><button class="btn primary" onclick="completeDay()">完成今天</button></div>
+</section>
 
-众人都称赞他，并希奇他口中所出的恩言；又说：「这不是约瑟的儿子吗？」耶稣对他们说：「你们必引这俗语向我说：『医生，你医治自己吧！我们听见你在迦百农所行的事，也当行在你自己家乡里。』」又说：「我实在告诉你们，没有先知在自己家乡被人悦纳的。我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。」会堂里的人听见这话，都怒气满胸，就起来撵他出城。他们的城造在山上；他们带他到山崖，要把他推下去。他却从他们中间直行，过去了。</div>
-</div>
+<section id="track" class="screen hidden">
+<div class="section-title">我的21天轨迹</div>
+<div class="card"><h2>先看变化，不看分数</h2><p class="note">这里记录你实际完成过的天数和每天留下的思考入口。它不是属灵等级。</p><div id="trackList"></div></div>
+<div class="card"><strong>三周结束后</strong><p class="note">系统只帮助你看见重复出现的生命线索，不自动给你下结论。</p></div>
+</section>
+</main>
 
-<div class="card" id="s1">
-<div class="label">第一步 · 发现</div>
-<div class="hint">从经文里选一个今天最先让你停下来的词。</div>
-<div class="options">
-<button class="option" data-v="恩言">恩言</button>
-<button class="option" data-v="家乡">家乡</button>
-<button class="option" data-v="乃缦">乃缦</button>
-<button class="option" data-v="怒气">怒气</button>
-</div></div>
+<nav class="nav"><button class="active" onclick="nav('home',this)"><b>⌂</b>今天</button><button onclick="nav('track',this)"><b>◉</b>轨迹</button><button onclick="reminder()"><b>◷</b>20:00提醒</button></nav>
+<div id="toast" class="toast"></div>
 
-<div class="card hidden" id="s2">
-<div class="label">第二步 · 再想一步</div>
-<div class="hint">你为什么会注意到这个词？不需要解释很多，选一个最接近的。</div>
-<div class="small" id="word"></div>
-<div class="options">
-<button class="option" data-v="想到自己">它让我想到自己</button>
-<button class="option" data-v="想到一个人">它让我想到一个人</button>
-<button class="option" data-v="想到最近的事">它让我想到最近的一件事</button>
-<button class="option" data-v="很重要但说不清">我觉得它很重要，但还说不清</button>
-</div></div>
-
-<div class="card hidden" id="s3">
-<div class="label">第三步 · 我的发现</div>
-<div class="hint">把刚才的发现带回自己的生活。这里没有标准答案。</div>
-<div class="options">
-<button class="option" data-v="我看见自己的界限">我看见自己的界限</button>
-<button class="option" data-v="我想到需要接纳的人">我想到需要接纳的人</button>
-<button class="option" data-v="我重新看见神的恩典">我重新看见神的恩典</button>
-<button class="option" data-v="我还在思考">我还在思考</button>
-</div></div>
-
-<div class="card hidden" id="s4">
-<div class="label">第四步 · 带进今天</div>
-<div class="hint">选择一个最小、真实、今天可以完成的回应。</div>
-<div class="options">
-<button class="option" data-v="主动问候一个人">主动问候一个平时容易忽略的人</button>
-<button class="option" data-v="认真听一个人">认真听一个人的故事，不急着评价</button>
-<button class="option" data-v="为一个人祷告">为一个我不容易接纳的人祷告</button>
-<button class="option" data-v="继续观察">今天先继续观察自己的反应</button>
-</div></div>
-
-<div class="card hidden" id="done">
-<div class="label">我的 Day 1</div>
-<div class="result" id="summary"></div>
-</div>
-</div>
 <script>
-const state={};
-function select(btn){btn.parentElement.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));btn.classList.add("selected")}
-function show(id){document.getElementById(id).classList.remove("hidden");document.getElementById(id).scrollIntoView({behavior:"smooth",block:"center"})}
-document.querySelectorAll("#s1 .option").forEach(b=>b.onclick=()=>{select(b);state.word=b.dataset.v;document.getElementById("word").textContent="你选择了：「"+state.word+"」";show("s2")});
-document.querySelectorAll("#s2 .option").forEach(b=>b.onclick=()=>{select(b);state.reason=b.dataset.v;show("s3")});
-document.querySelectorAll("#s3 .option").forEach(b=>b.onclick=()=>{select(b);state.discovery=b.dataset.v;show("s4")});
-document.querySelectorAll("#s4 .option").forEach(b=>b.onclick=()=>{select(b);state.action=b.dataset.v;document.getElementById("summary").innerHTML="我今天发现的词：<b>"+state.word+"</b><br>我注意它的原因："+state.reason+"<br>我的发现："+state.discovery+"<br>我的今日回应："+state.action;show("done")});
+const DAYS = [{"date": "2026-08-30", "type": "主日", "title": "恩典没有围墙", "guide": "神的恩典超越人的边界。", "ref": "路加福音 4:22–30", "mode": "关键词发现", "entry": "恩言／家乡／乃缦／怒气", "prompt": "今天先从一个关键词进入这段经文。", "practice": "写下一句话：我今天重新认识到神的恩典……", "verse": "众人都称赞他，并希奇他口中所出的恩言；又说：「这不是约瑟的儿子吗？」耶稣对他们说：「你们必引这俗语向我说：『医生，你医治自己吧！我们听见你在迦百农所行的事，也当行在你自己家乡里。』」又说：「我实在告诉你们，没有先知在自己家乡被人悦纳的。我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。」会堂里的人听见这话，都怒气满胸，就起来撵他出城。他们的城造在山上；他们带他到山崖，要把他推下去。他却从他们中间直行，过去了。"}, {"date": "2026-08-31", "type": "每日", "title": "我的围墙在哪里？", "guide": "今天先看见一个人，不急着评断他。", "ref": "路加福音 4:24–27", "mode": "人物观察", "entry": "容易被自己放远的人／群体", "prompt": "今天把注意力放在一个具体的人或群体。", "practice": "记录一个自己容易排斥或忽略的人群。", "verse": "我实在告诉你们，没有先知在自己家乡被人悦纳的。我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。"}, {"date": "2026-09-01", "type": "每日", "title": "我为什么建立围墙？", "guide": "今天先观察自己的反应，再决定怎样回应。", "ref": "路加福音 4:28–29", "mode": "反应观察", "entry": "怒气／偏见／过去经验／骄傲／其他", "prompt": "今天辨认一个最接近自己真实反应的关键词。", "practice": "记录一个具体例子，只观察自己的内心。", "verse": "会堂里的人听见这话，都怒气满胸，就起来撵他出城。他们的城造在山上；他们带他到山崖，要把他推下去。"}, {"date": "2026-09-02", "type": "每日", "title": "我要怎样回应？", "guide": "先让神改变我的眼光，再改变我的行动。", "ref": "路加福音 4:25–27", "mode": "边界对照", "entry": "我的界限／神的恩典／我还说不清", "prompt": "今天看见自己的界限，也看见神恩典的范围。", "practice": "完成一句话：「主啊，我愿意放下________。」", "verse": "我对你们说实话：当以利亚的时候，天闭塞了三年零六个月，遍地有大饥荒。那时，以色列中有许多寡妇；以利亚并没有奉差往她们一个人那里去，只奉差往西顿的撒勒法，一个寡妇那里去。先知以利沙的时候，以色列中有许多长大麻风的；但内中除了叙利亚国的乃缦，没有一个得洁净的。"}, {"date": "2026-09-03", "type": "每日", "title": "跨出一步", "guide": "今天主动靠近一个我容易忽略的人。", "ref": "路加福音 4:18–19", "mode": "使命场景", "entry": "贫穷／被掳／瞎眼／受压制", "prompt": "今天从一个具体处境看见耶稣所关心的人。", "practice": "主动问候、帮助或倾听一个平时容易忽略的人。", "verse": "「主的灵在我身上，因为他用膏膏我，叫我传福音给贫穷的人；差遣我报告：被掳的得释放，瞎眼的得看见，叫那受压制的得自由，报告神悦纳人的禧年。」"}, {"date": "2026-09-04", "type": "每日", "title": "学会看见人", "guide": "今天用耶稣的眼光看一个具体的人。", "ref": "路加福音 4:18", "mode": "视角转换", "entry": "我的看法／经文的看法／我还没看见的", "prompt": "今天重新观察一个具体的人。", "practice": "认真倾听一个人，不急着评价。", "verse": "「主的灵在我身上，因为他用膏膏我，叫我传福音给贫穷的人。」"}, {"date": "2026-09-05", "type": "每日", "title": "第一周回顾", "guide": "停下来，看见这一周已经发生了什么。", "ref": "路加福音 4:18–19", "mode": "一周回看", "entry": "围墙／眼光／行动", "prompt": "今天把一周的发现连成一条线。", "practice": "记录：我看见什么？我回应什么？我实践什么？", "verse": "「主的灵在我身上，因为他用膏膏我，叫我传福音给贫穷的人；差遣我报告：被掳的得释放，瞎眼的得看见，叫那受压制的得自由，报告神悦纳人的禧年。」"}, {"date": "2026-09-06", "type": "主日", "title": "放下网，跟随祂", "guide": "不要等一切都明白，先回应主已经说的话。", "ref": "路加福音 5:1–11", "mode": "人物选择", "entry": "彼得的处境／耶稣的话／彼得的回应", "prompt": "今天从彼得的真实处境进入呼召。", "practice": "写下：今天我感觉主提醒我……", "verse": "耶稣站在革尼撒勒湖边，众人拥挤他，要听神的道。他见有两只船湾在湖边；打鱼的人却离开船洗网去了。有一只船是西门的，耶稣就上去，请他把船撑开，稍微离岸，就坐下，从船上教训众人。讲完了，对西门说：「把船开到水深之处，下网打鱼。」西门说：「夫子，我们整夜劳力，并没有打着什么。但依从你的话，我就下网。」他们下了网，就圈住许多鱼，网险些裂开。便招呼那只船上的同伴来帮助。他们就来，把鱼装满了两只船，甚至船要沉下去。西门‧彼得看见，就俯伏在耶稣膝前，说：「主啊，离开我，我是个罪人！」他和一切同在的人都惊讶这一网所打的鱼。他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。"}, {"date": "2026-09-07", "type": "每日", "title": "顺服一个已经知道的真理", "guide": "今天把一个已经知道的真理变成行动。", "ref": "路加福音 5:4–6", "mode": "行动对照", "entry": "已经知道／还没有行动／已经开始行动", "prompt": "今天把知道与实行放在一起观察。", "practice": "完成一件已经知道应该做、却一直拖延的事情。", "verse": "讲完了，对西门说：「把船开到水深之处，下网打鱼。」西门说：「夫子，我们整夜劳力，并没有打着什么。但依从你的话，我就下网。」他们下了网，就圈住许多鱼，网险些裂开。"}, {"date": "2026-09-08", "type": "每日", "title": "我的“网”是什么？", "guide": "今天诚实面对一个我最难放下的东西。", "ref": "路加福音 5:8–11", "mode": "象征联想", "entry": "安全感／面子／舒适／控制／金钱／习惯／自己的计划", "prompt": "今天让「网」成为一个可以辨认的生命线索。", "practice": "选择一个最真实的「网」，写下来。", "verse": "西门‧彼得看见，就俯伏在耶稣膝前，说：「主啊，离开我，我是个罪人！」他和一切同在的人都惊讶这一网所打的鱼。他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。"}, {"date": "2026-09-09", "type": "每日", "title": "我愿意回应吗？", "guide": "今天只走出一个真实而具体的跟随步骤。", "ref": "路加福音 5:10–11", "mode": "一步选择", "entry": "放下一点／开始一点／靠近一点／还说不清", "prompt": "今天只辨认一个可以迈出的步骤。", "practice": "完成：「我愿意跟随主，在________上迈一步。」", "verse": "他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。"}, {"date": "2026-09-10", "type": "每日", "title": "今天做一个决定", "guide": "今天把回应变成一个具体决定。", "ref": "路加福音 5:11", "mode": "决定场景", "entry": "回应／决定／第一个动作", "prompt": "今天把跟随落实到一个时间中的动作。", "practice": "完成一个与你昨天回应直接对应的行动。", "verse": "他们把两只船拢了岸，就撇下所有的，跟从了耶稣。"}, {"date": "2026-09-11", "type": "每日", "title": "跟随会影响关系", "guide": "今天让一个身边的人看见你的跟随。", "ref": "路加福音 5:10", "mode": "关系回声", "entry": "自己／家人／同工／朋友／其他", "prompt": "今天观察跟随如何进入关系。", "practice": "向一个可信任的人分享：我最近正在学习跟随耶稣的一件事。", "verse": "他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」"}, {"date": "2026-09-12", "type": "每日", "title": "第二周回顾", "guide": "确认：我听见了什么，又真正做了什么？", "ref": "路加福音 5:1–11", "mode": "轨迹回看", "entry": "听见／放下／行动／继续", "prompt": "今天回看第二周的四个关键词。", "practice": "完成四句：我听见／我放下／我行动／我继续。", "verse": "耶稣站在革尼撒勒湖边，众人拥挤他，要听神的道。他见有两只船湾在湖边；打鱼的人却离开船洗网去了。有一只船是西门的，耶稣就上去，请他把船撑开，稍微离岸，就坐下，从船上教训众人。讲完了，对西门说：「把船开到水深之处，下网打鱼。」西门说：「夫子，我们整夜劳力，并没有打着什么。但依从你的话，我就下网。」他们下了网，就圈住许多鱼，网险些裂开。便招呼那只船上的同伴来帮助。他们就来，把鱼装满了两只船，甚至船要沉下去。西门‧彼得看见，就俯伏在耶稣膝前，说：「主啊，离开我，我是个罪人！」他和一切同在的人都惊讶这一网所打的鱼。他的伙伴西庇太的儿子雅各、约翰，也是这样。耶稣对西门说：「不要怕！从今以后，你要得人了。」他们把两只船拢了岸，就撇下所有的，跟从了耶稣。"}, {"date": "2026-09-13", "type": "主日", "title": "跟随，就走近人", "guide": "今天先看见人，再决定怎样走近他。", "ref": "路加福音 5:27–32", "mode": "动作观察", "entry": "看见／呼召／跟随／坐席／发怨言", "prompt": "今天从连续动作进入耶稣与人的关系场景。", "practice": "主动注意一个平时容易被忽略的人。", "verse": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」他就撇下所有的，起来，跟从了耶稣。利未在自己家里为耶稣大摆筵席，有许多税吏和别人和他们一同坐席。法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」"}, {"date": "2026-09-14", "type": "每日", "title": "耶稣为什么呼召他？", "guide": "不要等别人先变好，才决定是否靠近。", "ref": "路加福音 5:27–28", "mode": "顺序观察", "entry": "看见 → 呼召 → 跟随", "prompt": "今天注意生命改变发生的先后关系。", "practice": "写下一个容易先评断的人，并为他祷告。", "verse": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」他就撇下所有的，起来，跟从了耶稣。"}, {"date": "2026-09-15", "type": "每日", "title": "我最容易忽略谁？", "guide": "今天不要改变这个人，先真正看见他。", "ref": "路加福音 5:29–32", "mode": "位置选择", "entry": "利未／法利赛人／耶稣的眼光／旁观者", "prompt": "今天在同一场景中辨认自己的位置。", "practice": "写下这个人的名字，并决定今天怎样真正看见他。", "verse": "利未在自己家里为耶稣大摆筵席，有许多税吏和别人和他们一同坐席。法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」"}, {"date": "2026-09-16", "type": "每日", "title": "主动走近", "guide": "跟随耶稣，会把我带向真实的人。", "ref": "路加福音 5:27", "mode": "距离变化", "entry": "远处看见／走近／停留／继续跟随", "prompt": "今天把「跟随」具体化为人与人的距离变化。", "practice": "主动问候这个人。", "verse": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」"}, {"date": "2026-09-17", "type": "每日", "title": "倾听", "guide": "今天少一点急着说，多一点认真听。", "ref": "路加福音 5:30–32", "mode": "声音观察", "entry": "发怨言／解释／倾听／回应", "prompt": "今天先分辨场景中的不同声音。", "practice": "认真听一个人的故事或需要，不急着给建议。", "verse": "法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」"}, {"date": "2026-09-18", "type": "每日", "title": "让恩典进入关系", "guide": "让人从我的行动中感受到一点基督的恩典。", "ref": "路加福音 5:31–32", "mode": "行动选择", "entry": "陪伴／帮助／鼓励／祷告／解决小需要", "prompt": "今天让「恩典」从概念进入具体关系。", "practice": "做一件具体关怀：帮助、鼓励、陪伴、祷告或实际解决一个小需要。", "verse": "耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」"}, {"date": "2026-09-19", "type": "每日", "title": "21日总回顾", "guide": "把这21天的发现带进下一步真实生活。", "ref": "路加福音 5:27–32", "mode": "三周轨迹回看", "entry": "围墙／放下／走近／下一步", "prompt": "今天只看重复出现的生命线索，不评分。", "practice": "写下：我的发现／我的改变／我的关系行动／我的下一步。", "verse": "这事以后，耶稣出去，看见一个税吏，名叫利未，坐在税关上，就对他说：「你跟从我来。」他就撇下所有的，起来，跟从了耶稣。利未在自己家里为耶稣大摆筵席，有许多税吏和别人和他们一同坐席。法利赛人和文士就向耶稣的门徒发怨言说：「你们为什么和税吏并罪人一同吃喝呢？」耶稣对他们说：「无病的人用不着医生，有病的人才用得着。我来本不是召义人悔改，乃是召罪人悔改。」"}];
+const START = new Date('2026-08-30T00:00:00');
+let currentIndex=0, selectedChoice='';
+
+function key(i){return 'bila21_'+i}
+function localDate(){const d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
+function activeIndex(){
+  const d=localDate(); const diff=Math.floor((d-START)/86400000);
+  return Math.max(0,Math.min(DAYS.length-1,diff));
+}
+function completed(i){return localStorage.getItem(key(i))==='done'}
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');window.scrollTo(0,0)}
+function nav(id,el){show(id);document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(el)el.classList.add('active');if(id==='track')renderTrack()}
+function renderHome(){
+ currentIndex=activeIndex(); const d=DAYS[currentIndex];
+ document.getElementById('weekLabel').textContent=currentIndex<7?'第1周 · 恩典':currentIndex<14?'第2周 · 跟随':'第3周 · 走近人';
+ document.getElementById('homeTitle').textContent=d.title;
+ document.getElementById('homeGuide').textContent=d.guide;
+ document.getElementById('mode').textContent=d.mode;
+ document.getElementById('todayTitle').textContent=d.title;
+ document.getElementById('todayPrompt').textContent=d.prompt;
+ document.getElementById('todayGuide').textContent=d.guide;
+ const done=DAYS.filter((_,i)=>completed(i)).length;
+ document.getElementById('doneCount').textContent=done;
+ document.getElementById('progress').style.width=(done/DAYS.length*100)+'%';
+ document.getElementById('daygrid').innerHTML=DAYS.map((x,i)=>'<div class="day '+(completed(i)?'done ':'')+(i===currentIndex?'today':'')+'">'+(i+1)+(completed(i)?' ✓':'')+'</div>').join('');
+}
+function openDay(){renderDay(currentIndex);show('day')}
+function renderDay(i){
+ currentIndex=i; selectedChoice=localStorage.getItem('bila_choice_'+i)||'';
+ const d=DAYS[i];
+ document.getElementById('dayType').textContent=d.type;
+ document.getElementById('dayDate').textContent=d.date;
+ document.getElementById('dayMode').textContent=d.mode;
+ document.getElementById('dayTitle').textContent=d.title;
+ document.getElementById('dayGuide').textContent=d.guide;
+ document.getElementById('dayRef').textContent=d.ref;
+ document.getElementById('dayVerse').textContent=d.verse;
+ document.getElementById('dayPrompt').textContent=d.prompt;
+ document.getElementById('dayEntry').textContent=d.entry;
+ document.getElementById('dayLife').textContent=d.guide;
+ document.getElementById('dayPractice').textContent=d.practice;
+ const arr=d.entry.split(/[／/]/).map(x=>x.trim()).filter(Boolean);
+ document.getElementById('choices').innerHTML=arr.map(x=>'<button class="choice '+(selectedChoice===x?'selected':'')+'" onclick="choose(this,\''+escapeAttr(x)+'\')">'+x+'</button>').join('');
+}
+function escapeAttr(s){return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
+function choose(el,v){selectedChoice=v;document.querySelectorAll('.choice').forEach(x=>x.classList.remove('selected'));el.classList.add('selected');localStorage.setItem('bila_choice_'+currentIndex,v)}
+function completeDay(){
+ if(!selectedChoice){toast('先选一个思考入口，再完成今天。');return}
+ localStorage.setItem(key(currentIndex),'done');
+ localStorage.setItem('bila_done_at_'+currentIndex,new Date().toISOString());
+ toast('今天已记录。不是考试，只记录真实参与。');
+ setTimeout(()=>{renderHome();show('home')},650);
+}
+function renderTrack(){
+ const html=DAYS.map((d,i)=>completed(i)?'<div style="padding:10px 0;border-bottom:1px solid var(--line)"><strong>Day '+(i+1)+' · '+d.title+'</strong><div class="tiny">'+(localStorage.getItem('bila_choice_'+i)||'已完成')+'</div></div>':'').join('');
+ document.getElementById('trackList').innerHTML=html||'<p class="note">还没有完成记录。今天开始即可。</p>';
+}
+function reminder(){
+ const msg='BILA 20:00 提醒：今天花几分钟，进入经文，想一想，再走一步。';
+ if('Notification' in window){
+   Notification.requestPermission().then(p=>{if(p==='granted')toast('浏览器提醒权限已开启；网页保持打开时可提醒。');else toast(msg)})
+ }else toast(msg);
+}
+function toast(s){const t=document.getElementById('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2600)}
+renderHome();
 </script>
 </body></html>
