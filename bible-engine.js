@@ -3347,64 +3347,10 @@ if (
     getWeekCount:
       getWeekCount,
 
-   async function getWeek(weekNumber) {
-  ...
-}
+  
 
 
 
-window.BilaBible = {
-
-  getWeek:
-    getWeek,
-
-
-   
-
-    getWeekBible:
-      getWeekBible,
-
-    getWeekBibleText:
-      getWeekBibleText,
-
-    getAllWeeksWithBible:
-      getAllWeeksWithBible,
-
-
-    // ----------------------------
-    // 缓存
-    // ----------------------------
-
-    clearBibleCache:
-      clearBibleCache,
-
-    clearCurriculumCache:
-      clearCurriculumCache,
-
-    clearAllCache:
-      clearAllCache,
-
-
-    // ----------------------------
-    // 测试
-    // ----------------------------
-
-    testBibleReference:
-      testBibleReference,
-
-    testJohn1:
-      testJohn1,
-
-    testBilaReferences:
-      testBilaReferences,
-
-    testWeek1:
-      testWeek1,
-
-    testWeek:
-      testWeek
-
-  };
 
 
   console.log(
