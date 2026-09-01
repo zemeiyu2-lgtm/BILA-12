@@ -1330,33 +1330,85 @@ function bibleTextFromData(data){
   return "";
 }
 
+const WEEK_BIBLE_CACHE = {};
+
 async function loadWeekBible(course){
 
-  if(
-    !window.BilaBible
-  ){
-
+  if(!window.BilaBible){
     throw new Error(
       "bible-engine.js 没有成功加载"
     );
-
   }
 
-  if(
-    typeof BilaBible.getWeekBible !==
-    "function"
-  ){
-
+  if(typeof BilaBible.data !== "function"){
     throw new Error(
-      "Bible Engine V3 接口不存在"
+      "Bible Engine V3.1 没有提供经文读取接口"
+    );
+  }
+
+  const reference =
+    String(
+      course.reference || ""
+    ).trim();
+
+  if(!reference){
+    throw new Error(
+      `第${course.week}周没有经文引用`
+    );
+  }
+
+  // 同一周的主日、周一至周六共享同一份经文数据。
+  // 只读取一次，避免重复请求和接口状态冲突。
+  if(WEEK_BIBLE_CACHE[reference]){
+    return {
+      week: course.week,
+      reference,
+      bible: WEEK_BIBLE_CACHE[reference],
+      sundayTheme: course.sundayTheme || "",
+      bilaTheme: course.bilaTheme || "",
+      practice: course.practice || "",
+      groupFeedback: course.groupFeedback || "",
+      mission: course.mission || ""
+    };
+  }
+
+  const bible =
+    await BilaBible.data(
+      reference
     );
 
+  if(
+    !bible ||
+    (
+      !bible.text &&
+      !(
+        Array.isArray(bible.verses) &&
+        bible.verses.length
+      ) &&
+      !(
+        Array.isArray(bible.sections) &&
+        bible.sections.length
+      )
+    )
+  ){
+    throw new Error(
+      `未读取到经文：${reference}`
+    );
   }
 
-  return BilaBible.getWeekBible(
-    course.week
-  );
+  WEEK_BIBLE_CACHE[reference] =
+    bible;
 
+  return {
+    week: course.week,
+    reference,
+    bible,
+    sundayTheme: course.sundayTheme || "",
+    bilaTheme: course.bilaTheme || "",
+    practice: course.practice || "",
+    groupFeedback: course.groupFeedback || "",
+    mission: course.mission || ""
+  };
 }
 
 
@@ -2197,6 +2249,12 @@ function markSunday(id){
     500
   );
 
+}
+
+function clearWeekBibleCache(){
+  Object.keys(WEEK_BIBLE_CACHE).forEach(
+    key => delete WEEK_BIBLE_CACHE[key]
+  );
 }
 
 function closeDayModal(){
