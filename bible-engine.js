@@ -3351,9 +3351,7 @@ if (
   ...
 }
 
-async function getAllWeeks() {
-  return await loadCurriculum();
-}
+
 
 window.BilaBible = {
 
@@ -3361,8 +3359,7 @@ window.BilaBible = {
     getWeek,
 
 
-    getAllWeeks:
-      getAllWeeks,
+   
 
     getWeekBible:
       getWeekBible,
