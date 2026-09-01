@@ -2221,6 +2221,16 @@ async function inspectNativeBookFormat() {
 // PART 4 / 4
 //
 // 52周课程读取
+
+// 状态检查
+// 缓存控制
+// BilaBible 对外接口
+//
+// ================================================================
+// BILA Bible Engine V4.1
+// PART 4 / 4
+//
+// 52周课程读取
 // getWeek()
 // getWeekBible()
 // 状态检查
@@ -2702,14 +2712,12 @@ async function getWeekBible(
       course["主日主题"] ||
       course.theme ||
       course.title ||
-      course["标题"] ||
       "",
 
     bilaTheme:
       course.bila_theme ||
       course["BILA主题"] ||
       course.focus ||
-      course["焦点"] ||
       "",
 
     practice:
@@ -2761,7 +2769,16 @@ async function getWeekBibleText(
 
 
 // ================================================================
-// 36. 获取全年课程
+// 36. 获取全年课程（仅元数据，不包含经文）
+// ================================================================
+
+async function getAllWeeks() {
+  return await loadCurriculum();
+}
+
+
+// ================================================================
+// 37. 获取全年课程 + 经文
 // ================================================================
 
 async function getAllWeeksWithBible() {
@@ -2870,7 +2887,7 @@ async function getAllWeeksWithBible() {
 
 
 // ================================================================
-// 37. 数据库状态
+// 38. 数据库状态
 // ================================================================
 
 async function bibleEngineStatus() {
@@ -2974,7 +2991,7 @@ async function bibleEngineStatus() {
 
 
 // ================================================================
-// 38. 清除圣经缓存
+// 39. 清除圣经缓存
 // ================================================================
 
 function clearBibleCache() {
@@ -2994,7 +3011,7 @@ function clearBibleCache() {
 
 
 // ================================================================
-// 39. 清除课程缓存
+// 40. 清除课程缓存
 // ================================================================
 
 function clearCurriculumCache() {
@@ -3014,7 +3031,7 @@ function clearCurriculumCache() {
 
 
 // ================================================================
-// 40. 清除全部缓存
+// 41. 清除全部缓存
 // ================================================================
 
 function clearAllCache() {
@@ -3032,7 +3049,7 @@ function clearAllCache() {
 
 
 // ================================================================
-// 41. 单项测试
+// 42. 测试任意引用
 // ================================================================
 
 async function testBibleReference(
@@ -3089,7 +3106,7 @@ async function testBibleReference(
 
 
 // ================================================================
-// 42. 测试约翰福音1章
+// 43. 测试约1:1-18
 // ================================================================
 
 async function testJohn1() {
@@ -3102,7 +3119,7 @@ async function testJohn1() {
 
 
 // ================================================================
-// 43. 测试全年引用格式
+// 44. 测试全年引用格式
 // ================================================================
 
 async function testBilaReferences() {
@@ -3209,68 +3226,216 @@ async function testBilaReferences() {
 
 
 // ================================================================
-// 44. 获取所有周次（不加载经文）
+// 45. 测试第1周
 // ================================================================
-async function getAllWeeks() {
-  return await loadCurriculum();
+
+async function testWeek1() {
+
+  const result =
+    await getWeekBible(
+      1
+    );
+
+
+  console.log(
+    "========================================"
+  );
+
+  console.log(
+    "📅 第1周测试"
+  );
+
+  console.log(
+    "========================================"
+  );
+
+  console.log(
+    result
+  );
+
+
+  return result;
+
 }
 
+
 // ================================================================
-// 45. 唯一对外接口 BilaBible
+// 46. 测试指定周
 // ================================================================
 
-if (typeof window !== "undefined") {
+async function testWeek(
+  weekNumber
+) {
+
+  const result =
+    await getWeekBible(
+      Number(
+        weekNumber
+      )
+    );
+
+
+  console.log(
+    `✅ 第${weekNumber}周读取完成`
+  );
+
+
+  console.log(
+    result
+  );
+
+
+  return result;
+
+}
+
+
+// ================================================================
+// 47. 对外暴露 BilaBible（唯一接口）
+// ================================================================
+
+if (
+  typeof window !==
+  "undefined"
+) {
+
   window.BilaBible = {
 
-    // ---- 数据库 ----
-    loadDatabase: loadBibleDatabase,
-    getBook: getBibleBook,
-    status: bibleEngineStatus,
+    // 数据库
+    loadDatabase:
+      loadBibleDatabase,
 
-    // ---- 圣经读取 ----
-    verse: getBibleVerse,
-    chapter: getBibleChapter,
-    passage: getBiblePassage,
-    text: getBibleText,
-    data: getBibleData,
-    referenceText: getBibleReferenceText,
-    parse: parseBibleReference,
+    getBook:
+      getBibleBook,
 
-    // ---- 课程 ----
-    loadCurriculum: loadCurriculum,
-    getAllWeeks: getAllWeeks,           // ✅ 新增
-    getWeek: getWeek,
-    getWeekBible: getWeekBible,
-    getWeekBibleText: getWeekBibleText,
-    getAllWeeksWithBible: getAllWeeksWithBible,
+    status:
+      bibleEngineStatus,
 
-    // ---- 缓存控制 ----
-    clearBibleCache: clearBibleCache,
-    clearCurriculumCache: clearCurriculumCache,
-    clearAllCache: clearAllCache,
+    // 圣经读取
+    verse:
+      getBibleVerse,
 
-    // ---- 测试工具 ----
-    testBibleReference: testBibleReference,
-    testJohn1: testJohn1,
-    testBilaReferences: testBilaReferences,
-    testWeek1: testWeek1,
-    testWeek: testWeek
+    chapter:
+      getBibleChapter,
+
+    passage:
+      getBiblePassage,
+
+    text:
+      getBibleText,
+
+    data:
+      getBibleData,
+
+    referenceText:
+      getBibleReferenceText,
+
+    parse:
+      parseBibleReference,
+
+    // 课程
+    loadCurriculum:
+      loadCurriculum,
+
+    getAllWeeks:
+      getAllWeeks,            // ✅ 新增
+
+    getWeek:
+      getWeek,
+
+    getWeekBible:
+      getWeekBible,
+
+    getWeekBibleText:
+      getWeekBibleText,      // ✅ 新增
+
+    getAllWeeksWithBible:
+      getAllWeeksWithBible,
+
+    // 缓存
+    clearBibleCache:
+      clearBibleCache,
+
+    clearCurriculumCache:
+      clearCurriculumCache,
+
+    clearAllCache:
+      clearAllCache,
+
+    // 测试工具
+    testBibleReference:
+      testBibleReference,
+
+    testJohn1:
+      testJohn1,
+
+    testBilaReferences:
+      testBilaReferences,
+
+    testWeek1:
+      testWeek1,
+
+    testWeek:
+      testWeek
+
   };
 
-  console.log("✅ BilaBible V4.2 API 已加载");
+
+  console.log(
+    "✅ BilaBible V4.2 API 已加载"
+  );
+
 }
+
 
 // ================================================================
 // 启动信息
 // ================================================================
-console.log("==============================================");
-console.log("🌿 BILA Bible Engine V4.2");
-console.log("==============================================");
-console.log("📖 圣经版本：和合本");
-console.log("📌 原生引用：约1:1-18");
-console.log("📌 多段引用：约13:1-17,34-35");
-console.log("📌 跨章节：徒1:8；2:1-21");
-console.log("📅 课程来源：52-weeks.csv");
-console.log("📁 圣经来源：bila-cuv-pdf-database.json");
-console.log("✅ Bible Engine V4.2 已就绪");
-console.log("==============================================");
+
+console.log(
+  "=============================================="
+);
+
+console.log(
+  "🌿 BILA Bible Engine V4.2"
+);
+
+console.log(
+  "=============================================="
+);
+
+console.log(
+  "📖 圣经版本：和合本"
+);
+
+console.log(
+  "📌 原生引用：约1:1-18"
+);
+
+console.log(
+  "📌 多段引用：约13:1-17,34-35"
+);
+
+console.log(
+  "📌 跨章节：徒1:8；2:1-21"
+);
+
+console.log(
+  "📅 课程来源：52-weeks.csv"
+);
+
+console.log(
+  "📁 圣经来源：bila-cuv-pdf-database.json"
+);
+
+console.log(
+  "✅ Bible Engine V4.2 已就绪"
+);
+
+console.log(
+  "=============================================="
+);
+
+// ================================================================
+// END
+// ================================================================
