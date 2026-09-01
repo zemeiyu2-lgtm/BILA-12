@@ -3348,11 +3348,78 @@ if (
 // 获取全部52周
 // ================================================================
 
-async function getAllWeeks() {
+window.BilaBible = {
 
-  return await loadCurriculum();
+  loadDatabase:
+    loadBibleDatabase,
 
-}
+  getBook:
+    getBibleBook,
+
+  status:
+    bibleEngineStatus,
+
+  verse:
+    getBibleVerse,
+
+  chapter:
+    getBibleChapter,
+
+  passage:
+    getBiblePassage,
+
+  text:
+    getBibleText,
+
+  data:
+    getBibleData,
+
+  parse:
+    parseBibleReference,
+
+  loadCurriculum:
+    loadCurriculum,
+
+  getAllWeeks:
+    getAllWeeks,
+
+  getWeek:
+    getWeek,
+
+  getWeekBible:
+    getWeekBible,
+
+  getWeekBibleText:
+    getWeekBibleText,
+
+  getAllWeeksWithBible:
+    getAllWeeksWithBible,
+
+  clearBibleCache:
+    clearBibleCache,
+
+  clearCurriculumCache:
+    clearCurriculumCache,
+
+  clearAllCache:
+    clearAllCache,
+
+  testBibleReference:
+    testBibleReference,
+
+  testJohn1:
+    testJohn1,
+
+  testBilaReferences:
+    testBilaReferences,
+
+  testWeek1:
+    testWeek1,
+
+  testWeek:
+    testWeek
+
+};
 
 
 // ================================================================
