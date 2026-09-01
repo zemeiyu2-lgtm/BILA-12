@@ -3347,8 +3347,19 @@ if (
     getWeekCount:
       getWeekCount,
 
-    getWeek:
-      getWeek,
+   async function getWeek(weekNumber) {
+  ...
+}
+
+async function getAllWeeks() {
+  return await loadCurriculum();
+}
+
+window.BilaBible = {
+
+  getWeek:
+    getWeek,
+
 
     getAllWeeks:
       getAllWeeks,
