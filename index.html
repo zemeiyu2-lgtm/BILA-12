@@ -275,6 +275,7 @@ let currentWeek = 1;
 let currentModal = null;
 let currentStep = 0;
 let selectedOption = null;
+let selectedKeyword = null;
 let currentBible = null;
 
 let currentUser = localStorage.getItem("bila_user") || "default";
@@ -487,7 +488,7 @@ function getCourse(id){return buildCourses().find(c=>c.id===Number(id)) || null;
 async function openDay(id){
   const c=getCourse(id);
   if(!c){showToast("找不到课程");return;}
-  currentModal=id;currentStep=0;selectedOption=null;currentBible=null;
+  currentModal=id;currentStep=0;selectedOption=null;selectedKeyword=(state.keywords||{})[id] || null;currentBible=null;
   document.getElementById("dayModal").classList.add("active");
   await renderDay(c);
 }
@@ -546,12 +547,17 @@ function renderStep(c){
       <div class="action">慢慢读，留意一个词、一句话或一个行动。</div>
     `;
   }else if(currentStep===1){
+    const keywordOptions = splitKeywords(c.keywords);
     content=`
       <div class="step-title">🔍 第二步：观察·经文</div>
       <div class="step-guide">${esc(c.prompt)}</div>
       <div class="info-box"><b>今天特别留意：</b>${esc(c.thinking || "留意经文中的人物、行动和神的作为。")}</div>
-      <div class="info-box"><b>关键词：</b>${esc(c.keywords || "请从当天经文中圈出一个词或短语。")}</div>
-      <div class="action">先观察经文，再进入自己的理解，不急着下结论。</div>
+      <div class="info-box"><b>从经文中选择一个关键词：</b><br>先读经文，再选择一个最值得你今天停留的词。</div>
+      <div class="options keyword-options">
+        ${keywordOptions.length ? keywordOptions.map(k=>`<button class="option keyword-option ${selectedKeyword===k?'selected':''}" onclick="selectKeyword(this,'${escJS(k)}')">${esc(k)}</button>`).join('') : `<div class="info-box">今天请自己从经文中选一个词或短语。</div>`}
+      </div>
+      ${selectedKeyword ? `<div class="info-box"><b>已选择关键词：</b>${esc(selectedKeyword)}</div>` : ''}
+      <div class="action">先观察经文，再进入自己的理解；这里没有标准答案。</div>
     `;
   }else if(currentStep===2){
     content=`
@@ -663,13 +669,26 @@ function optionStep(title,guide,options,note=""){
 }
 function escJS(v){return String(v).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
 
+function splitKeywords(raw){
+  return String(raw||"").split(/[｜|、，,；;\/]+/).map(x=>x.trim()).filter(Boolean);
+}
+function selectKeyword(el,opt){
+  selectedKeyword=opt;
+  document.querySelectorAll(".keyword-option").forEach(x=>x.classList.remove("selected"));
+  el.classList.add("selected");
+  state.keywords = state.keywords || {};
+  if(currentModal!=null){ state.keywords[currentModal]=opt; saveState(); }
+}
 function selectOption(el,opt){
   selectedOption=opt;
-  document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));
+  document.querySelectorAll(".option:not(.keyword-option)").forEach(x=>x.classList.remove("selected"));
   el.classList.add("selected");
 }
 function nextStep(){
-  const needChoice=[1,2,3,4,6,7,8];
+  if(currentStep===1&&!selectedKeyword){
+    showToast("请先选择一个经文关键词");return;
+  }
+  const needChoice=[2,3,4,6,7,8];
   if(needChoice.includes(currentStep)&&!selectedOption){
     showToast("请先选择一个最真实的回应");return;
   }
@@ -688,6 +707,7 @@ function completeDay(){
   if(!selectedOption && c.dow!==0){showToast("请先完成今天的回应");return;}
   state.completed[c.id]=true;
   state.reflections[c.id]=selectedOption || "已阅读主日信息";
+  if(selectedKeyword){ state.keywords = state.keywords || {}; state.keywords[c.id]=selectedKeyword; }
   saveState(); renderAll();
   showToast("✅ 今日同行已记录");
   setTimeout(closeDayModal,600);
@@ -701,7 +721,7 @@ function markSunday(id){
 
 function closeDayModal(){
   document.getElementById("dayModal").classList.remove("active");
-  currentModal=null;selectedOption=null;currentBible=null;
+  currentModal=null;selectedOption=null;selectedKeyword=null;currentBible=null;
 }
 function openSettings(){document.getElementById("settingsModal").classList.add("active");}
 function closeSettings(){document.getElementById("settingsModal").classList.remove("active");}
