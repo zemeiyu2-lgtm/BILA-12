@@ -560,11 +560,17 @@ function renderStep(c){
       <div class="action">先观察经文，再进入自己的理解；这里没有标准答案。</div>
     `;
   }else if(currentStep===2){
+    const choiceOptions = buildMeaningOptions(c);
     content=`
       <div class="step-title">❤️ 第三步：领受·意义</div>
       <div class="step-guide">${esc(c.thinking || "从今天的经文中领受一个与你生命有关的重点。")}</div>
       <div class="info-box"><b>思考入口：</b>${esc(c.prompt)}</div>
-      <div class="action">不用追求标准答案，诚实面对经文在你里面产生的回应。</div>
+      <div class="info-box"><b>请选择最贴近你现在状态的一项：</b><br>${esc(c.groupFeedback || c.practice || "把今天领受的一点真实带进生活。")}</div>
+      <div class="options meaning-options">
+        ${choiceOptions.map(o=>`<button class="option meaning-option ${selectedOption===o?'selected':''}" onclick="selectOption(this,'${escJS(o)}')">${esc(o)}</button>`).join('')}
+      </div>
+      ${selectedOption ? `<div class="info-box"><b>已选择：</b>${esc(selectedOption)}</div>` : ''}
+      <div class="action">没有标准答案；选择最真实的一项，再带着它进入下一步。</div>
     `;
   }else if(currentStep===3){
     content=`
@@ -672,6 +678,23 @@ function escJS(v){return String(v).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
 function splitKeywords(raw){
   return String(raw||"").split(/[｜|、，,；;\/]+/).map(x=>x.trim()).filter(Boolean);
 }
+function buildMeaningOptions(c){
+  const step=String(c.step||"");
+  if(step.includes("省察")){
+    return ["我已经看见自己的真实反应","我发现自己正在回避某个问题","我愿意把这件事带到主面前","我还需要继续安静思想"];
+  }
+  if(step.includes("行动")){
+    return ["我已经看见今天可以做的一步","我愿意今天就开始行动","我需要先调整自己的态度","我还需要再想清楚具体怎么做"];
+  }
+  if(step.includes("关系")){
+    return ["我想到一个需要靠近的人","我愿意主动关心一个人","我需要先处理自己的关系态度","我还需要等待合适的机会"];
+  }
+  if(step.includes("回应") || step.includes("使命")){
+    return ["我愿意回应这段经文","我愿意把它带进今天的生活","我愿意为一个人付出行动","我还需要继续祷告分辨"];
+  }
+  return ["我看见了经文提醒我的重点","这段经文让我重新思考一件事","我愿意把这个提醒带进今天","我还需要继续思想这段经文"];
+}
+
 function selectKeyword(el,opt){
   selectedKeyword=opt;
   document.querySelectorAll(".keyword-option").forEach(x=>x.classList.remove("selected"));
