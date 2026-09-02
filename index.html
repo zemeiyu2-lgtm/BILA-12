@@ -7,140 +7,127 @@
 <title>BILA · MOS 1.2 全年门训</title>
 <style>
 :root{
-  --primary:#2D5A3D;
-  --primary-light:#4A7A5A;
-  --gold:#C9A96E;
-  --gold-light:#E8D5B8;
-  --warm:#FDF8F0;
-  --card:#fff;
-  --text:#2C2C2C;
-  --muted:#8A7E72;
-  --line:#E8E0D8;
+  --primary:#2D5A3D;--primary-light:#4A7A5A;--gold:#C9A96E;
+  --gold-light:#E8D5B8;--warm-bg:#FDF8F0;--card:#FFFFFF;
+  --text:#2C2C2C;--muted:#8A7E72;--line:#E8E0D8;
   --shadow:0 8px 32px rgba(45,60,50,.08);
-  --radius:20px;
-  --small:12px;
+  --shadow-hover:0 12px 48px rgba(45,60,50,.14);
+  --radius:20px;--radius-sm:12px;
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  --font-serif:"Georgia","SimSun","Songti SC",serif;
 }
 *{box-sizing:border-box;margin:0}
-body{
-  max-width:620px;margin:auto;padding:16px 14px 90px;
-  background:var(--warm);color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
-  line-height:1.7;
-}
-button,input,select{font:inherit}
+body{font-family:var(--font);background:var(--warm-bg);color:var(--text);padding:18px 14px 100px;max-width:620px;margin:auto;line-height:1.7}
+button,input{font:inherit}
 button{cursor:pointer}
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.app-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
 .brand{display:flex;align-items:center;gap:12px}
-.logo{width:48px;height:48px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);font-size:30px}
-.name{font-size:21px;font-weight:800;color:var(--primary)}
-.sub{font-size:11px;color:var(--muted);letter-spacing:1.5px}
-.icon-btn{border:0;background:#fff;padding:10px 13px;border-radius:12px;box-shadow:var(--shadow)}
-.user,.stats,.progress,.loop,.week,.section-card{
-  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:14px;
+.brand .icon{width:48px;height:48px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:30px;box-shadow:var(--shadow)}
+.brand .name{font-size:21px;font-weight:800;color:var(--primary)}
+.brand .sub{font-size:11px;color:var(--muted);letter-spacing:1.6px}
+.icon-btn{border:0;background:#fff;border-radius:12px;padding:10px 13px;box-shadow:var(--shadow);color:var(--muted)}
+.user-area,.stats,.progress-wrap,.mos-loop,.week-panel,.notice-card{
+  background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  margin-bottom:14px
 }
-.user{padding:14px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.user input{flex:1;min-width:130px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--warm);outline:none}
-.user input:focus{border-color:var(--gold)}
-.user button{padding:10px 14px;border-radius:10px;border:1px solid var(--line)}
-.primary{background:var(--primary)!important;color:#fff!important;border-color:var(--primary)!important}
-.guest{background:var(--warm)}
-.status{font-size:11px;color:var(--muted);padding:4px 10px;background:var(--warm);border-radius:99px}
-.stats{display:flex;padding:18px 8px}
-.stat{flex:1;text-align:center}
-.stat .num{font-size:25px;font-weight:800;color:var(--primary)}
-.stat .label{font-size:11px;color:var(--muted)}
-.progress{padding:17px}
+.user-area{padding:14px 16px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.user-area label{font-size:13px;color:var(--muted)}
+.user-area input{flex:1;min-width:120px;padding:10px 13px;border:1.5px solid var(--line);border-radius:10px;background:var(--warm-bg);outline:none}
+.user-area input:focus{border-color:var(--gold)}
+.user-area button{padding:10px 15px;border-radius:10px;border:1px solid var(--line)}
+.user-btn{background:var(--primary);color:#fff;border-color:var(--primary)!important}
+.guest-btn{background:var(--warm-bg);color:var(--text)}
+.user-status{font-size:11px;color:var(--muted);padding:4px 10px;background:var(--warm-bg);border-radius:99px}
+.stats{padding:18px 10px;display:flex;justify-content:space-around}
+.stat{text-align:center;flex:1}.stat .num{font-size:25px;font-weight:800;color:var(--primary)}.stat .label{font-size:11px;color:var(--muted)}
+.progress-wrap{padding:18px 18px 14px}
 .progress-top{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
-.bar{height:7px;background:#F0EAE0;border-radius:99px;overflow:hidden;margin:9px 0 13px}
-.fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--primary));transition:.5s}
-.modules{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
-.mod{font-size:9px;color:var(--muted);text-align:center;padding:7px 2px;border-radius:10px}
-.mod.active{background:#F8F3E8;color:var(--primary)}
-.mod i{display:block;font-style:normal;font-size:20px}
-.loop{padding:16px}
-.loop h3{font-size:16px;color:var(--primary)}
-.loop p{font-size:11px;color:var(--muted);margin:3px 0 11px}
-.loop-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
-.loop-item{background:var(--warm);border-radius:12px;padding:8px 3px;text-align:center;min-height:76px}
-.loop-item span{display:block;color:var(--gold);font-weight:800}
-.loop-item b{display:block;color:var(--primary);font-size:11px}
-.loop-item small{display:block;color:var(--muted);font-size:8px}
-.notice{background:#fff;border-radius:12px;padding:11px 13px;font-size:11px;color:var(--muted);margin-bottom:14px;border-left:4px solid var(--gold)}
-.notice.error{border-left-color:#C62828;color:#A23B3B}
-.notice.success{border-left-color:var(--primary);color:var(--primary)}
-.week{padding:16px}
-.week-head{display:flex;justify-content:space-between;gap:10px}
-.kicker{font-size:11px;color:var(--muted)}
-.week-title{font-size:21px;font-weight:800;color:var(--primary)}
-.week-theme{font-size:12px}
-.nav{display:flex;align-items:center;gap:5px}
-.nav button,.nav select{border:1px solid var(--line);background:var(--warm);padding:7px 9px;border-radius:9px}
-.nav select{max-width:90px;background:#fff}
-.info{background:#F7F3EC;border-radius:12px;padding:11px 12px;margin:12px 0;font-size:11px}
-.info div+div{margin-top:3px}
-.info b{color:var(--primary)}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:7px}
-.actions button{border:0;border-radius:11px;padding:10px;background:var(--warm);color:var(--primary);font-weight:700}
-.actions button:first-child{background:var(--primary);color:#fff}
-.day-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-top:12px}
-.day{border:1px solid transparent;background:var(--warm);border-radius:10px;padding:7px 2px;text-align:center;font-size:8px;color:var(--muted)}
-.day.sunday{border-left:3px solid var(--gold);color:var(--primary)}
-.day.done{background:#F2F7F2;color:var(--primary);border-color:#D7E7D9}
-.section-title{font-size:16px;font-weight:800;color:var(--primary);margin:18px 2px 8px}
-.rows{display:grid;gap:7px}
-.row{background:#fff;border-radius:13px;box-shadow:var(--shadow);padding:11px 12px;display:flex;gap:8px;align-items:center}
-.row-main{flex:1}
-.row-wk{font-size:10px;color:var(--muted)}
-.row-title{font-size:14px;font-weight:700;color:var(--primary)}
-.row-ref{font-size:10px;color:var(--muted)}
-.row button{border:0;background:var(--warm);padding:7px 9px;border-radius:9px;color:var(--primary);font-weight:700}
-.modal-bg{position:fixed;inset:0;background:rgba(25,30,25,.52);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:14px;z-index:1000}
-.modal-bg.active{display:flex}
-.modal{width:min(560px,100%);max-height:94vh;overflow:auto;background:#fff;border-radius:26px;padding:22px 17px 20px;box-shadow:0 30px 80px rgba(0,0,0,.2)}
+.progress{height:7px;background:#F0EAE0;border-radius:99px;overflow:hidden;margin:9px 0}
+.progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--primary));border-radius:99px;transition:width .5s}
+.module-row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.module{padding:8px 3px;border-radius:10px;text-align:center;color:var(--muted);font-size:9px}
+.module .icon{font-size:20px;display:block;margin-bottom:1px}
+.module.active{background:#F8F3E8;color:var(--primary)}
+.mos-loop{padding:16px}.mos-loop h3{color:var(--primary);font-size:16px}.mos-loop p{font-size:11px;color:var(--muted);margin:3px 0 12px}
+.loop-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.loop{background:var(--warm-bg);border-radius:12px;padding:9px 4px;text-align:center;min-height:78px}
+.loop span{display:block;color:var(--gold);font-weight:800;font-size:15px}.loop b{display:block;color:var(--primary);font-size:11px}.loop small{display:block;color:var(--muted);font-size:8px;line-height:1.45}
+.week-panel{padding:16px}
+.week-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.week-kicker{font-size:11px;color:var(--muted)}.week-title{font-size:22px;color:var(--primary);font-weight:800;margin:3px 0}.week-theme{font-size:13px;color:var(--text)}
+.week-nav{display:flex;gap:7px;align-items:center}
+.small-btn{border:1px solid var(--line);background:var(--warm-bg);padding:8px 10px;border-radius:10px;color:var(--text)}
+.week-select{padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.week-info{background:#F7F3EC;border:1px solid rgba(45,90,61,.09);border-radius:12px;padding:11px 13px;margin:13px 0;font-size:12px}
+.week-info b{color:var(--primary)}
+.week-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:10px}
+.week-actions button{padding:11px 8px;border:0;border-radius:12px;background:var(--warm-bg);color:var(--primary);font-weight:700}
+.week-actions button.primary{background:var(--primary);color:#fff}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:14px}
+.day-tile{padding:8px 3px;background:var(--warm-bg);border:1px solid transparent;border-radius:10px;text-align:center;font-size:9px;color:var(--muted)}
+.day-tile.sunday{border-left:3px solid var(--gold);color:var(--primary);font-weight:700}
+.day-tile.done{background:#F2F7F2;color:var(--primary);border-color:#D6E5D8}
+.day-tile.today{outline:2px solid var(--gold);outline-offset:1px}
+.section-title{font-size:16px;font-weight:800;color:var(--primary);margin:17px 2px 9px}
+.timeline{display:grid;gap:8px}
+.day-card{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid transparent}
+.day-card.sunday{border-left:4px solid var(--gold)}
+.day-card.done{background:#F8FBF8;border-color:#DDE9DE}
+.day-info{flex:1}.day-title{font-size:14px;font-weight:700}.day-meta{font-size:11px;color:var(--muted)}
+.day-status{font-size:18px;color:var(--muted)}
+.notice-card{padding:13px 15px;font-size:11px;color:var(--muted);border-left:4px solid var(--gold)}
+.week-list{display:grid;gap:7px}
+.week-row{background:#fff;border-radius:13px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center;box-shadow:var(--shadow);border:1px solid transparent}
+.week-row:hover{border-color:var(--gold-light)}
+.week-row .main{flex:1}.week-row .wk{font-size:11px;color:var(--muted)}.week-row .title{font-size:14px;font-weight:700;color:var(--primary)}.week-row .theme{font-size:10px;color:var(--muted)}
+.week-row button{border:0;background:var(--warm-bg);padding:8px 10px;border-radius:9px;color:var(--primary);font-weight:700}
+.admin-footer{text-align:center;margin-top:26px}.admin-footer button{border:0;background:none;color:var(--muted);font-size:11px}
+.hidden{display:none!important}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(30,35,30,.52);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:14px;z-index:999}
+.modal-overlay.active{display:flex}
+.modal{background:#fff;width:min(560px,100%);max-height:94vh;overflow:auto;border-radius:26px;padding:24px 19px 22px;box-shadow:0 30px 80px rgba(0,0,0,.2)}
 .close{float:right;border:0;background:none;font-size:22px;color:var(--muted)}
-.meta{display:flex;justify-content:space-between;gap:8px;font-size:10px;color:var(--muted);padding-bottom:8px;border-bottom:1px solid #F0EAE0;margin-bottom:9px}
-.modal h2{font-size:21px;color:var(--primary);line-height:1.4}
-.role{font-size:11px;color:var(--muted)}
-.scripture{background:var(--warm);border-left:5px solid var(--gold);border-radius:14px;padding:15px 16px;margin:13px 0;font-family:Georgia,"Songti SC","SimSun",serif;font-size:15px;line-height:2;white-space:pre-wrap}
-.scripture .ref{font-family:inherit;font-size:11px;color:var(--muted);font-weight:700;margin-bottom:6px}
-.box{background:#F7F3EC;border-radius:12px;padding:11px 13px;margin:9px 0;font-size:12px}
-.box b{color:var(--primary)}
-.formation{background:#F8F5F0;border-left:4px solid var(--primary);border-radius:10px;padding:9px 11px;font-size:11px;color:var(--muted);margin:10px 0}
-.steps{display:grid;grid-template-columns:repeat(10,1fr);gap:2px;margin:13px 0}
-.step-dot{font-size:7px;text-align:center;color:var(--muted);padding:5px 1px;border-bottom:2px solid var(--line)}
-.step-dot.active{color:var(--primary);border-bottom-color:var(--gold);font-weight:700}
-.step-dot.done{color:var(--primary);border-bottom-color:var(--primary-light)}
-.step-title{font-size:18px;color:var(--primary);font-weight:800;margin-bottom:5px}
-.step-guide{font-size:14px}
-.options{display:grid;gap:7px;margin:11px 0}
-.option{border:1.5px solid var(--line);background:var(--warm);border-radius:11px;padding:11px 12px;text-align:left}
+.meta-bar{font-size:11px;color:var(--muted);border-bottom:1px solid #F0EAE0;padding-bottom:8px;margin-bottom:10px;display:flex;justify-content:space-between;gap:10px}
+.modal h2{color:var(--primary);font-size:21px;line-height:1.4;margin-bottom:5px}
+.modal .role{font-size:12px;color:var(--muted)}
+.scripture{background:var(--warm-bg);border-left:5px solid var(--gold);border-radius:14px;padding:16px 17px;margin:14px 0;font-family:var(--font-serif);font-size:15px;line-height:2;white-space:pre-wrap}
+.scripture .ref{font-family:var(--font);font-size:11px;color:var(--muted);font-weight:700;margin-bottom:8px}
+.formation{background:#F8F5F0;border-left:4px solid var(--primary);border-radius:10px;padding:10px 12px;font-size:11px;color:var(--muted);margin:12px 0}
+.info-box{background:#F7F3EC;border-radius:12px;padding:12px 14px;margin:10px 0;font-size:12px}
+.info-box b{color:var(--primary)}
+.step-indicator{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;margin:14px 0}
+.dot{font-size:8px;color:var(--muted);padding:5px 1px;text-align:center;border-bottom:2px solid #E8E0D8}
+.dot.active{color:var(--primary);border-color:var(--gold);font-weight:700}.dot.done{color:var(--primary);border-color:var(--primary-light)}
+.step-title{font-size:18px;color:var(--primary);font-weight:800;margin-bottom:6px}.step-guide{font-size:14px;line-height:1.85}
+.options{display:grid;gap:8px;margin:13px 0}
+.option{border:1.5px solid var(--line);background:var(--warm-bg);border-radius:12px;padding:12px 14px;text-align:left;color:var(--text)}
 .option.selected{border-color:var(--gold);background:var(--gold-light);font-weight:700}
-.nav2{display:flex;gap:7px;margin-top:13px}
-.nav2 button{flex:1;padding:11px;border:0;border-radius:11px;font-weight:700}
-.prev{background:var(--warm)}
-.next{background:var(--primary);color:#fff}
-.done-btn{width:100%;padding:12px;border:0;border-radius:11px;background:var(--gold);font-weight:800}
+.action{background:var(--warm-bg);border-radius:10px;padding:9px 12px;color:var(--muted);font-size:11px;text-align:center;margin-top:10px}
+.nav-buttons{display:flex;gap:8px;margin-top:15px}.nav-buttons button{flex:1;padding:12px;border-radius:12px;border:0;font-weight:700}
+.prev{background:var(--warm-bg)}.next{background:var(--primary);color:#fff}.done-btn{background:var(--gold);color:var(--text);width:100%;padding:13px;border:0;border-radius:12px;font-weight:800}
 .center{text-align:center}
-.footer{text-align:center;margin:24px 0}
-.footer button{border:0;background:none;color:var(--muted);font-size:11px}
-.spinner{display:inline-block;width:13px;height:13px;border:2px solid #ddd;border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:5px}
+.settings{display:grid;gap:10px}.settings button{padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--warm-bg)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:rgba(30,35,30,.94);color:#fff;padding:10px 18px;border-radius:99px;font-size:12px;z-index:5000;display:none;max-width:90%;text-align:center}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid #ddd;border-top-color:var(--primary);border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:rgba(30,35,30,.94);color:#fff;padding:9px 16px;border-radius:99px;font-size:11px;display:none;z-index:5000;max-width:90%;text-align:center}
 @media(max-width:460px){
-  body{padding:11px 9px 85px}
+  body{padding:12px 10px 90px}
   .loop-grid{grid-template-columns:repeat(3,1fr)}
+  .module-row{grid-template-columns:repeat(5,1fr)}
   .week-head{flex-direction:column}
-  .nav{width:100%}
-  .nav select{flex:1;max-width:none}
-  .steps .step-dot{font-size:6px}
+  .week-nav{width:100%}.week-select{flex:1}
+  .week-actions{grid-template-columns:1fr 1fr}.week-actions button:last-child{grid-column:1/-1}
+  .modal{padding:20px 15px}
+  .step-indicator .dot{font-size:6px}
 }
 </style>
 </head>
 <body>
 
-<header class="header">
+<header class="app-header">
   <div class="brand">
-    <div class="logo">🌿</div>
+    <div class="icon">🌿</div>
     <div>
       <div class="name">BILA <span style="font-size:10px;color:var(--gold)">MOS 1.2</span></div>
       <div class="sub">圣经 · 跟随 · 实践 · 群体 · 使命</div>
@@ -149,121 +136,115 @@ button{cursor:pointer}
   <button class="icon-btn" onclick="openSettings()">⚙️</button>
 </header>
 
-<section class="user">
-  <span>👤</span>
+<section class="user-area">
+  <label>👤</label>
   <input id="userInput" placeholder="你的名字或邮箱">
-  <button class="primary" onclick="loginUser()">登录</button>
-  <button class="guest" onclick="guestLogin()">游客</button>
-  <span class="status" id="userStatus"></span>
+  <button class="user-btn" onclick="loginUser()">登录</button>
+  <button class="guest-btn" onclick="guestLogin()">游客模式</button>
+  <span class="user-status" id="userStatus"></span>
 </section>
 
 <section class="stats">
   <div class="stat"><div class="num" id="totalDone">0</div><div class="label">已完成</div></div>
-  <div class="stat"><div class="num">364</div><div class="label">全年同行单元</div></div>
-  <div class="stat"><div class="num" id="weekDone">0</div><div class="label">本周完成</div></div>
+  <div class="stat"><div class="num" id="totalDays">364</div><div class="label">同行单元</div></div>
+  <div class="stat"><div class="num" id="weekProgress">0</div><div class="label">本周完成</div></div>
 </section>
 
-<section class="progress">
-  <div class="progress-top"><span>全年同行记录</span><span id="pct">0%</span></div>
-  <div class="bar"><div class="fill" id="fill"></div></div>
-  <div class="modules" id="modules"></div>
+<section class="progress-wrap">
+  <div class="progress-top"><span>全年同行记录</span><span id="progressPercent">0%</span></div>
+  <div class="progress"><div class="fill" id="progressFill"></div></div>
+  <div class="module-row" id="moduleRow"></div>
 </section>
 
-<section class="loop">
+<section class="mos-loop">
   <h3>MOS 每周门训循环</h3>
   <p>不是完成课程，而是让神的话进入生命、关系与使命。</p>
   <div class="loop-grid">
-    <div class="loop-item"><span>①</span><b>主日</b><small>进入主题</small></div>
-    <div class="loop-item"><span>②</span><b>经文</b><small>观察·默想</small></div>
-    <div class="loop-item"><span>③</span><b>实践</b><small>真实行动</small></div>
-    <div class="loop-item"><span>④</span><b>群体</b><small>分享·守望</small></div>
-    <div class="loop-item"><span>⑤</span><b>使命</b><small>向人活出</small></div>
+    <div class="loop"><span>①</span><b>主日</b><small>聆听 · 进入主题</small></div>
+    <div class="loop"><span>②</span><b>经文</b><small>观察 · 默想 · 分辨</small></div>
+    <div class="loop"><span>③</span><b>实践</b><small>一个真实行动</small></div>
+    <div class="loop"><span>④</span><b>群体</b><small>分享 · 彼此守望</small></div>
+    <div class="loop"><span>⑤</span><b>使命</b><small>向人 · 向世界活出</small></div>
   </div>
 </section>
 
-<div class="notice" id="notice"><span class="spinner"></span>正在连接52周课程与本地和合本数据库……</div>
+<div id="appNotice" class="notice-card"><span class="spinner"></span>正在连接52周课程与圣经引擎……</div>
 
-<section class="week">
+<section class="week-panel">
   <div class="week-head">
     <div>
-      <div class="kicker" id="kicker">第1周</div>
+      <div class="week-kicker" id="weekKicker">第1周</div>
       <div class="week-title" id="weekTitle">加载中……</div>
       <div class="week-theme" id="weekTheme"></div>
     </div>
-    <div class="nav">
-      <button onclick="changeWeek(-1)">←</button>
-      <select id="weekSelect" onchange="selectWeek(this.value)"></select>
-      <button onclick="changeWeek(1)">→</button>
+    <div class="week-nav">
+      <button class="small-btn" onclick="changeWeek(-1)">←</button>
+      <select id="weekSelect" class="week-select" onchange="selectWeek(this.value)"></select>
+      <button class="small-btn" onclick="changeWeek(1)">→</button>
     </div>
   </div>
 
-  <div class="info">
-    <div><b>主日经文：</b><span id="ref">—</span></div>
-    <div><b>实践：</b><span id="practice">—</span></div>
-    <div><b>群体：</b><span id="group">—</span></div>
-    <div><b>使命：</b><span id="mission">—</span></div>
+  <div class="week-info">
+    <div><b>主日经文：</b><span id="weekReference">—</span></div>
+    <div style="margin-top:4px"><b>本周实践：</b><span id="weekPractice">—</span></div>
+    <div style="margin-top:4px"><b>本周使命：</b><span id="weekMission">—</span></div>
   </div>
 
-  <div class="actions">
-    <button onclick="openDayFor(0)">📖 进入主日</button>
-    <button onclick="openDayFor(1)">📅 进入周一</button>
+  <div class="week-actions">
+    <button class="primary" onclick="openCurrentSunday()">📖 进入主日</button>
+    <button onclick="openCurrentDay(1)">📅 进入周一</button>
+    <button onclick="scrollToWeekList()">查看全部52周</button>
   </div>
 
-  <div class="day-grid" id="dayGrid"></div>
+  <div class="week-grid" id="weekGrid"></div>
 </section>
 
 <div class="section-title">本周同行</div>
-<div class="rows" id="weekRows"></div>
+<div id="timeline" class="timeline"></div>
 
 <div class="section-title">52周课程地图</div>
-<div class="rows" id="allWeeks"></div>
+<div id="weekList" class="week-list"></div>
 
-<div class="footer">
-  <button onclick="openSettings()">设置与提醒</button>
-</div>
-
-<!-- 学习弹窗 -->
-<div class="modal-bg" id="dayModal">
-  <div class="modal">
-    <button class="close" onclick="closeDay()">✕</button>
-    <div id="dayBody"></div>
-  </div>
+<div class="admin-footer">
+  <button onclick="showToast('管理员入口保留，正式版可接现有后台')">🔐 管理后台</button>
 </div>
 
 <!-- 设置 -->
-<div class="modal-bg" id="settingsModal">
+<div class="modal-overlay" id="settingsModal">
   <div class="modal">
     <button class="close" onclick="closeSettings()">✕</button>
     <h2>⚙️ 设置</h2>
-    <div class="box" style="margin-top:12px">
-      每日提醒时间：20:00
+    <div class="settings" style="margin-top:12px">
+      <button onclick="enableNotify()">开启每日20:00提醒</button>
+      <button onclick="closeSettings()">完成</button>
     </div>
-    <button class="done-btn" onclick="enableNotify()">开启浏览器通知</button>
     <p id="notifyStatus" style="font-size:11px;color:var(--muted);margin-top:8px"></p>
+  </div>
+</div>
+
+<!-- 学习 -->
+<div class="modal-overlay" id="dayModal">
+  <div class="modal">
+    <button class="close" onclick="closeDayModal()">✕</button>
+    <div id="dayModalBody"></div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
-<!-- Bible Engine 必须先加载 -->
 <script src="bible-engine.js"></script>
-
 <script>
 /* ================================================================
-   BILA MOS 1.2 index.html V3.0
-
-   唯一数据链：
-   bible-engine.js
-        ↓
-   52-weeks.csv
-        ↓
-   BilaBible.getWeekBible()
-        ↓
-   bila-cuv-pdf-database.json
-
-   index.html 不再自己请求圣经数据库。
-   index.html 也不再维护第二套52周课程数据。
+   BILA MOS 1.2｜全年门训内容 V2.0
+   数据源：
+   - 52-weeks.csv：全年课程结构
+   - bible-engine.js：和合本简体动态读取
    ================================================================ */
+
+const CURRICULUM_URL =
+  "https://raw.githubusercontent.com/zemeiyu2-lgtm/BILA-deepseek/main/52-weeks.csv";
+
+const START_DATE = new Date("2026-08-30T00:00:00");
 
 const MODULES = [
   {id:1,name:"认识基督",icon:"🌱",weeks:[1,2,3,4,5,6,7,8]},
@@ -274,7 +255,7 @@ const MODULES = [
 ];
 
 const DAILY = [
-  {dow:0,name:"主日",role:"主日共同入口",prompt:"进入本周共同主题，先听见经文，再决定怎样回应主。"},
+  {dow:0,name:"主日",role:"主日共同入口",prompt:"进入本周主题，聆听并回应神的话。"},
   {dow:1,name:"周一",role:"进入经文",prompt:"诵读主日经文，圈出一个最触动你的词或行动。"},
   {dow:2,name:"周二",role:"观察经文",prompt:"观察人物、行动、关系和神的作为；不要急着应用。"},
   {dow:3,name:"周三",role:"连接生命",prompt:"把经文放进一个真实处境：家庭、工作、教会或内心。"},
@@ -283,1862 +264,502 @@ const DAILY = [
   {dow:6,name:"周六",role:"群体回顾",prompt:"与小组/伙伴分享：我学到了什么、做了什么、哪里仍需要帮助。"}
 ];
 
-let weeks = [];
+const STEP_NAMES = [
+  "诵读·进入","观察·经文","领受·意义","连接·处境",
+  "省察·生命","停顿·祷告","分辨·回应","实践·行动",
+  "分享·预备","交托·跟随"
+];
+
+let courses = [];
 let currentWeek = 1;
-let currentCourse = null;
-let currentBible = null;
+let currentModal = null;
 let currentStep = 0;
 let selectedOption = null;
-let currentModalId = null;
+let currentBible = null;
 
-let currentUser =
-  localStorage.getItem("bila_user") || "default";
-
-let stateKey =
-  "bila_mos_v30_" + currentUser;
-
+let currentUser = localStorage.getItem("bila_user") || "default";
+let stateKey = "bila_mos_v22_" + currentUser;
 let state = {};
 
 function loadState(){
-  try{
-    state = JSON.parse(
-      localStorage.getItem(stateKey)
-    ) || {};
-  }catch(e){
-    state = {};
-  }
-
-  state.completed =
-    state.completed || {};
-
-  state.reflections =
-    state.reflections || {};
-
-  state.reminder =
-    state.reminder || {enabled:false};
+  try{state = JSON.parse(localStorage.getItem(stateKey)) || {};}catch(e){state={};}
+  state.completed = state.completed || {};
+  state.reflections = state.reflections || {};
+  state.reminder = state.reminder || {enabled:false};
 }
-
-function saveState(){
-  localStorage.setItem(
-    stateKey,
-    JSON.stringify(state)
-  );
-}
-
+function saveState(){localStorage.setItem(stateKey,JSON.stringify(state));}
 loadState();
 
-function esc(value){
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
+function esc(v){
+  return String(v ?? "")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;")
     .replace(/'/g,"&#39;");
 }
 
-function setNotice(text,type=""){
-  const el =
-    document.getElementById("notice");
-
-  el.className =
-    "notice " + type;
-
-  el.textContent =
-    text;
-}
-
-function showToast(text){
-  const el =
-    document.getElementById("toast");
-
-  el.textContent =
-    text;
-
-  el.style.display =
-    "block";
-
-  clearTimeout(
-    el._timer
-  );
-
-  el._timer =
-    setTimeout(
-      () => {
-        el.style.display = "none";
-      },
-      2200
-    );
-}
-
-/* ================================================================
-   唯一课程数据入口
-   ================================================================ */
-
-async function initBila(){
-
-  try{
-
-    if(
-      !window.BilaBible
-    ){
-
-      throw new Error(
-        "bible-engine.js 未成功加载"
-      );
-
-    }
-
-    if(
-      typeof BilaBible.loadCurriculum !==
-      "function"
-    ){
-
-      throw new Error(
-        "Bible Engine 未提供课程读取接口"
-      );
-
-    }
-
-    setNotice(
-      "正在读取52周课程……"
-    );
-
-    weeks =
-      await BilaBible.loadCurriculum();
-
-    if(
-      !Array.isArray(weeks) ||
-      weeks.length < 52
-    ){
-
-      throw new Error(
-        "52-weeks.csv 未正确读取52周"
-      );
-
-    }
-
-    currentWeek =
-      Math.min(
-        52,
-        Math.max(
-          1,
-          getCurrentWeek()
-        )
-      );
-
-    buildWeekSelector();
-    renderAll();
-
-    setNotice(
-      "✅ 52周课程已连接 · 本地和合本按需读取",
-      "success"
-    );
-
-  }catch(error){
-
-    console.error(
-      "BILA INIT ERROR:",
-      error
-    );
-
-    setNotice(
-      "❌ 启动失败：" +
-      error.message,
-      "error"
-    );
-
+function parseCSV(text){
+  const rows=[]; let row=[], cell="", quoted=false;
+  for(let i=0;i<text.length;i++){
+    const ch=text[i], next=text[i+1];
+    if(ch === '"'){
+      if(quoted && next === '"'){cell+='"';i++;}
+      else quoted=!quoted;
+    }else if(ch===',' && !quoted){row.push(cell);cell="";}
+    else if((ch==='\n'||ch==='\r') && !quoted){
+      if(ch==='\r'&&next==='\n')i++;
+      row.push(cell);cell="";
+      if(row.some(x=>String(x).trim()!==""))rows.push(row);
+      row=[];
+    }else cell+=ch;
   }
-
+  if(cell!==""||row.length){row.push(cell);if(row.some(x=>String(x).trim()!==""))rows.push(row);}
+  if(rows.length<2)return [];
+  const headers=rows[0].map(x=>String(x).replace(/^\uFEFF/,"").trim());
+  return rows.slice(1).map(r=>{
+    const o={};headers.forEach((h,i)=>o[h]=String(r[i]??"").trim());return o;
+  });
 }
 
-/* ================================================================
-   日期
-   ================================================================ */
-
-function getCurrentWeek(){
-
-  const start =
-    new Date("2026-08-30T00:00:00");
-
-  const now =
-    new Date();
-
-  const a =
-    new Date(
-      start.getFullYear(),
-      start.getMonth(),
-      start.getDate()
-    );
-
-  const b =
-    new Date(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate()
-    );
-
-  const days =
-    Math.floor(
-      (b-a)/86400000
-    );
-
-  return (
-    Math.floor(days/7)+1
-  );
-
+function buildCourses(){
+  return courses.map((w,i)=>{
+    const dowMap={"主日":0,"周一":1,"周二":2,"周三":3,"周四":4,"周五":5,"周六":6};
+    const dow=dowMap[w["星期"]] ?? (i%7);
+    return {
+      id:i,
+      week:Number(w["周次"]) || Math.floor(i/7)+1,
+      dow,
+      name:w["星期"] || DAILY[dow]?.name || "",
+      role:w["角色"] || DAILY[dow]?.role || "",
+      title:w["本日主题"] || (dow===0 ? w["主日统领主题"] : ""),
+      reference:w["经文出处"] || "",
+      sundayTheme:w["主日统领主题"] || "",
+      bilaTheme:w["本日主题"] || "",
+      step:w["门训步骤"] || "",
+      practice:w["今日操练"] || "",
+      groupFeedback:w["选择区目标"] || "",
+      mission:w["生活导向"] || "",
+      prompt:w["思考入口"] || DAILY[dow]?.prompt || "进入今天的经文。",
+      thinking:w["思考引导"] || "",
+      keywords:w["经文关键词（候选）"] || "",
+      dailyContent:w["每日门训正文"] || "",
+      weeklySummary:w["七日总结/宣告"] || "",
+      contentStatus:w["内容状态"] || "",
+      note:w["备注"] || ""
+    };
+  });
 }
 
-/* ================================================================
-   课程辅助
-   ================================================================ */
+function isDone(id){return !!state.completed[id];}
+function doneCount(){return Object.keys(state.completed).filter(k=>state.completed[k]).length;}
+function weekCourses(week){return buildCourses().filter(c=>c.week===week);}
+function moduleForWeek(week){return MODULES.find(m=>m.weeks.includes(Number(week))) || MODULES[0];}
 
-function getWeekData(week){
-  return weeks.find(
-    item =>
-      Number(item.week) ===
-      Number(week)
-  ) || null;
-}
-
-function getCourseId(week,dow){
-  return (
-    Number(week)-1
-  ) * 7 +
-  Number(dow);
-}
-
-function isDone(id){
-  return !!state.completed[id];
-}
-
-function moduleForWeek(week){
-  return (
-    MODULES.find(
-      m =>
-        m.weeks.includes(
-          Number(week)
-        )
-    ) ||
-    MODULES[0]
-  );
-}
-
-function weekCompletedCount(week){
-  let count = 0;
-
-  for(let dow=0;dow<=6;dow++){
-    if(
-      isDone(
-        getCourseId(
-          week,
-          dow
-        )
-      )
-    ){
-      count++;
-    }
-  }
-
-  return count;
-}
-
-/* ================================================================
-   渲染
-   ================================================================ */
-
-function renderAll(){
-  renderStats();
-  renderModules();
-  renderCurrentWeek();
-  renderAllWeeks();
-}
-
-function renderStats(){
-
-  let done = 0;
-
-  for(
-    let week=1;
-    week<=52;
-    week++
-  ){
-
-    for(
-      let dow=0;
-      dow<=6;
-      dow++
-    ){
-
-      if(
-        isDone(
-          getCourseId(
-            week,
-            dow
-          )
-        )
-      ){
-        done++;
-      }
-
-    }
-
-  }
-
-  const pct =
-    Math.round(
-      done/364*100
-    );
-
-  document.getElementById(
-    "totalDone"
-  ).textContent =
-    done;
-
-  document.getElementById(
-    "weekDone"
-  ).textContent =
-    weekCompletedCount(
-      currentWeek
-    );
-
-  document.getElementById(
-    "pct"
-  ).textContent =
-    pct + "%";
-
-  document.getElementById(
-    "fill"
-  ).style.width =
-    pct + "%";
-
+function currentWeekFromDate(){
+  const now=new Date();
+  const diff=Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-START_DATE)/86400000);
+  return Math.min(52,Math.max(1,Math.floor(diff/7)+1));
 }
 
 function renderModules(){
+  const box=document.getElementById("moduleRow");
+  box.innerHTML=MODULES.map(m=>{
+    const done=m.weeks.reduce((n,w)=>n+(weekCourses(w).filter(c=>isDone(c.id)).length),0);
+    const total=m.weeks.length*7;
+    const active=m.weeks.includes(currentWeek);
+    return `<div class="module ${active?'active':''}" title="${esc(m.name)}">
+      <span class="icon">${m.icon}</span>${esc(m.name)}
+      <div style="margin-top:2px">${done}/${total}</div>
+    </div>`;
+  }).join("");
+}
 
-  document.getElementById(
-    "modules"
-  ).innerHTML =
-    MODULES
-      .map(
-        module => {
+function renderStats(){
+  const done=doneCount(), total=364;
+  document.getElementById("totalDone").textContent=done;
+  document.getElementById("totalDays").textContent=total;
+  const wc=weekCourses(currentWeek);
+  document.getElementById("weekProgress").textContent=wc.filter(c=>isDone(c.id)).length;
+  const pct=Math.round(done/total*100);
+  document.getElementById("progressPercent").textContent=pct+"%";
+  document.getElementById("progressFill").style.width=pct+"%";
+  renderModules();
+}
 
-          let done = 0;
-
-          module.weeks.forEach(
-            week => {
-              done +=
-                weekCompletedCount(
-                  week
-                );
-            }
-          );
-
-          const total =
-            module.weeks.length * 7;
-
-          return `
-            <div class="mod ${
-              module.weeks.includes(currentWeek)
-                ? "active"
-                : ""
-            }">
-              <i>${module.icon}</i>
-              ${esc(module.name)}
-              <div>${done}/${total}</div>
-            </div>
-          `;
-
-        }
-      )
-      .join("");
-
+async function loadCurriculum(){
+  try{
+    setNotice("正在读取52周课程……");
+    const response=await fetch(CURRICULUM_URL,{cache:"no-cache"});
+    if(!response.ok)throw new Error("52-weeks.csv HTTP "+response.status);
+    const text=await response.text();
+    courses=parseCSV(text);
+    if(courses.length<364)throw new Error("全年课程数据只读取到 "+courses.length+" 天");
+    courses=courses.map((x,i)=>({...x,week:Number(x["周次"])||Math.floor(i/7)+1}));
+    currentWeek=currentWeekFromDate();
+    buildWeekSelector();
+    renderAll();
+    setNotice("✅ 52周／364日课程已连接 · 每日经文按冻结版逐日读取");
+  }catch(err){
+    console.error(err);
+    setNotice("❌ 课程加载失败："+err.message);
+  }
 }
 
 function buildWeekSelector(){
-
-  const select =
-    document.getElementById(
-      "weekSelect"
-    );
-
-  select.innerHTML =
-    weeks
-      .map(
-        week =>
-          `<option value="${week.week}">
-             第${week.week}周
-           </option>`
-      )
-      .join("");
-
-  select.value =
-    String(currentWeek);
-
+  const sel=document.getElementById("weekSelect");
+  const weeks=[...new Set(courses.map(w=>Number(w["周次"]||w.week)).filter(Boolean))].sort((a,b)=>a-b);
+  sel.innerHTML=weeks.map(week=>`<option value="${week}">第${week}周</option>`).join("");
+  sel.value=String(currentWeek);
 }
+
+function getWeekData(week){return courses.find(w=>Number(w.week)===Number(week) && (w["星期"]||"")==="主日") || courses.find(w=>Number(w.week)===Number(week)) || null;}
 
 function renderCurrentWeek(){
+  const w=getWeekData(currentWeek);
+  if(!w)return;
+  document.getElementById("weekKicker").textContent="第"+w.week+"周 · "+moduleForWeek(w.week).name;
+  document.getElementById("weekTitle").textContent=w["主日统领主题"] || "本周主题";
+  document.getElementById("weekTheme").textContent=w["本日主题"] || "";
+  document.getElementById("weekReference").textContent=w["经文出处"] || "—";
+  document.getElementById("weekPractice").textContent=w["今日操练"] || "—";
+  document.getElementById("weekMission").textContent=w["生活导向"] || "—";
+  document.getElementById("weekSelect").value=String(currentWeek);
 
-  const week =
-    getWeekData(
-      currentWeek
-    );
+  const list=weekCourses(currentWeek);
+  document.getElementById("weekGrid").innerHTML=list.map(c=>{
+    const today=currentWeek===currentWeekFromDate() && c.dow===new Date().getDay();
+    return `<button class="day-tile ${c.dow===0?'sunday ':''}${isDone(c.id)?'done ':''}${today?'today':''}"
+      onclick="openDay(${c.id})">${c.name}<br>${isDone(c.id)?'✓':'○'}</button>`;
+  }).join("");
 
-  if(!week){
-    return;
-  }
-
-  const module =
-    moduleForWeek(
-      currentWeek
-    );
-
-  document.getElementById(
-    "kicker"
-  ).textContent =
-    `第${currentWeek}周 · ${module.name}`;
-
-  document.getElementById(
-    "weekTitle"
-  ).textContent =
-    week.sunday_theme ||
-    week["主日主题"] ||
-    week.title ||
-    "本周主题";
-
-  document.getElementById(
-    "weekTheme"
-  ).textContent =
-    week.bila_theme ||
-    week["BILA主题"] ||
-    week.focus ||
-    "";
-
-  document.getElementById(
-    "ref"
-  ).textContent =
-    getReference(
-      week
-    ) || "—";
-
-  document.getElementById(
-    "practice"
-  ).textContent =
-    week.practice ||
-    week["实践"] ||
-    "—";
-
-  document.getElementById(
-    "group"
-  ).textContent =
-    week.group_feedback ||
-    week["群体反馈"] ||
-    "—";
-
-  document.getElementById(
-    "mission"
-  ).textContent =
-    week.mission ||
-    week["使命"] ||
-    "—";
-
-  document.getElementById(
-    "weekSelect"
-  ).value =
-    String(currentWeek);
-
-  const dayGrid =
-    document.getElementById(
-      "dayGrid"
-    );
-
-  dayGrid.innerHTML =
-    DAILY.map(
-      day => {
-
-        const id =
-          getCourseId(
-            currentWeek,
-            day.dow
-          );
-
-        return `
-          <button
-            class="day ${
-              day.dow === 0
-                ? "sunday"
-                : ""
-            } ${
-              isDone(id)
-                ? "done"
-                : ""
-            }"
-            onclick="openDayFor(${day.dow})"
-          >
-            ${day.name}
-            <br>
-            ${isDone(id) ? "✓" : "○"}
-          </button>
-        `;
-
-      }
-    ).join("");
-
-  const rows =
-    document.getElementById(
-      "weekRows"
-    );
-
-  rows.innerHTML =
-    DAILY.map(
-      day => {
-
-        const id =
-          getCourseId(
-            currentWeek,
-            day.dow
-          );
-
-        const title =
-          day.dow === 0
-            ? (
-                week.sunday_theme ||
-                week.title ||
-                "主日信息"
-              )
-            : (
-                (
-                  week.bila_theme ||
-                  week.sunday_theme ||
-                  week.title ||
-                  "本周"
-                ) +
-                " · " +
-                day.name
-              );
-
-        return `
-          <div class="row">
-            <div class="row-main" onclick="openDayFor(${day.dow})">
-              <div class="row-wk">
-                ${day.name} · ${esc(day.role)}
-              </div>
-
-              <div class="row-title">
-                ${esc(title)}
-              </div>
-
-              <div class="row-ref">
-                ${esc(
-                  getReference(week)
-                )}
-              </div>
-            </div>
-
-            <button onclick="openDayFor(${day.dow})">
-              ${
-                isDone(id)
-                  ? "✅"
-                  : "进入"
-              }
-            </button>
-          </div>
-        `;
-
-      }
-    ).join("");
-
+  document.getElementById("timeline").innerHTML=list.map(c=>`
+    <div class="day-card ${c.dow===0?'sunday ':''}${isDone(c.id)?'done':''}" onclick="openDay(${c.id})">
+      <div class="day-info">
+        <div class="day-title">${esc(c.title)}</div>
+        <div class="day-meta">${c.name} · ${esc(c.role)} · ${esc(c.reference)}</div>
+      </div>
+      <div class="day-status">${isDone(c.id)?'✅':'○'}</div>
+    </div>
+  `).join("");
 }
 
-function renderAllWeeks(){
-
-  const box =
-    document.getElementById(
-      "allWeeks"
-    );
-
-  box.innerHTML =
-    weeks
-      .map(
-        week => {
-
-          const done =
-            weekCompletedCount(
-              Number(
-                week.week
-              )
-            );
-
-          return `
-            <div class="row">
-
-              <div class="row-main">
-
-                <div class="row-wk">
-                  第${week.week}周 ·
-                  ${esc(
-                    moduleForWeek(
-                      Number(
-                        week.week
-                      )
-                    ).name
-                  )}
-                </div>
-
-                <div class="row-title">
-                  ${esc(
-                    week.sunday_theme ||
-                    week["主日主题"] ||
-                    week.title ||
-                    ""
-                  )}
-                </div>
-
-                <div class="row-ref">
-                  ${esc(
-                    getReference(
-                      week
-                    )
-                  )}
-                  · ${done}/7
-                </div>
-
-              </div>
-
-              <button onclick="selectWeek(${Number(week.week)})">
-                进入
-              </button>
-
-            </div>
-          `;
-
-        }
-      )
-      .join("");
-
+function renderWeekList(){
+  const box=document.getElementById("weekList");
+  const weeks=[...new Set(courses.map(w=>Number(w["周次"]||w.week)).filter(Boolean))].sort((a,b)=>a-b);
+  box.innerHTML=weeks.map(week=>{
+    const w=getWeekData(week)||{};
+    return `<div class="week-row">
+      <div class="main">
+        <div class="wk">第${week}周 · ${esc(moduleForWeek(week).name)}</div>
+        <div class="title">${esc(w["主日统领主题"]||"")}</div>
+        <div class="theme">${esc(w["经文出处"]||"")} · ${esc(w["本日主题"]||w["主日统领主题"]||"")}</div>
+      </div>
+      <button onclick="selectWeek(${week})">进入</button>
+    </div>`;
+  }).join("");
 }
 
-function getReference(week){
-
-  return (
-    week.reference ||
-    week.scripture ||
-    week["经文"] ||
-    week["经文引用"] ||
-    ""
-  );
-
+function renderAll(){
+  renderStats();
+  renderCurrentWeek();
+  renderWeekList();
 }
-
-/* ================================================================
-   周导航
-   ================================================================ */
 
 function selectWeek(week){
-
-  currentWeek =
-    Math.min(
-      52,
-      Math.max(
-        1,
-        Number(week)
-      )
-    );
-
+  currentWeek=Number(week);
   renderAll();
-
-  document
-    .querySelector(
-      ".week"
-    )
-    .scrollIntoView({
-      behavior:"smooth",
-      block:"start"
-    });
-
+  window.scrollTo({top:document.querySelector(".week-panel").offsetTop-12,behavior:"smooth"});
+}
+function changeWeek(delta){selectWeek(Math.min(52,Math.max(1,currentWeek+delta)));}
+function scrollToWeekList(){
+  document.getElementById("weekList").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function openCurrentSunday(){
+  const c=weekCourses(currentWeek).find(x=>x.dow===0);
+  if(c)openDay(c.id);
+}
+function openCurrentDay(dow){
+  const c=weekCourses(currentWeek).find(x=>x.dow===Number(dow));
+  if(c)openDay(c.id);
 }
 
-function changeWeek(delta){
+function getCourse(id){return buildCourses().find(c=>c.id===Number(id)) || null;}
 
-  selectWeek(
-    currentWeek + delta
-  );
-
+async function openDay(id){
+  const c=getCourse(id);
+  if(!c){showToast("找不到课程");return;}
+  currentModal=id;currentStep=0;selectedOption=null;currentBible=null;
+  document.getElementById("dayModal").classList.add("active");
+  await renderDay(c);
 }
 
-/* ================================================================
-   核心：由 Bible Engine 获取当前周 Bible
-   ================================================================ */
-
-async function loadCurrentWeekBible(){
-
-  if(
-    !window.BilaBible
-  ){
-
-    throw new Error(
-      "Bible Engine 未加载"
-    );
-
-  }
-
-  if(
-    typeof BilaBible.getWeekBible !==
-    "function"
-  ){
-
-    throw new Error(
-      "Bible Engine 没有 getWeekBible()"
-    );
-
-  }
-
-  return await BilaBible.getWeekBible(
-    currentWeek
-  );
-
-}
-
-
-/* ================================================================
-   打开某一天
-   ================================================================ */
-
-async function openDayFor(dow){
-
-  const week =
-    getWeekData(
-      currentWeek
-    );
-
-  if(!week){
-
-    showToast(
-      "课程尚未加载"
-    );
-
-    return;
-
-  }
-
-  currentCourse = {
-
-    id:
-      getCourseId(
-        currentWeek,
-        dow
-      ),
-
-    week:
-      currentWeek,
-
-    dow:
-      dow,
-
-    day:
-      DAILY[dow],
-
-    weekData:
-      week
-
-  };
-
-  currentModalId =
-    currentCourse.id;
-
-  currentStep = 0;
-  selectedOption = null;
-  currentBible = null;
-
-  document
-    .getElementById(
-      "dayModal"
-    )
-    .classList.add(
-      "active"
-    );
-
-  await renderDay();
-
-}
-
-async function renderDay(){
-
-  const body =
-    document.getElementById(
-      "dayBody"
-    );
-
-  body.innerHTML =
-    `
-      <div class="center">
-        <span class="spinner"></span>
-        正在读取本地和合本经文……
-      </div>
-    `;
-
+async function renderDay(c){
+  const body=document.getElementById("dayModalBody");
+  body.innerHTML=`<div class="center"><span class="spinner"></span>正在读取经文……</div>`;
   try{
-
-    currentBible =
-      await loadCurrentWeekBible();
-
+    currentBible=await BilaBible.data(c.reference);
+    currentBible={ bible: currentBible, reference:c.reference, week:c.week, sundayTheme:c.sundayTheme, bilaTheme:c.bilaTheme, practice:c.practice, groupFeedback:c.groupFeedback, mission:c.mission };
+  }catch(err){
+    console.error(err);
+    currentBible=null;
   }
-  catch(error){
 
-    console.error(
-      "BIBLE ERROR:",
-      error
-    );
+  if(c.dow===0){
+    body.innerHTML=`
+      <div class="meta-bar"><span>第${c.week}周 · 主日</span><span>主日共同入口</span></div>
+      <h2>${esc(c.sundayTheme)}</h2>
+      <div class="role">${esc(c.reference)} · ${esc(c.bilaTheme)}</div>
 
-    body.innerHTML =
-      `
-        <div class="meta">
-          <span>
-            第${currentWeek}周 ·
-            ${currentCourse.day.name}
-          </span>
+      <div class="info-box"><b>今日门训内容：</b><br>${esc(c.dailyContent || "（暂无每日门训正文）")}</div>
+      <div class="info-box"><b>本周实践：</b>${esc(c.practice)}</div>
+      <div class="info-box"><b>本周使命：</b>${esc(c.mission)}</div>
 
-          <span>
-            ${esc(
-              getReference(
-                currentCourse.weekData
-              )
-            )}
-          </span>
-        </div>
+      ${bibleHtml(c)}
 
-        <h2>
-          ${esc(
-            currentCourse.weekData.sunday_theme ||
-            currentCourse.weekData.title ||
-            ""
-          )}
-        </h2>
+      <div class="formation">📌 主日是本周门训的共同入口。主日信息进入主题；周间由经文观察、生命连接、关系实践、使命行动与群体回顾延伸。</div>
 
-        <div class="notice error">
-          ❌ 经文读取失败
-        </div>
-
-        <div class="box">
-          ${esc(
-            error.message
-          )}
-        </div>
-
-        <div class="formation">
-          请确认 GitHub 根目录存在：
-          <br>
-          <b>bible-engine.js</b>
-          <br>
-          <b>bila-cuv-pdf-database.json</b>
-          <br>
-          <b>52-weeks.csv</b>
-        </div>
-      `;
-
+      <button class="done-btn" onclick="markSunday(${c.id})">${isDone(c.id)?'✅ 已阅读':'我已阅读'}</button>
+    `;
     return;
-
   }
 
-  if(
-    currentCourse.dow === 0
-  ){
-
-    renderSunday();
-
-  }else{
-
-    renderWeekday();
-
-  }
-
+  renderStep(c);
 }
 
-/* ================================================================
-   Bible 文本
-   ================================================================ */
-
-function getBibleText(){
-
-  if(
-    !currentBible ||
-    !currentBible.bible
-  ){
-
-    return "";
-
-  }
-
-  const bible =
-    currentBible.bible;
-
-  if(
-    typeof bible.text ===
-    "string"
-  ){
-
-    return bible.text;
-
-  }
-
-  if(
-    Array.isArray(
-      bible.verses
-    )
-  ){
-
-    return bible.verses
-      .map(
-        v =>
-          `${v.verse} ${v.text}`
-      )
-      .join("\n");
-
-  }
-
-  return "";
-
+function bibleHtml(c){
+  const text=currentBible?.bible?.verses?.length
+    ? currentBible.bible.verses.map(v=>`${v.verse} ${v.text}`).join("\n")
+    : "（经文暂时无法读取，请检查网络连接或 Bible Engine）";
+  return `<div class="scripture"><div class="ref">📖 ${esc(c.reference)} · 和合本（简体）</div>${esc(text)}</div>`;
 }
 
-/* ================================================================
-   主日
-   ================================================================ */
+function renderStep(c){
+  const body=document.getElementById("dayModalBody");
+  const completed=isDone(c.id);
 
-function renderSunday(){
-
-  const week =
-    currentCourse.weekData;
-
-  const body =
-    document.getElementById(
-      "dayBody"
-    );
-
-  body.innerHTML =
-    `
-      <div class="meta">
-        <span>
-          第${currentWeek}周 · 主日
-        </span>
-
-        <span>
-          主日共同入口
-        </span>
-      </div>
-
-      <h2>
-        ${esc(
-          week.sunday_theme ||
-          week["主日主题"] ||
-          week.title ||
-          ""
-        )}
-      </h2>
-
-      <div class="role">
-        ${esc(
-          getReference(
-            week
-          )
-        )}
-        ·
-        ${esc(
-          week.bila_theme ||
-          week["BILA主题"] ||
-          week.focus ||
-          ""
-        )}
-      </div>
-
-      <div class="box">
-        <b>本周实践：</b>
-        ${esc(
-          week.practice ||
-          week["实践"] ||
-          ""
-        )}
-      </div>
-
-      <div class="box">
-        <b>本周群体：</b>
-        ${esc(
-          week.group_feedback ||
-          week["群体反馈"] ||
-          ""
-        )}
-      </div>
-
-      <div class="box">
-        <b>本周使命：</b>
-        ${esc(
-          week.mission ||
-          week["使命"] ||
-          ""
-        )}
-      </div>
-
-      <div class="scripture">
-        <div class="ref">
-          📖
-          ${esc(
-            getReference(
-              week
-            )
-          )}
-          · 和合本
-        </div>
-
-        ${esc(
-          getBibleText() ||
-          "（没有读取到经文）"
-        )}
-      </div>
-
-      <div class="formation">
-        📌 主日是本周门训的共同入口。
-        后续从经文观察进入生命、关系、实践、群体与使命。
-      </div>
-
-      <button
-        class="done-btn"
-        onclick="completeCurrent()"
-      >
-        ${
-          isDone(
-            currentModalId
-          )
-            ? "✅ 已阅读"
-            : "我已阅读"
-        }
-      </button>
+  let content="";
+  if(currentStep===0){
+    content=`
+      <div class="step-title">📖 第一步：诵读·进入</div>
+      <div class="step-guide">${esc(c.prompt)}</div>
+      ${bibleHtml(c)}
+      <div class="info-box"><b>今日门训内容：</b><br>${esc(c.dailyContent || "（暂无每日门训正文）")}</div>
+      <div class="action">慢慢读，留意一个词、一句话或一个行动。</div>
     `;
-
-}
-
-/* ================================================================
-   周间10步
-   ================================================================ */
-
-function renderWeekday(){
-
-  const body =
-    document.getElementById(
-      "dayBody"
-    );
-
-  const course =
-    currentCourse;
-
-  const steps = [
-    "诵读",
-    "观察",
-    "领受",
-    "连接",
-    "省察",
-    "祷告",
-    "分辨",
-    "实践",
-    "分享",
-    "交托"
-  ];
-
-  let content = "";
-
-  const bible =
-    getBibleText();
-
-  if(currentStep === 0){
-
-    content = `
-      <div class="step-title">
-        📖 第一步：诵读·进入
-      </div>
-
-      <div class="step-guide">
-        ${esc(
-          course.day.prompt
-        )}
-      </div>
-
-      <div class="scripture">
-        <div class="ref">
-          📖
-          ${esc(
-            getReference(
-              course.weekData
-            )
-          )}
-          · 和合本
-        </div>
-
-        ${esc(
-          bible ||
-          "（没有读取到经文）"
-        )}
-      </div>
-
-      <div class="formation">
-        慢慢读，留意一个词、一句话、
-        一个行动或神的作为。
-      </div>
+  }else if(currentStep===1){
+    content=`
+      <div class="step-title">🔍 第二步：观察·经文</div>
+      <div class="step-guide">${esc(c.prompt)}</div>
+      <div class="info-box"><b>今天特别留意：</b>${esc(c.thinking || "留意经文中的人物、行动和神的作为。")}</div>
+      <div class="info-box"><b>关键词：</b>${esc(c.keywords || "请从当天经文中圈出一个词或短语。")}</div>
+      <div class="action">先观察经文，再进入自己的理解，不急着下结论。</div>
     `;
-
-  }
-
-  else if(currentStep === 1){
-
-    content =
-      choiceStep(
-        "🔍 第二步：观察·经文",
-        "从今天的经文中，你最注意到什么？",
-        [
-          "一个词或短语",
-          "一个人物",
-          "一个行动",
-          "神的作为"
-        ]
-      );
-
-  }
-
-  else if(currentStep === 2){
-
-    content =
-      choiceStep(
-        "❤️ 第三步：领受·意义",
-        "读这段经文时，你内心最真实的感受是什么？",
-        [
-          "被触动",
-          "被挑战",
-          "被安慰",
-          "暂时说不清"
-        ]
-      );
-
-  }
-
-  else if(currentStep === 3){
-
-    content =
-      choiceStep(
-        "🔗 第四步：连接·处境",
-        "这段经文今天最可能进入哪个生活场景？",
-        [
-          "家庭",
-          "工作 / 学习",
-          "教会 / 服事",
-          "独处与内心"
-        ]
-      );
-
-  }
-
-  else if(currentStep === 4){
-
-    content =
-      choiceStep(
-        "🪞 第五步：省察·生命",
-        "在这个处境中，我最需要诚实面对什么？",
-        [
-          "我的态度",
-          "我的习惯",
-          "我的关系",
-          "我的恐惧或压力"
-        ]
-      );
-
-  }
-
-  else if(currentStep === 5){
-
-    content = `
-      <div class="step-title">
-        🕊️ 第六步：停顿·祷告
-      </div>
-
-      <div class="step-guide">
-        安静10–15秒，让刚才的经文和选择沉淀下来。
-      </div>
-
-      <div class="box center" style="padding:23px">
-        “你们要休息，要知道我是神。”
-        <br>
-        — 诗篇46:10
-      </div>
-
-      <div class="formation">
-        深呼吸，安静片刻，再继续。
-      </div>
+  }else if(currentStep===2){
+    content=`
+      <div class="step-title">❤️ 第三步：领受·意义</div>
+      <div class="step-guide">${esc(c.thinking || "从今天的经文中领受一个与你生命有关的重点。")}</div>
+      <div class="info-box"><b>思考入口：</b>${esc(c.prompt)}</div>
+      <div class="action">不用追求标准答案，诚实面对经文在你里面产生的回应。</div>
     `;
-
-  }
-
-  else if(currentStep === 6){
-
-    content =
-      choiceStep(
-        "⚖️ 第七步：分辨·回应",
-        "结合本周主题，我今天最需要怎样回应主？",
-        [
-          "放下自己的计划",
-          "走出舒适区",
-          "承认自己的有限",
-          "相信神的带领"
-        ]
-      );
-
-  }
-
-  else if(currentStep === 7){
-
-    content =
-      choiceStep(
-        "👣 第八步：实践·行动",
-        "今天真正可以走的一小步是什么？",
-        [
-          "主动关心一个人",
-          "完成一件该做的事",
-          "做一件具体的善事",
-          "安静在神面前"
-        ],
-        course.weekData.practice ||
-        course.weekData["实践"] ||
-        ""
-      );
-
-  }
-
-  else if(currentStep === 8){
-
-    content = `
-      <div class="step-title">
-        ✅ 第九步：分享·预备
-      </div>
-
-      <div class="step-guide">
-        把今天的决定带进群体关系。
-      </div>
-
-      <div class="box">
-        <b>本周群体：</b><br>
-        ${esc(
-          course.weekData.group_feedback ||
-          course.weekData["群体反馈"] ||
-          ""
-        )}
-      </div>
-
+  }else if(currentStep===3){
+    content=`
+      <div class="step-title">🔗 第四步：连接·处境</div>
+      <div class="step-guide">${esc(c.mission || "把今天的经文连接到一个真实生活场景。")}</div>
+      <div class="info-box"><b>今天的生活导向：</b>${esc(c.mission || "把真理带进今天。")}</div>
+      <div class="action">具体到一个时间、地点或场景，不停留在抽象感觉。</div>
+    `;
+  }else if(currentStep===4){
+    content=`
+      <div class="step-title">🪞 第五步：省察·生命</div>
+      <div class="step-guide">${esc(c.thinking || "从经文看见自己的真实反应。")}</div>
+      <div class="info-box"><b>生活导向：</b>${esc(c.mission || "把今天看见的真理带进生命。")}</div>
+      <div class="action">请写下一个最真实、最需要被主光照的地方。</div>
+    `;
+  }else if(currentStep===5){
+    content=`
+      <div class="step-title">🕊️ 第六步：停顿·祷告</div>
+      <div class="step-guide">安静10–15秒，不急着解决问题，让经文和刚才的选择沉淀下来。</div>
+      <div class="info-box center" style="padding:22px">“你们要休息，要知道我是神。”<br>— 诗篇 46:10</div>
+      <div class="action">深呼吸，安静片刻，再继续。</div>
+    `;
+  }else if(currentStep===6){
+    content=`
+      <div class="step-title">⚖️ 第七步：分辨·回应</div>
+      <div class="step-guide">${esc(c.prompt)}</div>
+      <div class="info-box"><b>本日门训步骤：</b>${esc(c.step || "回应")}</div>
+      <div class="info-box"><b>我的回应方向：</b>${esc(c.practice || "从经文确定今天要走的一步。")}</div>
+      <div class="action">在“我知道”与“我愿意”之间作一个真实选择。</div>
+    `;
+  }else if(currentStep===7){
+    content=`
+      <div class="step-title">👣 第八步：实践·行动</div>
+      <div class="step-guide">${esc(c.practice || "今天真正可以走的一小步是什么？")}</div>
+      <div class="info-box"><b>今日操练：</b><br>${esc(c.practice || "完成一个真实、可完成的小行动。")}</div>
+      <div class="action">行动必须小到今天可以完成，并且能够被自己回顾。</div>
       <div class="options">
-        <button
-          class="option ${
-            selectedOption ===
-            "我愿意与伙伴分享"
-              ? "selected"
-              : ""
-          }"
-          onclick="selectOption(this,'我愿意与伙伴分享')"
-        >
-          我愿意与伙伴分享
-        </button>
-      </div>
-
-      <div class="formation">
-        不是汇报成绩，
-        而是为真实同行留下一个入口。
+        <button class="option" onclick="selectOption(this,'已决定今日行动')">我已经决定今天要行动</button>
       </div>
     `;
-
-  }
-
-  else{
-
-    content = `
-      <div class="step-title">
-        ✝️ 第十步：交托·跟随
+  }else if(currentStep===8){
+    content=`
+      <div class="step-title">✅ 第九步：分享·预备</div>
+      <div class="step-guide">把今天的决定带进群体关系。</div>
+      <div class="info-box"><b>关系入口：</b><br>${esc(c.groupFeedback || "选择一个可以同行的人。")}</div>
+      <div class="info-box"><b>生活导向：</b><br>${esc(c.mission || "把经文带进真实生活。")}</div>
+      <div class="info-box"><b>今日操练：</b><br>${esc(c.practice || "完成一个真实、可完成的小行动。")}</div>
+      ${c.dow===6 && c.weeklySummary ? `<div class="info-box"><b>本周回顾：</b><br>${esc(c.weeklySummary)}</div>` : ""}
+      <div class="options">
+        <button class="option ${selectedOption?'selected':''}" onclick="selectOption(this,'我愿意与伙伴分享')">我愿意与伙伴分享</button>
       </div>
-
-      <div class="step-guide">
-        把今天的回应交托给主。
-      </div>
-
-      <div class="box center" style="font-size:16px">
-        “主，今天我选择
-        ${esc(
-          selectedOption ||
-          "跟随你"
-        )}。
-        <br>
+      <div class="action">不是汇报成绩，而是为真实同行留下一个入口。</div>
+    `;
+  }else if(currentStep===9){
+    content=`
+      <div class="step-title">✝️ 第十步：交托·跟随</div>
+      <div class="step-guide">把今天的回应交托给主。</div>
+      <div class="info-box center" style="font-size:16px">
+        “主，今天我选择 ${esc(selectedOption || "跟随你")}。<br>
         我把它交在你手中，求你带领。”
       </div>
-
-      <button
-        class="done-btn"
-        onclick="completeCurrent()"
-      >
-        🙏 阿们，记录今天的同行
-      </button>
+      <button class="done-btn" onclick="completeDay()">🙏 阿们，记录今天的同行</button>
     `;
-
   }
 
-  const dots =
-    steps
-      .map(
-        (step,index) => {
+  const dots=STEP_NAMES.map((s,i)=>{
+    const cls=i===currentStep?"active":(i<currentStep?"done":"");
+    return `<div class="dot ${cls}">${esc(s)}</div>`;
+  }).join("");
 
-          const cls =
-            index === currentStep
-              ? "active"
-              : (
-                index < currentStep
-                  ? "done"
-                  : ""
-              );
-
-          return `
-            <div class="step-dot ${cls}">
-              ${step}
-            </div>
-          `;
-
-        }
-      )
-      .join("");
-
-  let nav = "";
-
-  if(
-    currentStep < 9
-  ){
-
-    nav = `
-      <div class="nav2">
-        ${
-          currentStep > 0
-            ? `
-              <button
-                class="prev"
-                onclick="prevStep()"
-              >
-                ← 返回
-              </button>
-            `
-            : ""
-        }
-
-        <button
-          class="next"
-          onclick="nextStep()"
-        >
-          继续 →
-        </button>
-      </div>
-    `;
-
+  let nav="";
+  if(currentStep<9){
+    nav=`<div class="nav-buttons">
+      ${currentStep>0?'<button class="prev" onclick="prevStep()">← 返回</button>':''}
+      <button class="next" onclick="nextStep()">继续 →</button>
+    </div>`;
   }
 
-  body.innerHTML = `
-    <div class="meta">
-      <span>
-        第${currentWeek}周 ·
-        ${course.day.name}
-      </span>
-
-      <span>
-        ${esc(course.day.role)}
-      </span>
-    </div>
-
-    <h2>
-      ${esc(
-        course.title ||
-        (
-          course.weekData.bila_theme ||
-          course.weekData.sunday_theme ||
-          course.weekData.title ||
-          ""
-        ) +
-        " · " +
-        course.day.name
-      )}
-    </h2>
-
-    <div class="role">
-      ${esc(
-        getReference(
-          course.weekData
-        )
-      )}
-    </div>
-
-    <div class="steps">
-      ${dots}
-    </div>
-
-    <div class="formation">
-      MOS 1.2：
-      这不是属灵成绩测试。
-      今天的选择只是帮助你把经文带进真实生命，
-      并为实践、群体与使命留下入口。
-    </div>
-
+  body.innerHTML=`
+    <div class="meta-bar"><span>第${c.week}周 · ${c.name}</span><span>${esc(c.role)}</span></div>
+    <h2>${esc(c.title)}</h2>
+    ${c.contentStatus ? `<div class="notice-card" style="margin:8px 0 10px">${esc(c.contentStatus)}</div>` : ""}
+    <div class="role">${esc(c.reference)}</div>
+    <div class="step-indicator">${dots}</div>
+    <div class="formation">MOS 1.2：这不是属灵成绩测试。今天的选择只是帮助你把经文带进真实生命，并为实践、群体与使命留下入口。</div>
     ${content}
-
     ${nav}
+    ${completed&&currentStep===9?'<div class="center" style="color:var(--primary);font-size:11px;margin-top:9px">✅ 今日已完成</div>':''}
   `;
-
 }
 
-function choiceStep(
-  title,
-  guide,
-  options,
-  note=""
-){
-
+function optionStep(title,guide,options,note=""){
   return `
-    <div class="step-title">
-      ${title}
-    </div>
-
-    <div class="step-guide">
-      ${guide}
-    </div>
-
-    ${
-      note
-        ? `
-          <div class="box">
-            <b>本周实践：</b>
-            ${esc(note)}
-          </div>
-        `
-        : ""
-    }
-
+    <div class="step-title">${title}</div>
+    <div class="step-guide">${guide}</div>
+    ${note?`<div class="info-box"><b>本周实践方向：</b>${esc(note)}</div>`:""}
     <div class="options">
-      ${
-        options
-          .map(
-            option =>
-              `
-                <button
-                  class="option ${
-                    selectedOption === option
-                      ? "selected"
-                      : ""
-                  }"
-                  onclick="
-                    selectOption(
-                      this,
-                      '${String(option)
-                        .replace(/\\/g,"\\\\")
-                        .replace(/'/g,"\\'")}'
-                    )
-                  "
-                >
-                  ${esc(option)}
-                </button>
-              `
-          )
-          .join("")
-      }
+      ${options.map(o=>`<button class="option ${selectedOption===o?'selected':''}" onclick="selectOption(this,'${escJS(o)}')">${esc(o)}</button>`).join("")}
     </div>
+    <div class="action">✋ 没有标准答案，选择最贴近你现在真实状态的一项。</div>
   `;
-
 }
+function escJS(v){return String(v).replace(/\\/g,"\\\\").replace(/'/g,"\\'");}
 
-function selectOption(
-  element,
-  option
-){
-
-  selectedOption =
-    option;
-
-  document
-    .querySelectorAll(
-      ".option"
-    )
-    .forEach(
-      button =>
-        button.classList.remove(
-          "selected"
-        )
-    );
-
-  element.classList.add(
-    "selected"
-  );
-
+function selectOption(el,opt){
+  selectedOption=opt;
+  document.querySelectorAll(".option").forEach(x=>x.classList.remove("selected"));
+  el.classList.add("selected");
 }
-
 function nextStep(){
-
-  const required =
-    [1,2,3,4,6,7,8];
-
-  if(
-    required.includes(
-      currentStep
-    ) &&
-    !selectedOption
-  ){
-
-    showToast(
-      "请先选择一个回应"
-    );
-
-    return;
-
+  const needChoice=[1,2,3,4,6,7,8];
+  if(needChoice.includes(currentStep)&&!selectedOption){
+    showToast("请先选择一个最真实的回应");return;
   }
-
-  if(
-    currentStep <
-    9
-  ){
-
+  if(currentStep<9){
     currentStep++;
-
-    renderWeekday();
-
+    renderStep(getCourse(currentModal));
+    document.querySelector("#dayModal .modal").scrollTo({top:0,behavior:"smooth"});
   }
-
 }
-
 function prevStep(){
-
-  if(
-    currentStep >
-    0
-  ){
-
-    currentStep--;
-
-    renderWeekday();
-
-  }
-
+  if(currentStep>0){currentStep--;renderStep(getCourse(currentModal));}
+}
+function completeDay(){
+  const c=getCourse(currentModal);
+  if(!c)return;
+  if(!selectedOption && c.dow!==0){showToast("请先完成今天的回应");return;}
+  state.completed[c.id]=true;
+  state.reflections[c.id]=selectedOption || "已阅读主日信息";
+  saveState(); renderAll();
+  showToast("✅ 今日同行已记录");
+  setTimeout(closeDayModal,600);
+}
+function markSunday(id){
+  state.completed[id]=true;
+  state.reflections[id]="已阅读主日信息";
+  saveState();renderAll();showToast("✅ 已标记为已阅读");
+  setTimeout(closeDayModal,500);
 }
 
-function completeCurrent(){
-
-  if(
-    isDone(
-      currentModalId
-    )
-  ){
-
-    showToast(
-      "今天已经完成"
-    );
-
-    return;
-
-  }
-
-  state.completed[
-    currentModalId
-  ] =
-    true;
-
-  state.reflections[
-    currentModalId
-  ] =
-    selectedOption ||
-    (
-      currentCourse.dow === 0
-        ? "已阅读主日信息"
-        : "已完成今日同行"
-    );
-
-  saveState();
-  renderAll();
-
-  showToast(
-    "✅ 今日同行已记录"
-  );
-
-  setTimeout(
-    closeDay,
-    500
-  );
-
+function closeDayModal(){
+  document.getElementById("dayModal").classList.remove("active");
+  currentModal=null;selectedOption=null;currentBible=null;
 }
-
-function closeDay(){
-
-  document
-    .getElementById(
-      "dayModal"
-    )
-    .classList.remove(
-      "active"
-    );
-
-  currentModalId =
-    null;
-
-  currentCourse =
-    null;
-
-  currentBible =
-    null;
-
-  currentStep =
-    0;
-
-  selectedOption =
-    null;
-
-}
-
-
-/* ================================================================
-   用户
-   ================================================================ */
-
-function updateUser(){
-
-  const input =
-    document.getElementById(
-      "userInput"
-    );
-
-  const status =
-    document.getElementById(
-      "userStatus"
-    );
-
-  if(
-    currentUser.startsWith(
-      "guest_"
-    )
-  ){
-
-    input.value = "";
-
-    status.textContent =
-      "当前：游客";
-
-  }else{
-
-    input.value =
-      currentUser;
-
-    status.textContent =
-      "当前：" +
-      currentUser;
-
+function openSettings(){document.getElementById("settingsModal").classList.add("active");}
+function closeSettings(){document.getElementById("settingsModal").classList.remove("active");}
+function enableNotify(){
+  if(!("Notification" in window)){
+    document.getElementById("notifyStatus").textContent="当前浏览器不支持通知。";return;
   }
-
+  Notification.requestPermission().then(p=>{
+    if(p==="granted"){
+      state.reminder.enabled=true;saveState();
+      document.getElementById("notifyStatus").textContent="✅ 已允许通知。网页保持打开时可提醒。";
+    }else document.getElementById("notifyStatus").textContent="未获得通知权限。";
+  });
 }
 
 function loginUser(){
-
-  const value =
-    document
-      .getElementById(
-        "userInput"
-      )
-      .value
-      .trim();
-
-  if(!value){
-
-    showToast(
-      "请输入用户名"
-    );
-
-    return;
-
-  }
-
-  currentUser =
-    value;
-
-  localStorage.setItem(
-    "bila_user",
-    currentUser
-  );
-
-  stateKey =
-    "bila_mos_v30_" +
-    currentUser;
-
-  loadState();
-  renderAll();
-  updateUser();
-
-  showToast(
-    "已进入：" +
-    currentUser
-  );
-
+  const name=document.getElementById("userInput").value.trim();
+  if(!name){showToast("请输入用户名");return;}
+  currentUser=name;localStorage.setItem("bila_user",name);
+  stateKey="bila_mos_v22_"+name;loadState();renderAll();
+  updateUserUI();showToast("已进入："+name);
 }
-
 function guestLogin(){
-
-  currentUser =
-    "guest_" +
-    Date.now().toString(36);
-
-  localStorage.setItem(
-    "bila_user",
-    currentUser
-  );
-
-  stateKey =
-    "bila_mos_v30_" +
-    currentUser;
-
-  loadState();
-  renderAll();
-  updateUser();
-
-  showToast(
-    "游客模式"
-  );
-
+  currentUser="guest_"+Date.now().toString(36);
+  localStorage.setItem("bila_user",currentUser);
+  stateKey="bila_mos_v22_"+currentUser;loadState();renderAll();
+  updateUserUI();showToast("游客模式");
+}
+function updateUserUI(){
+  const input=document.getElementById("userInput");
+  const status=document.getElementById("userStatus");
+  if(currentUser.startsWith("guest_")){input.value="";status.textContent="当前：游客";}
+  else{input.value=currentUser;status.textContent="当前："+currentUser;}
 }
 
-
-/* ================================================================
-   设置
-   ================================================================ */
-
-function openSettings(){
-
-  document
-    .getElementById(
-      "settingsModal"
-    )
-    .classList.add(
-      "active"
-    );
-
+function setNotice(text){document.getElementById("appNotice").textContent=text;}
+function showToast(msg){
+  const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";
+  clearTimeout(t._timer);t._timer=setTimeout(()=>t.style.display="none",2200);
 }
 
-function closeSettings(){
-
-  document
-    .getElementById(
-      "settingsModal"
-    )
-    .classList.remove(
-      "active"
-    );
-
-}
-
-function enableNotify(){
-
-  if(
-    !("Notification" in window)
-  ){
-
-    document
-      .getElementById(
-        "notifyStatus"
-      )
-      .textContent =
-        "当前浏览器不支持通知。";
-
-    return;
-
+setInterval(()=>{
+  if(!state.reminder?.enabled || !("Notification" in window))return;
+  const n=new Date();
+  if(n.getHours()===20&&n.getMinutes()<2&&Notification.permission==="granted"){
+    new Notification("🌿 BILA 提醒",{body:"今天花几分钟，进入经文，想一想，再走一步。"});
   }
+},60000);
 
-  Notification
-    .requestPermission()
-    .then(
-      permission => {
+document.getElementById("dayModal").addEventListener("click",e=>{
+  if(e.target.id==="dayModal")closeDayModal();
+});
+document.getElementById("settingsModal").addEventListener("click",e=>{
+  if(e.target.id==="settingsModal")closeSettings();
+});
 
-        if(
-          permission === "granted"
-        ){
-
-          state.reminder.enabled =
-            true;
-
-          saveState();
-
-          document
-            .getElementById(
-              "notifyStatus"
-            )
-            .textContent =
-              "✅ 通知已开启。";
-
-        }else{
-
-          document
-            .getElementById(
-              "notifyStatus"
-            )
-            .textContent =
-              "未获得通知权限。";
-
-        }
-
-      }
-    );
-
-}
-
-
-/* ================================================================
-   遮罩关闭
-   ================================================================ */
-
-document
-  .getElementById(
-    "dayModal"
-  )
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target.id ===
-        "dayModal"
-      ){
-
-        closeDay();
-
-      }
-
-    }
-  );
-
-document
-  .getElementById(
-    "settingsModal"
-  )
-  .addEventListener(
-    "click",
-    event => {
-
-      if(
-        event.target.id ===
-        "settingsModal"
-      ){
-
-        closeSettings();
-
-      }
-
-    }
-  );
-
-
-/* ================================================================
-   启动
-   ================================================================ */
-
-updateUser();
-
-initBila();
-
+updateUserUI();
+loadCurriculum();
 </script>
-
 </body>
 </html>
