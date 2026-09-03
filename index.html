@@ -49,7 +49,7 @@
 
 <script src="bible-engine.js"></script>
 <script>
-const CONFIG={curriculumUrl:'52-weeks.csv',dailyUrl:'mos-364d.csv',startDate:'2026-08-30T00:00:00'};
+const CONFIG={curriculumUrl:'mos-52w.csv',dailyUrl:'mos-364d.csv',startDate:'2026-08-30T00:00:00'};
 const STAGES=[
  {name:'看见自己',weeks:[1,13],icon:'◉',desc:'身份、价值、控制、比较与自我认识'},
  {name:'重新连接',weeks:[14,26],icon:'◎',desc:'归属、关系、饶恕、家庭与群体'},
@@ -75,8 +75,8 @@ function weekDone(w){let n=0;for(let d=0;d<7;d++)if(done(dayId(w,d)))n++;return 
 function allDone(){return Object.values(state.completed).filter(Boolean).length}
 function streak(){let n=0,id=todayDay();while(id>=0&&done(id)){n++;id--}return n}
 async function load(){
-  try{curriculum=await fetch(CONFIG.curriculumUrl,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject(new Error('52-weeks.csv加载失败'))).then(csv).then(rows=>rows.map((r,i)=>({week:Number(r.week||r.周次||i+1),sunday_theme:r.sunday_theme||r.主日主题||r.title||r.标题||'',bila_theme:r.bila_theme||r.BILA主题||r.focus||'',reference:r.reference||r.经文||r.scripture||'',practice:r.practice||r.实践||'',group_feedback:r.group_feedback||r.群体反馈||r.feedback||'',mission:r.mission||r.使命||''})));
-  }catch(e){notice('52周课程暂未连接，请确认 GitHub 根目录存在 52-weeks.csv。',true);curriculum=Array.from({length:52},(_,i)=>({week:i+1,sunday_theme:'第'+(i+1)+'周',bila_theme:'',reference:'',practice:'',group_feedback:'',mission:''}))}
+  try{curriculum=await fetch(CONFIG.curriculumUrl,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject(new Error('mos-52w.csv加载失败'))).then(csv).then(rows=>rows.map((r,i)=>({week:Number(r.week||r.周次||i+1),sunday_theme:r.sunday_theme||r.主日主题||r.title||r.标题||'',bila_theme:r.bila_theme||r.BILA主题||r.focus||'',reference:r.reference||r.经文||r.scripture||'',practice:r.practice||r.实践||'',group_feedback:r.group_feedback||r.群体反馈||r.feedback||'',mission:r.mission||r.使命||''})));
+  }catch(e){notice('52周课程暂未连接，请确认 GitHub 根目录存在 mos-52w.csv。',true);curriculum=Array.from({length:52},(_,i)=>({week:i+1,sunday_theme:'第'+(i+1)+'周',bila_theme:'',reference:'',practice:'',group_feedback:'',mission:''}))}
   try{const r=await fetch(CONFIG.dailyUrl,{cache:'no-store'});if(r.ok)daily=csv(await r.text());}catch(e){daily=[]}
   const t=current();currentWeek=t.week;render();notice('MOS平台 V1.0 · 内容与系统已分离',false)
 }
