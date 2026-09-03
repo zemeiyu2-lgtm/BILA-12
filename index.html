@@ -62,7 +62,61 @@ let user=localStorage.getItem('mos_user')||'游客';
 let state=JSON.parse(localStorage.getItem('mos_state_v1')||'{}');
 state.completed=state.completed||{};state.choices=state.choices||{};state.reminder=!!state.reminder;
 function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
-function csv(text){const out=[];let row=[],cell='',q=false;for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(c==='"'){if(q&&n==='"'){cell+='"';i++}else q=!q;continue}if(c===','&&!q){row.push(cell.trim());cell='';continue}if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&n==='\n')i++;row.push(cell.trim());if(row.some(x=>x!==''))out.push(row);row=[];cell='';continue}cell+=c}if(cell!==''||row.length){row.push(cell.trim());if(row.some(x=>x!==''))out.push(row)}if(out.length<2)return[];const h=out[0].map(x=>x.replace(/^\uFEFF/,''));return out.slice(1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]??''])))}
+function csv(text){
+  const out=[]; let row=[], cell='', q=false;
+  text=String(text||'').replace(/^\uFEFF/,'');
+  for(let i=0;i<text.length;i++){
+    const c=text[i],n=text[i+1];
+    if(c==='"'){ if(q&&n==='"'){cell+='"';i++;} else q=!q; continue; }
+    if(c===','&&!q){row.push(cell.trim());cell='';continue;}
+    if((c==='\n'||c==='\r')&&!q){
+      if(c==='\r'&&n==='\n')i++;
+      row.push(cell.trim());
+      if(row.some(x=>x!==''))out.push(row);
+      row=[];cell='';continue;
+    }
+    cell+=c;
+  }
+  if(cell!==''||row.length){row.push(cell.trim());if(row.some(x=>x!==''))out.push(row);}
+  if(out.length<2)return[];
+  const h=out[0].map(x=>String(x).replace(/^\uFEFF/,'').trim());
+  return out.slice(1).map(r=>Object.fromEntries(h.map((k,i)=>[k,String(r[i]??'').trim()])));
+}
+function pick(r,...keys){for(const k of keys){if(r[k]!==undefined&&String(r[k]).trim()!=='')return String(r[k]).trim();}return '';}
+function normalizeWeekRows(rows){
+  return rows.map((r,i)=>({
+    week:Number(pick(r,'week','周次')||i+1),
+    stage:pick(r,'stage','阶段'),
+    functionName:pick(r,'week_function','周次功能'),
+    sunday_theme:pick(r,'sunday_theme','主日主题','一句话主题','核心生命问题','title','标题'),
+    bila_theme:pick(r,'bila_theme','BILA主题','主日方向','周次功能','focus','焦点'),
+    reference:pick(r,'reference','核心经文','经文','经文引用'),
+    practice:pick(r,'practice','本周实践','实践'),
+    group_feedback:pick(r,'group_feedback','小组入口','伙伴反馈','群体反馈','feedback'),
+    mission:pick(r,'mission','使命/传递','使命')
+  })).filter(x=>Number.isFinite(x.week)&&x.week>=1&&x.week<=52);
+}
+function normalizeDailyRows(rows){
+  return rows.map(r=>{
+    const n=Number(pick(r,'dow','星期序','日序'));
+    return {
+      ...r,
+      day_id:pick(r,'day_id','日ID'),
+      week:Number(pick(r,'week','周次')||0),
+      dow:(pick(r,'dow')!==''?n:((n-1)%7)),
+      reference:pick(r,'reference','今日核心经文','核心经文','经文'),
+      day_title:pick(r,'day_title','今日标题','日主题','日类型','title','标题'),
+      core:pick(r,'core','每日核心信息','今日核心信息','核心信息'),
+      question:pick(r,'question','今日反思入口','反思入口','问题'),
+      life_action:pick(r,'life_action','今日实践','生命形成动作','实践'),
+      share:pick(r,'share','关系/伙伴反馈','伙伴反馈','小组入口'),
+      mission:pick(r,'mission','使命连接','使命/传递','使命'),
+      fruit:pick(r,'fruit','生命果子'),
+      choices:pick(r,'choices','今日自我选择','选择')
+    };
+  }).filter(x=>x.week>=1&&x.week<=52&&x.dow>=0&&x.dow<=6);
+}
+
 function save(){localStorage.setItem('mos_state_v1',JSON.stringify(state))}
 function done(id){return !!state.completed[id]}
 function dayId(w,d){return (w-1)*7+d}
@@ -75,10 +129,26 @@ function weekDone(w){let n=0;for(let d=0;d<7;d++)if(done(dayId(w,d)))n++;return 
 function allDone(){return Object.values(state.completed).filter(Boolean).length}
 function streak(){let n=0,id=todayDay();while(id>=0&&done(id)){n++;id--}return n}
 async function load(){
-  try{curriculum=await fetch(CONFIG.curriculumUrl,{cache:'no-store'}).then(r=>r.ok?r.text():Promise.reject(new Error('mos-52w.csv加载失败'))).then(csv).then(rows=>rows.map((r,i)=>({week:Number(r.week||r.周次||i+1),sunday_theme:r.sunday_theme||r.主日主题||r.title||r.标题||'',bila_theme:r.bila_theme||r.BILA主题||r.focus||'',reference:r.reference||r.经文||r.scripture||'',practice:r.practice||r.实践||'',group_feedback:r.group_feedback||r.群体反馈||r.feedback||'',mission:r.mission||r.使命||''})));
-  }catch(e){notice('52周课程暂未连接，请确认 GitHub 根目录存在 mos-52w.csv。',true);curriculum=Array.from({length:52},(_,i)=>({week:i+1,sunday_theme:'第'+(i+1)+'周',bila_theme:'',reference:'',practice:'',group_feedback:'',mission:''}))}
-  try{const r=await fetch(CONFIG.dailyUrl,{cache:'no-store'});if(r.ok)daily=csv(await r.text());}catch(e){daily=[]}
-  const t=current();currentWeek=t.week;render();notice('MOS平台 V1.0 · 内容与系统已分离',false)
+  let weekOK=false, dayOK=false;
+  try{
+    const r=await fetch(CONFIG.curriculumUrl+'?v=1.0.2',{cache:'no-store'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    const rows=csv(await r.text());
+    curriculum=normalizeWeekRows(rows);
+    weekOK=curriculum.length===52;
+    if(!weekOK)throw new Error('读取到 '+curriculum.length+' 周');
+  }catch(e){
+    curriculum=Array.from({length:52},(_,i)=>({week:i+1,sunday_theme:'第'+(i+1)+'周',bila_theme:'',reference:'',practice:'',group_feedback:'',mission:''}));
+    notice('52周数据读取异常：'+e.message,true);
+  }
+  try{
+    const r=await fetch(CONFIG.dailyUrl+'?v=1.0.2',{cache:'no-store'});
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    daily=normalizeDailyRows(csv(await r.text()));
+    dayOK=daily.length===364;
+  }catch(e){ daily=[]; notice('每日数据读取异常：'+e.message,true); }
+  const t=current(); currentWeek=t.week; render();
+  if(weekOK&&dayOK) notice('MOS平台 V1.0.1 · 52周 + 364日数据已连接',false);
 }
 function notice(t,error=false){document.getElementById('notice').innerHTML=`<div class="notice ${error?'error':''}">${esc(t)}</div>`}
 function switchView(v){['home','week','map','me'].forEach(x=>document.getElementById('view-'+x).classList.toggle('hidden',x!==v));['home','week','map','me'].forEach(x=>document.getElementById('nav-'+x).classList.toggle('active',x===v));if(v==='week')renderWeek();if(v==='map')renderMap();if(v==='me')renderMe();window.scrollTo({top:0,behavior:'smooth'})}
