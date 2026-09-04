@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#234F42">
-<title>MOS-DIS · 门徒训练平台 V1.2</title>
+<title>MOS-DIS · 门徒训练平台 V1.4</title>
 <style>
 :root{--green:#234F42;--green2:#3E7463;--cream:#F8F4EC;--paper:#FFFDFC;--ink:#252525;--muted:#7C7A73;--line:#E7E0D5;--gold:#B7965B;--gold2:#E8D8B8;--soft:#F2EEE6;--good:#EAF4ED;--danger:#9B4D45;--shadow:0 10px 35px rgba(35,79,66,.08);--r:20px}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:760px;margin:auto;padding:14px 14px 92px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.brand{display:flex;align-items:center;gap:11px}.brandmark{width:44px;height:44px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);font-size:24px}.brand strong{display:block;color:var(--green);font-size:20px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}.ghost{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 11px;color:var(--muted)}.card{background:var(--paper);border:1px solid rgba(35,79,66,.05);box-shadow:var(--shadow);border-radius:var(--r)}.hero{padding:18px;margin-bottom:12px}.eyebrow{font-size:11px;color:var(--muted)}.hero h1{font-size:27px;line-height:1.3;color:var(--green);margin:3px 0 8px}.hero p{margin:0;color:#56544e;font-size:14px}.hero-action{margin-top:15px;display:flex;gap:8px}.primary{background:var(--green);color:#fff;border:0;border-radius:13px;padding:12px 15px;font-weight:700}.secondary{background:var(--soft);color:var(--green);border:0;border-radius:13px;padding:12px 15px;font-weight:700}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.stat{padding:14px;text-align:center}.stat b{display:block;font-size:24px;color:var(--green)}.stat span{font-size:10px;color:var(--muted)}.today{padding:16px;margin-bottom:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.section-head h2{margin:0;color:var(--green);font-size:17px}.link{border:0;background:none;color:var(--green);font-size:11px}.today-ref{font-size:11px;color:var(--muted);margin-bottom:3px}.today-title{font-size:22px;font-weight:800;color:var(--green);line-height:1.35}.today-focus{font-size:13px;margin:7px 0 14px}.today-meta{display:flex;flex-wrap:wrap;gap:6px}.chip{background:var(--soft);color:#615C53;border-radius:999px;padding:5px 9px;font-size:10px}.week-card{padding:16px;margin-bottom:12px}.week-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.week-top .title{font-size:19px;font-weight:800;color:var(--green)}.week-top .theme{font-size:11px;color:var(--muted)}.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:13px}.day{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 3px;text-align:center;font-size:9px;color:var(--muted)}.day strong{display:block;color:var(--green);font-size:11px}.day.today{outline:2px solid var(--gold);outline-offset:1px}.day.done{background:var(--good);border-color:#D4E6D9;color:var(--green)}.day.sunday{border-top:3px solid var(--gold)}.mini{display:grid;gap:7px}.mini-row{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:13px;padding:11px 12px;border:1px solid var(--line)}.mini-main{min-width:0}.mini-kicker{font-size:10px;color:var(--muted)}.mini-title{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini-ref{font-size:10px;color:var(--muted)}.pill-btn{border:0;background:var(--soft);color:var(--green);border-radius:10px;padding:8px 10px;font-weight:700}.map{padding:16px;margin-bottom:12px}.map-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.map-item{padding:11px 8px;background:#fff;border:1px solid var(--line);border-radius:13px}.map-item b{display:block;color:var(--green);font-size:12px}.map-item span{font-size:9px;color:var(--muted)}.profile{padding:16px;margin-bottom:12px}.profile-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.profile-row:last-child{border-bottom:0}.profile-row span:first-child{color:var(--muted);font-size:11px}.profile-row span:last-child{text-align:right;font-size:12px}.bottom{position:fixed;left:0;right:0;bottom:0;background:rgba(255,253,250,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:50}.nav{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr)}.nav button{background:none;border:0;padding:9px 4px 10px;color:var(--muted);font-size:10px}.nav button.active{color:var(--green);font-weight:800}.nav button span{display:block;font-size:17px;margin-bottom:1px}.modal{position:fixed;inset:0;background:rgba(30,35,32,.52);display:none;align-items:flex-end;z-index:100}.modal.open{display:flex}.sheet{width:100%;max-width:760px;margin:auto;background:#fff;border-radius:25px 25px 0 0;max-height:92vh;overflow:auto;padding:20px 17px 24px}.sheet-head{display:flex;justify-content:space-between;gap:10px}.sheet h2{margin:2px 0;color:var(--green);font-size:22px;line-height:1.35}.close{border:0;background:none;color:var(--muted);font-size:22px}.ref{font-size:11px;color:var(--muted)}.scripture{margin:13px 0;padding:15px 16px;background:var(--cream);border-left:5px solid var(--gold);border-radius:14px;font-family:Georgia,"Songti SC","SimSun",serif;font-size:15px;line-height:2;white-space:pre-wrap}.daily-block{margin:12px 0}.daily-label{font-size:11px;color:var(--muted);margin-bottom:4px}.daily-value{font-size:15px}.choice-grid{display:grid;gap:8px;margin-top:8px}.choice{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;text-align:left}.choice.selected{border-color:var(--gold);background:var(--gold2);font-weight:700}.choice-dot{display:inline-grid;place-items:center;width:20px;height:20px;border:1.5px solid currentColor;border-radius:50%;vertical-align:-4px;margin-right:8px;box-sizing:border-box;font-size:11px}.action-box{background:var(--soft);border-radius:13px;padding:12px;margin:12px 0}.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.footer-note{text-align:center;color:var(--muted);font-size:10px;margin-top:16px}.hidden{display:none!important}.empty{padding:20px;text-align:center;color:var(--muted);font-size:12px}.notice{padding:10px 12px;border-radius:12px;background:#F7F3EA;color:var(--muted);font-size:10px;margin-bottom:12px}.notice.error{background:#FFF2F0;color:var(--danger)}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}button,input,textarea,select{font:inherit}button{cursor:pointer}.app{max-width:760px;margin:auto;padding:14px 14px 92px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}.brand{display:flex;align-items:center;gap:11px}.brandmark{width:44px;height:44px;border-radius:14px;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);font-size:24px}.brand strong{display:block;color:var(--green);font-size:20px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px}.ghost{border:1px solid var(--line);background:#fff;border-radius:12px;padding:9px 11px;color:var(--muted)}.card{background:var(--paper);border:1px solid rgba(35,79,66,.05);box-shadow:var(--shadow);border-radius:var(--r)}.hero{padding:18px;margin-bottom:12px}.eyebrow{font-size:11px;color:var(--muted)}.hero h1{font-size:27px;line-height:1.3;color:var(--green);margin:3px 0 8px}.hero p{margin:0;color:#56544e;font-size:14px}.hero-action{margin-top:15px;display:flex;gap:8px}.primary{background:var(--green);color:#fff;border:0;border-radius:13px;padding:12px 15px;font-weight:700}.secondary{background:var(--soft);color:var(--green);border:0;border-radius:13px;padding:12px 15px;font-weight:700}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.stat{padding:14px;text-align:center}.stat b{display:block;font-size:24px;color:var(--green)}.stat span{font-size:10px;color:var(--muted)}.today{padding:16px;margin-bottom:12px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.section-head h2{margin:0;color:var(--green);font-size:17px}.link{border:0;background:none;color:var(--green);font-size:11px}.today-ref{font-size:11px;color:var(--muted);margin-bottom:3px}.today-title{font-size:22px;font-weight:800;color:var(--green);line-height:1.35}.today-focus{font-size:13px;margin:7px 0 14px}.today-meta{display:flex;flex-wrap:wrap;gap:6px}.chip{background:var(--soft);color:#615C53;border-radius:999px;padding:5px 9px;font-size:10px}.week-card{padding:16px;margin-bottom:12px}.week-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.week-top .title{font-size:19px;font-weight:800;color:var(--green)}.week-top .theme{font-size:11px;color:var(--muted)}.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:13px}.day{border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 3px;text-align:center;font-size:9px;color:var(--muted)}.day strong{display:block;color:var(--green);font-size:11px}.day.today{outline:2px solid var(--gold);outline-offset:1px}.day.done{background:var(--good);border-color:#D4E6D9;color:var(--green)}.day.sunday{border-top:3px solid var(--gold)}.mini{display:grid;gap:7px}.mini-row{display:flex;align-items:center;justify-content:space-between;background:#fff;border-radius:13px;padding:11px 12px;border:1px solid var(--line)}.mini-main{min-width:0}.mini-kicker{font-size:10px;color:var(--muted)}.mini-title{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.mini-ref{font-size:10px;color:var(--muted)}.pill-btn{border:0;background:var(--soft);color:var(--green);border-radius:10px;padding:8px 10px;font-weight:700}.map{padding:16px;margin-bottom:12px}.map-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.map-item{padding:11px 8px;background:#fff;border:1px solid var(--line);border-radius:13px}.map-item b{display:block;color:var(--green);font-size:12px}.map-item span{font-size:9px;color:var(--muted)}.profile{padding:16px;margin-bottom:12px}.profile-row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}.profile-row:last-child{border-bottom:0}.profile-row span:first-child{color:var(--muted);font-size:11px}.profile-row span:last-child{text-align:right;font-size:12px}.bottom{position:fixed;left:0;right:0;bottom:0;background:rgba(255,253,250,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);z-index:50}.nav{max-width:760px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr)}.nav button{background:none;border:0;padding:9px 4px 10px;color:var(--muted);font-size:10px}.nav button.active{color:var(--green);font-weight:800}.nav button span{display:block;font-size:17px;margin-bottom:1px}.modal{position:fixed;inset:0;background:rgba(30,35,32,.52);display:none;align-items:flex-end;z-index:100}.modal.open{display:flex}.sheet{width:100%;max-width:760px;margin:auto;background:#fff;border-radius:25px 25px 0 0;max-height:92vh;overflow:auto;padding:20px 17px 24px}.sheet-head{display:flex;justify-content:space-between;gap:10px}.sheet h2{margin:2px 0;color:var(--green);font-size:22px;line-height:1.35}.close{border:0;background:none;color:var(--muted);font-size:22px}.ref{font-size:11px;color:var(--muted)}.scripture{margin:13px 0;padding:15px 16px;background:var(--cream);border-left:5px solid var(--gold);border-radius:14px;font-family:Georgia,"Songti SC","SimSun",serif;font-size:15px;line-height:2;white-space:pre-wrap}.daily-block{margin:12px 0}.daily-label{font-size:11px;color:var(--muted);margin-bottom:4px}.daily-value{font-size:15px}.choice-grid{display:grid;gap:8px;margin-top:8px}.choice{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;text-align:left}.choice.selected{border-color:var(--gold);background:var(--gold2);font-weight:700}.choice-dot{display:inline-grid;place-items:center;width:20px;height:20px;border:1.5px solid currentColor;border-radius:50%;vertical-align:-4px;margin-right:8px;box-sizing:border-box;font-size:11px}.action-box{background:var(--soft);border-radius:13px;padding:12px;margin:12px 0}.sheet-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}.footer-note{text-align:center;color:var(--muted);font-size:10px;margin-top:16px}
+.phase-list{display:grid;gap:10px}.phase{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}.phase summary{list-style:none;cursor:pointer;padding:14px 15px;display:flex;align-items:center;justify-content:space-between;gap:12px}.phase summary::-webkit-details-marker{display:none}.phase-name{color:var(--green);font-weight:800;font-size:15px}.phase-meta{color:var(--muted);font-size:10px}.phase-desc{padding:0 15px 12px;color:var(--muted);font-size:11px}.phase-weeks{padding:0 10px 10px;display:grid;gap:6px}.week-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:11px;padding:10px 11px;background:#fff}.week-row-main{min-width:0}.week-row-kicker{font-size:10px;color:var(--muted)}.week-row-title{font-size:13px;font-weight:700;color:var(--green);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.day-step{display:none}.day-step.active{display:block}.stepbar{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin:0 0 14px}.stepbar span{height:4px;background:var(--line);border-radius:99px}.stepbar span.active{background:var(--green)}.step-name{font-size:10px;color:var(--muted);margin:0 0 8px}.step-title{font-size:21px;font-weight:800;color:var(--green);line-height:1.35;margin:0 0 8px}.step-copy{font-size:15px;line-height:1.75}..step-nav{display:flex;justify-content:space-between;gap:8px;margin-top:18px}.step-nav button{min-width:92px}.step-center{text-align:center;padding:26px 8px 18px}.step-center .done-mark{font-size:34px;color:var(--green);margin-bottom:8px}.step-center h3{font-size:22px;color:var(--green);margin:0 0 8px}.step-center p{color:var(--muted);font-size:12px;margin:0}.home-progress{font-size:11px;color:var(--muted)}.home-title{font-size:22px;font-weight:800;color:var(--green);line-height:1.35;margin-top:4px}.home-core{font-size:13px;margin-top:7px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.home-ref{font-size:11px;color:var(--muted);margin-top:3px}.week-simple{padding:16px;margin-bottom:12px}.week-simple .section-head{margin-bottom:7px}
+.hidden{display:none!important}.empty{padding:20px;text-align:center;color:var(--muted);font-size:12px}.notice{padding:10px 12px;border-radius:12px;background:#F7F3EA;color:var(--muted);font-size:10px;margin-bottom:12px}.notice.error{background:#FFF2F0;color:var(--danger)}
 @media(max-width:520px){.hero h1{font-size:24px}.map-grid{grid-template-columns:repeat(2,1fr)}.today-title{font-size:20px}.sheet-actions{grid-template-columns:1fr}.app{padding-left:10px;padding-right:10px}}
 </style>
 </head>
 <body>
 <div class="app">
 <header class="top">
-  <div class="brand"><div class="brandmark">🌿</div><div><strong>MOS</strong><small>MOS-DIS · 从圣经进入生命，从生命走向实践</small></div></div>
+  <div class="brand"><div class="brandmark">🌿</div><div><strong>MOS</strong><small>门徒训练 · 经文、生活与实践</small></div></div>
   <button class="ghost" onclick="openSettings()">⚙</button>
 </header>
 
@@ -22,30 +24,102 @@
 
 <section id="view-home">
   <div class="card hero">
-    <div class="eyebrow" id="todayLabel">今天 · MOS-DIS</div>
-    <h1>今天，只走一小步。</h1>
-    <p>不用一次解决整个人生。让神的话开始的一个真实处境。</p>
-    <div class="hero-action"><button class="primary" onclick="openToday()">开始</button><button class="secondary" onclick="switchView('week')">看本周</button></div>
+    <div class="eyebrow" id="todayLabel">今日</div>
+    <div class="home-ref" id="homeTodayRef">读取经文…</div>
+    <div class="home-title" id="homeTodayTitle">今日内容</div>
+    <div class="home-core" id="homeTodayCore">—</div>
+    <div class="hero-action"><button class="primary" onclick="openToday()">开始</button></div>
   </div>
-  <div class="stats"><div class="card stat"><b id="statDone">0</b><span>已完成</span></div><div class="card stat"><b id="statWeek">0/7</b><span>本周</span></div><div class="card stat"><b id="statPct">0%</b><span>全年</span></div></div>
-  <section class="card today"><div class="section-head"><h2>今天</h2><button class="link" onclick="openToday()">查看 →</button></div><div class="today-ref" id="todayRef">经文读取中…</div><div class="today-title" id="todayTitle">今日内容</div><div class="today-focus" id="todayFocus">—</div><div class="today-meta" id="todayMeta"></div></section>
-  <section class="card week-card"><div class="section-head"><h2>本周</h2><button class="link" onclick="switchView('week')">展开 →</button></div><div class="week-top"><div><div class="title" id="homeWeekTitle">加载中…</div><div class="theme" id="homeWeekTheme"></div></div><span class="chip" id="homeWeekProgress">0/7</span></div><div class="week-grid" id="homeWeekGrid"></div></section>
-  <section class="card map"><div class="section-head"><h2>全年课程</h2><button class="link" onclick="switchView('map')">52周 →</button></div><div class="map-grid" id="homeMap"></div></section>
+  <div class="stats" style="grid-template-columns:repeat(2,1fr)">
+    <div class="card stat"><b id="statDone">0</b><span>已完成</span></div>
+    <div class="card stat"><b id="statWeek">0/7</b><span>本周</span></div>
+  </div>
+  <section class="card week-simple">
+    <div class="section-head"><h2>本周</h2><span class="home-progress" id="homeWeekProgress">0/7</span></div>
+    <div class="week-top"><div><div class="title" id="homeWeekTitle">—</div><div class="theme" id="homeWeekTheme"></div></div></div>
+    <div class="week-grid" id="homeWeekGrid"></div>
+  </section>
 </section>
 
 <section id="view-week" class="hidden">
-  <section class="card week-card"><div class="section-head"><button class="link" onclick="switchView('home')">← 今日</button><span class="chip" id="weekCounter">第1周</span></div><div class="week-top"><div><div class="title" id="weekTitle">—</div><div class="theme" id="weekTheme">—</div></div></div><div class="action-box"><b>本周实践：</b><span id="weekPractice">—</span><br><b>本周群体：</b><span id="weekGroup">—</span><br><b>本周使命：</b><span id="weekMission">—</span></div><div class="week-grid" id="weekGrid"></div></section><div class="section-head"><h2 style="margin:0;color:var(--green);font-size:17px">7日内容</h2><button class="link" onclick="openToday()">开始 →</button></div><div class="mini" id="weekDays"></div></section>
+  <section class="card week-simple">
+    <div class="section-head"><button class="link" onclick="switchView('home')">← 返回</button><span class="chip" id="weekCounter">第1周</span></div>
+    <div class="week-top"><div><div class="title" id="weekTitle">—</div><div class="theme" id="weekTheme">—</div></div></div>
+    <div class="week-grid" id="weekGrid"></div>
+  </section>
+  <div class="section-head"><h2 style="margin:0;color:var(--green);font-size:17px">7日</h2></div>
+  <div class="mini" id="weekDays"></div>
+</section>
 
-<section id="view-map" class="hidden"><section class="card map"><div class="section-head"><button class="link" onclick="switchView('home')">← 今日</button><h2 style="margin:0;color:var(--green);font-size:17px">52周</h2></div><div class="mini" id="allWeeks"></div></section></section>
+<section id="view-map" class="hidden">
+  <section class="card map">
+    <div class="section-head"><h2>全年</h2><span class="home-progress">4阶段</span></div>
+    <div class="phase-list" id="allStages"></div>
+  </section>
+</section>
 
-<section id="view-me" class="hidden"><section class="card profile"><div class="section-head"><button class="link" onclick="switchView('home')">← 今日</button><h2 style="margin:0;color:var(--green);font-size:17px">我的记录</h2></div><div class="profile-row"><span>身份</span><span id="meUser">游客</span></div><div class="profile-row"><span>已完成</span><span id="meDone">0 天</span></div><div class="profile-row"><span>当前周</span><span id="meWeek">第1周</span></div><div class="profile-row"><span>阶段</span><span id="meStage">—</span></div><div class="profile-row"><span>连续完成</span><span id="meStreak">0 天</span></div><div class="profile-row"><span>提醒</span><span id="meReminder">关闭</span></div></section><section class="card profile"><div class="section-head"><h2 style="margin:0;color:var(--green);font-size:17px">MOS原则</h2></div><div class="notice">这里记录的是“完成记录与回应”，不是属灵分数。平台不评价一个人的属灵成熟度，只帮助人把经文带进真实生活。</div><button class="secondary" style="width:100%" onclick="openSettings()">设置与提醒</button></section></section>
+<section id="view-me" class="hidden">
+  <section class="card profile">
+    <div class="section-head"><button class="link" onclick="switchView('home')">← 返回</button><h2 style="margin:0;color:var(--green);font-size:17px">我的</h2></div>
+    <div class="profile-row"><span>姓名</span><span id="meUser">游客</span></div>
+    <div class="profile-row"><span>已完成</span><span id="meDone">0 天</span></div>
+    <div class="profile-row"><span>当前周</span><span id="meWeek">第1周</span></div>
+    <div class="profile-row"><span>阶段</span><span id="meStage">—</span></div>
+    <div class="profile-row"><span>连续完成</span><span id="meStreak">0 天</span></div>
+    <div class="profile-row"><span>提醒</span><span id="meReminder">关闭</span></div>
+  </section>
+  <section class="card profile">
+    <div class="section-head"><h2 style="margin:0;color:var(--green);font-size:17px">原则</h2></div>
+    <div class="notice">记录的是完成与回应，不是属灵分数。</div>
+    <button class="secondary" style="width:100%" onclick="openSettings()">设置</button>
+  </section>
+</section>
 </div>
 
 <nav class="bottom"><div class="nav"><button class="active" id="nav-home" onclick="switchView('home')"><span>⌂</span>今天</button><button id="nav-week" onclick="switchView('week')"><span>◫</span>本周</button><button id="nav-map" onclick="switchView('map')"><span>⌘</span>全年</button><button id="nav-me" onclick="switchView('me')"><span>○</span>我的</button></div></nav>
 
-<div class="modal" id="dayModal"><div class="sheet"><div class="sheet-head"><div><div class="ref" id="dayKicker">第1周 · 周一</div><h2 id="dayTitle">—</h2></div><button class="close" onclick="closeDay()">×</button></div><div class="ref" id="dayRef">—</div><div class="scripture" id="dayScripture">正在读取经文…</div><div class="daily-block"><div class="daily-label">今天的核心</div><div class="daily-value" id="dayCore">—</div></div><div class="daily-block"><div class="daily-label">想一想</div><div class="daily-value" id="dayQuestion">—</div></div><div class="choice-grid" id="dayChoices"></div><div class="action-box"><b>今日实践</b><div id="dayAction" style="margin-top:4px">—</div></div><div class="daily-block"><div class="daily-label">关系</div><div class="daily-value" id="dayShare">—</div></div><div class="daily-block"><div class="daily-label">使命</div><div class="daily-value" id="dayMission">—</div></div><div class="sheet-actions"><button class="secondary" onclick="saveChoice()">保存</button><button class="primary" onclick="completeDay()">完成</button></div><div class="footer-note">不是完成课程，而是在真实生活里跟随基督。</div></div></div>
+<div class="modal" id="dayModal"><div class="sheet">
+  <div class="sheet-head"><div><div class="ref" id="dayKicker">第1周 · 主日</div><h2 id="dayTitle">—</h2></div><button class="close" onclick="closeDay()">×</button></div>
+  <div class="stepbar" id="dayStepbar"><span class="active"></span><span></span><span></span><span></span><span></span></div>
 
-<div class="modal" id="settingsModal"><div class="sheet"><div class="sheet-head"><div><div class="ref">MOS设置</div><h2>让系统适应你</h2></div><button class="close" onclick="closeSettings()">×</button></div><div class="daily-block"><div class="daily-label">我的名字</div><input id="nameInput" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:12px" placeholder="可以只写名字"></div><div class="daily-block"><div class="daily-label">每日提醒</div><button class="secondary" style="width:100%" onclick="toggleReminder()" id="reminderBtn">开启每日提醒</button><div id="reminderStatus" style="font-size:10px;color:var(--muted);margin-top:5px"></div></div><div class="sheet-actions"><button class="primary" onclick="saveSettings()">保存</button><button class="secondary" onclick="closeSettings()">关闭</button></div></div></div>
+  <section class="day-step active" data-step="1">
+    <div class="step-name">1 / 5 · 经文</div>
+    <div class="ref" id="dayRef">—</div>
+    <div class="scripture" id="dayScripture">正在读取经文…</div>
+    <div class="daily-block"><div class="daily-label">核心</div><div class="daily-value" id="dayCore">—</div></div>
+    <div class="step-nav"><span></span><button class="primary" onclick="nextDayStep()">下一步</button></div>
+  </section>
+
+  <section class="day-step" data-step="2">
+    <div class="step-name">2 / 5 · 反思</div>
+    <h3 class="step-title">想一想</h3>
+    <div class="step-copy" id="dayQuestion">—</div>
+    <div class="step-nav"><button class="secondary" onclick="prevDayStep()">上一步</button><button class="primary" onclick="nextDayStep()">下一步</button></div>
+  </section>
+
+  <section class="day-step" data-step="3">
+    <div class="step-name">3 / 5 · 选择</div>
+    <h3 class="step-title">你的回应</h3>
+    <div class="choice-grid" id="dayChoices"></div>
+    <div class="step-nav"><button class="secondary" onclick="prevDayStep()">上一步</button><button class="primary" onclick="nextDayStep()">下一步</button></div>
+  </section>
+
+  <section class="day-step" data-step="4">
+    <div class="step-name">4 / 5 · 实践</div>
+    <h3 class="step-title">做一件事</h3>
+    <div class="action-box"><div id="dayAction">—</div></div>
+    <div id="dayRelationWrap" class="daily-block hidden"><div class="daily-label">关系</div><div class="daily-value" id="dayShare">—</div></div>
+    <div id="dayMissionWrap" class="daily-block hidden"><div class="daily-label">使命</div><div class="daily-value" id="dayMission">—</div></div>
+    <div class="step-nav"><button class="secondary" onclick="prevDayStep()">上一步</button><button class="primary" onclick="nextDayStep()">完成</button></div>
+  </section>
+
+  <section class="day-step" data-step="5">
+    <div class="step-center"><div class="done-mark">✓</div><h3>已完成</h3><p>今天的回应已保存。</p></div>
+    <div class="step-nav"><button class="secondary" onclick="closeDay()">关闭</button><button class="primary" id="nextDayBtn" onclick="openNextDay()">下一天</button></div>
+  </section>
+</div></div>
+
+<div class="modal" id="settingsModal"><div class="sheet"><div class="sheet-head"><div><div class="ref">MOS设置</div><h2>设置</h2></div><button class="close" onclick="closeSettings()">×</button></div><div class="daily-block"><div class="daily-label">我的名字</div><input id="nameInput" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:12px" placeholder="姓名"></div><div class="daily-block"><div class="daily-label">每日提醒</div><button class="secondary" style="width:100%" onclick="toggleReminder()" id="reminderBtn">开启提醒</button><div id="reminderStatus" style="font-size:10px;color:var(--muted);margin-top:5px"></div></div><div class="sheet-actions"><button class="primary" onclick="saveSettings()">保存</button><button class="secondary" onclick="closeSettings()">关闭</button></div></div></div>
 
 <script src="bible-engine.js"></script>
 <script>
@@ -60,7 +134,7 @@ const STAGES=[
 const DOW=['主日','周一','周二','周三','周四','周五','周六'];
 let curriculum=[];let daily=[];let currentWeek=1;let selectedDay=null;let selectedChoice='';
 let user=localStorage.getItem('mos_user')||'游客';
-let state=JSON.parse(localStorage.getItem('mos_state_v11')||localStorage.getItem('mos_state_v1')||'{}');
+let state=JSON.parse(localStorage.getItem('mos_state_v14')||localStorage.getItem('mos_state_v11')||localStorage.getItem('mos_state_v1')||'{}');
 state.completed=state.completed||{};state.choices=state.choices||{};state.reminder=!!state.reminder;
 function esc(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
 function csv(text){
@@ -109,7 +183,7 @@ function normalizeDailyRows(rows){
       day_title:pick(r,'day_title','今日标题','日主题','日类型','title','标题'),
       core:pick(r,'core','每日核心信息','今日核心信息','核心信息'),
       question:pick(r,'question','今日反思入口','反思入口','问题'),
-      life_action:pick(r,'life_action','今日实践','生命形成动作','实践'),
+      life_action:pick(r,'life_action','实践','生命形成动作','实践'),
       share:pick(r,'share','关系/伙伴反馈','伙伴反馈','小组入口'),
       mission:pick(r,'mission','使命','使命/传递','使命'),
       optionA:pick(r,'option_a','选项A','A','choice_a'),
@@ -121,7 +195,7 @@ function normalizeDailyRows(rows){
   }).filter(x=>x.week>=1&&x.week<=52&&x.dow>=0&&x.dow<=6);
 }
 
-function save(){localStorage.setItem('mos_state_v11',JSON.stringify(state))}
+function save(){localStorage.setItem('mos_state_v14',JSON.stringify(state))}
 function done(id){return !!state.completed[id]}
 function dayId(w,d){return (w-1)*7+d}
 function todayDay(){const s=new Date(CONFIG.startDate),n=new Date();const a=new Date(s.getFullYear(),s.getMonth(),s.getDate()),b=new Date(n.getFullYear(),n.getMonth(),n.getDate());const diff=Math.floor((b-a)/86400000);return Math.max(0,Math.min(363,diff))}
@@ -135,7 +209,7 @@ function streak(){let n=0,id=todayDay();while(id>=0&&done(id)){n++;id--}return n
 async function load(){
   let weekOK=false, dayOK=false;
   try{
-    const r=await fetch(CONFIG.curriculumUrl+'?v=1.0.2',{cache:'no-store'});
+    const r=await fetch(CONFIG.curriculumUrl+'?v=1.0.4',{cache:'no-store'});
     if(!r.ok)throw new Error('HTTP '+r.status);
     const rows=csv(await r.text());
     curriculum=normalizeWeekRows(rows);
@@ -146,26 +220,95 @@ async function load(){
     notice('52周数据读取异常：'+e.message,true);
   }
   try{
-    const r=await fetch(CONFIG.dailyUrl+'?v=1.0.2',{cache:'no-store'});
+    const r=await fetch(CONFIG.dailyUrl+'?v=1.0.4',{cache:'no-store'});
     if(!r.ok)throw new Error('HTTP '+r.status);
     daily=normalizeDailyRows(csv(await r.text()));
     dayOK=daily.length===364;
   }catch(e){ daily=[]; notice('每日数据读取异常：'+e.message,true); }
   const t=current(); currentWeek=t.week; render();
-  if(weekOK&&dayOK) notice('MOS-DIS V1.1 · 52周 + 364日内容已连接',false);
+  if(weekOK&&dayOK) notice('MOS-DIS V1.4 · 内容已连接',false);
 }
 function notice(t,error=false){document.getElementById('notice').innerHTML=`<div class="notice ${error?'error':''}">${esc(t)}</div>`}
 function switchView(v){['home','week','map','me'].forEach(x=>document.getElementById('view-'+x).classList.toggle('hidden',x!==v));['home','week','map','me'].forEach(x=>document.getElementById('nav-'+x).classList.toggle('active',x===v));if(v==='week')renderWeek();if(v==='map')renderMap();if(v==='me')renderMe();window.scrollTo({top:0,behavior:'smooth'})}
 function render(){renderHome();renderWeek();renderMap();renderMe()}
-function renderHome(){const t=current();document.getElementById('todayLabel').textContent=`${DOW[t.dow]} · 第${t.week}周`;document.getElementById('statDone').textContent=allDone();document.getElementById('statWeek').textContent=weekDone(currentWeek)+'/7';document.getElementById('statPct').textContent=Math.round(allDone()/364*100)+'%';const w=getWeek(currentWeek),d=getDay(currentWeek,t.dow)||{};document.getElementById('todayRef').textContent=d.reference||w.reference||'经文';document.getElementById('todayTitle').textContent=d.day_title||d.title||w.sunday_theme||'今日内容';document.getElementById('todayFocus').textContent=d.core||d.daily_core||w.bila_theme||'查看今日内容，开始学习。';document.getElementById('todayMeta').innerHTML=[stageFor(currentWeek),d.life_action||d.action||w.practice].filter(Boolean).map(x=>`<span class="chip">${esc(x)}</span>`).join('');document.getElementById('homeWeekTitle').textContent=w.sunday_theme||'本周';document.getElementById('homeWeekTheme').textContent=w.bila_theme||'';document.getElementById('homeWeekProgress').textContent=weekDone(currentWeek)+'/7';document.getElementById('homeWeekGrid').innerHTML=weekGrid(currentWeek);document.getElementById('homeMap').innerHTML=STAGES.map(s=>`<div class="map-item"><b>${s.icon} ${s.name}</b><span>第${s.weeks[0]}–${s.weeks[1]}周</span></div>`).join('')}
+function renderHome(){
+  const t=current(), w=getWeek(currentWeek), d=getDay(currentWeek,t.dow)||{};
+  document.getElementById('todayLabel').textContent=`${DOW[t.dow]} · 第${t.week}周`;
+  document.getElementById('statDone').textContent=allDone();
+  document.getElementById('statWeek').textContent=weekDone(t.week)+'/7';
+  document.getElementById('homeTodayRef').textContent=d.reference||w.reference||'经文';
+  document.getElementById('homeTodayTitle').textContent=d.day_title||d.title||w.sunday_theme||'今日内容';
+  document.getElementById('homeTodayCore').textContent=d.core||d.daily_core||w.bila_theme||'';
+  document.getElementById('homeWeekTitle').textContent=w.sunday_theme||'本周';
+  document.getElementById('homeWeekTheme').textContent=w.bila_theme||'';
+  document.getElementById('homeWeekProgress').textContent=weekDone(t.week)+'/7';
+  document.getElementById('homeWeekGrid').innerHTML=weekGrid(t.week);
+}
 function weekGrid(w){return DOW.map((n,d)=>{const id=dayId(w,d),now=current();const isT=now.week===w&&now.dow===d;return `<button class="day ${d===0?'sunday':''} ${done(id)?'done':''} ${isT?'today':''}" onclick="openDayBy(${w},${d})"><strong>${n}</strong>${done(id)?'✓':'○'}</button>`}).join('')}
-function renderWeek(){const w=getWeek(currentWeek);document.getElementById('weekCounter').textContent=`第${currentWeek}周 · ${stageFor(currentWeek)}`;document.getElementById('weekTitle').textContent=w.sunday_theme||'本周';document.getElementById('weekTheme').textContent=w.bila_theme||'';document.getElementById('weekPractice').textContent=w.practice||'—';document.getElementById('weekGroup').textContent=w.group_feedback||'—';document.getElementById('weekMission').textContent=w.mission||'—';document.getElementById('weekGrid').innerHTML=weekGrid(currentWeek);document.getElementById('weekDays').innerHTML=DOW.map((n,d)=>{const x=getDay(currentWeek,d)||{};return `<div class="mini-row"><div class="mini-main"><div class="mini-kicker">${n} · ${x.role||['主日','经文','观察','反思','关系','使命','回顾'][d]}</div><div class="mini-title">${esc(x.day_title||x.title||w.sunday_theme||'今日内容')}</div><div class="mini-ref">${esc(x.reference||w.reference||'')}</div></div><button class="pill-btn" onclick="openDayBy(${currentWeek},${d})">${done(dayId(currentWeek,d))?'已完成':'查看'}</button></div>`}).join('')}
-function renderMap(){document.getElementById('allWeeks').innerHTML=curriculum.map(w=>`<div class="mini-row"><div class="mini-main"><div class="mini-kicker">第${w.week}周 · ${stageFor(w.week)} · ${weekDone(w.week)}/7</div><div class="mini-title">${esc(w.sunday_theme||'本周')}</div><div class="mini-ref">${esc(w.reference||'')}</div></div><button class="pill-btn" onclick="goWeek(${w.week})">查看</button></div>`).join('')}
+function renderWeek(){
+  const w=getWeek(currentWeek);
+  document.getElementById('weekCounter').textContent=`第${currentWeek}周 · ${stageFor(currentWeek)}`;
+  document.getElementById('weekTitle').textContent=w.sunday_theme||'本周';
+  document.getElementById('weekTheme').textContent=w.bila_theme||'';
+  document.getElementById('weekGrid').innerHTML=weekGrid(currentWeek);
+  document.getElementById('weekDays').innerHTML=DOW.map((n,d)=>{const x=getDay(currentWeek,d)||{};return `<div class="mini-row"><div class="mini-main"><div class="mini-kicker">${n} · ${x.role||['主日','经文','观察','反思','关系','使命','回顾'][d]}</div><div class="mini-title">${esc(x.day_title||x.title||w.sunday_theme||'今日内容')}</div><div class="mini-ref">${esc(x.reference||w.reference||'')}</div></div><button class="pill-btn" onclick="openDayBy(${currentWeek},${d})">${done(dayId(currentWeek,d))?'已完成':'查看'}</button></div>`}).join('')}
+function renderMap(){
+  const host=document.getElementById('allStages');
+  const currentStage=stageFor(currentWeek);
+  host.innerHTML=STAGES.map(s=>{
+    const open=s.name===currentStage;
+    let weeks='';
+    for(let w=s.weeks[0];w<=s.weeks[1];w++){
+      const x=getWeek(w);
+      weeks+=`<button class="week-row" onclick="goWeek(${w})"><div class="week-row-main"><div class="week-row-kicker">第${w}周 · ${weekDone(w)}/7</div><div class="week-row-title">${esc(x.sunday_theme||'本周')}</div></div><span class="pill-btn">查看</span></button>`;
+    }
+    return `<details class="phase" ${open?'open':''}><summary><span><span class="phase-name">${s.icon} ${s.name}</span><span class="phase-meta"> · 第${s.weeks[0]}–${s.weeks[1]}周</span></span><span class="phase-meta">${open?'收起':'展开'}</span></summary><div class="phase-desc">${esc(s.desc)}</div><div class="phase-weeks">${weeks}</div></details>`;
+  }).join('');
+}
 function renderMe(){document.getElementById('meUser').textContent=user;document.getElementById('meDone').textContent=allDone()+' 天';document.getElementById('meWeek').textContent='第'+currentWeek+'周';document.getElementById('meStage').textContent=stageFor(currentWeek);document.getElementById('meStreak').textContent=streak()+' 天';document.getElementById('meReminder').textContent=state.reminder?'已开启':'关闭'}
 function goWeek(w){currentWeek=Math.max(1,Math.min(52,Number(w)));switchView('week');renderWeek()}
 async function openDay(){const t=current();openDayBy(t.week,t.dow)}
 function isBibleRef(v){return /^.+?\d+(?::\d+(?:-\d+)?)?$/.test(String(v||'').trim().replace(/：/g,':'));}
-async function openDayBy(w,d){selectedDay={week:Number(w),dow:Number(d),id:dayId(Number(w),Number(d))};selectedChoice=state.choices[selectedDay.id]||'';const wk=getWeek(w),data=getDay(w,d)||{};const bibleRef=isBibleRef(data.reference)?data.reference:wk.reference;document.getElementById('dayKicker').textContent=`第${w}周 · ${DOW[d]} · ${stageFor(w)}`;document.getElementById('dayTitle').textContent=data.day_title||data.title||(d===0?wk.sunday_theme:`${wk.sunday_theme||'本周主题'} · ${DOW[d]}`);document.getElementById('dayRef').textContent=bibleRef||'—';document.getElementById('dayCore').textContent=data.core||data.daily_core||wk.bila_theme||'—';document.getElementById('dayQuestion').textContent=data.question||data.reflection||'今天，这段经文最接近我生活中的什么？';document.getElementById('dayAction').textContent=data.life_action||data.action||wk.practice||'选择一件今天可以忠心做的小事。';document.getElementById('dayShare').textContent=data.share||data.group_prompt||wk.group_feedback||'找一个可信任的人，分享你今天的一个回应。';document.getElementById('dayMission').textContent=data.mission||wk.mission||'让今天的回应慢慢成为别人的祝福。';document.getElementById('dayChoices').innerHTML=choicesFor(data);bindChoices();document.getElementById('dayScripture').textContent='正在读取经文…';document.getElementById('dayModal').classList.add('open');await loadBible(bibleRef);}
+let dayStep=1;
+function updateDayStep(){
+  document.querySelectorAll('#dayModal .day-step').forEach(el=>el.classList.toggle('active',Number(el.dataset.step)===dayStep));
+  document.querySelectorAll('#dayStepbar span').forEach((el,i)=>el.classList.toggle('active',i<dayStep));
+}
+function nextDayStep(){
+  if(dayStep===3 && !selectedChoice){showToast('请选择一项');return}
+  if(dayStep===4){completeDay(); return;}
+  dayStep=Math.min(5,dayStep+1);updateDayStep();
+}
+function prevDayStep(){dayStep=Math.max(1,dayStep-1);updateDayStep();}
+function openNextDay(){
+  if(!selectedDay){closeDay();return}
+  let d=selectedDay.dow+1,w=selectedDay.week;
+  if(d>6){d=0;w=Math.min(52,w+1)}
+  if(w===selectedDay.week && d===selectedDay.dow){closeDay();return}
+  openDayBy(w,d);
+}
+async function openDayBy(w,d){
+  selectedDay={week:Number(w),dow:Number(d),id:dayId(Number(w),Number(d))};
+  selectedChoice=state.choices[selectedDay.id]||''; dayStep=1; updateDayStep();
+  const wk=getWeek(w),data=getDay(w,d)||{};
+  const bibleRef=isBibleRef(data.reference)?data.reference:wk.reference;
+  document.getElementById('dayKicker').textContent=`第${w}周 · ${DOW[d]}`;
+  document.getElementById('dayTitle').textContent=data.day_title||data.title||(d===0?wk.sunday_theme:`${wk.sunday_theme||'本周主题'} · ${DOW[d]}`);
+  document.getElementById('dayRef').textContent=bibleRef||'—';
+  document.getElementById('dayCore').textContent=data.core||data.daily_core||wk.bila_theme||'—';
+  document.getElementById('dayQuestion').textContent=data.question||data.reflection||'今天，这段经文最接近我生活中的什么？';
+  document.getElementById('dayAction').textContent=data.life_action||data.action||wk.practice||'选择一件今天可以忠心做的小事。';
+  const rel=data.share||data.group_prompt||'';
+  const mis=data.mission||'';
+  document.getElementById('dayShare').textContent=rel;
+  document.getElementById('dayMission').textContent=mis;
+  document.getElementById('dayRelationWrap').classList.toggle('hidden',!rel);
+  document.getElementById('dayMissionWrap').classList.toggle('hidden',!mis);
+  document.getElementById('dayChoices').innerHTML=choicesFor(data); bindChoices();
+  document.getElementById('dayScripture').textContent='正在读取经文…';
+  document.getElementById('dayModal').classList.add('open');
+  await loadBible(bibleRef);
+}
 function choicesFor(d){
   let arr=[];
   if(d.optionA||d.optionB||d.optionC){
@@ -205,15 +348,15 @@ function pickChoice(el,x){
   save();
 }
 async function loadBible(ref){if(!ref){document.getElementById('dayScripture').textContent='本日尚未配置经文。';return}try{if(window.BilaBible?.data){const b=await BilaBible.data(ref);let txt='';if(b?.text)txt=b.text;else if(Array.isArray(b?.verses))txt=b.verses.map(v=>`${v.verse} ${v.text}`).join('\n');else if(Array.isArray(b?.sections))txt=b.sections.flatMap(s=>s.verses||[]).map(v=>`${v.verse} ${v.text}`).join('\n');document.getElementById('dayScripture').textContent=txt||'未读取到经文。'}else document.getElementById('dayScripture').textContent='Bible Engine 未连接。';}catch(e){document.getElementById('dayScripture').textContent='经文读取失败：'+e.message}}
-function saveChoice(){if(!selectedDay)return;state.choices[selectedDay.id]=selectedChoice||'未填写';save();showToast('已记录今天的回应')}
-function completeDay(){if(!selectedDay)return;if(!selectedChoice){showToast('请选择一项回应');return}state.completed[selectedDay.id]=true;state.choices[selectedDay.id]=selectedChoice;save();showToast('✅ 已记录');render();setTimeout(closeDay,350)}
+function saveChoice(){if(!selectedDay)return;state.choices[selectedDay.id]=selectedChoice||'未填写';save();showToast('已记录回应')}
+function completeDay(){if(!selectedDay)return;if(!selectedChoice){showToast('请选择一项');dayStep=3;updateDayStep();return}state.completed[selectedDay.id]=true;state.choices[selectedDay.id]=selectedChoice;save();render();dayStep=5;updateDayStep();showToast('已完成')}
 function closeDay(){document.getElementById('dayModal').classList.remove('open');selectedDay=null}
 function openToday(){const t=current();openDayBy(t.week,t.dow)}
 function showToast(t){let x=document.getElementById('toast-x');if(!x){x=document.createElement('div');x.id='toast-x';x.style='position:fixed;left:50%;bottom:78px;transform:translateX(-50%);background:rgba(35,39,36,.94);color:#fff;padding:9px 15px;border-radius:99px;font-size:11px;z-index:300';document.body.appendChild(x)}x.textContent=t;x.style.display='block';clearTimeout(window.__toast);window.__toast=setTimeout(()=>x.style.display='none',1800)}
-function openSettings(){document.getElementById('nameInput').value=user==='游客'?'':user;document.getElementById('reminderBtn').textContent=state.reminder?'关闭每日提醒':'开启每日提醒';document.getElementById('reminderStatus').textContent=state.reminder?'浏览器端提醒开关已记录。':'当前未开启。';document.getElementById('settingsModal').classList.add('open')}
+function openSettings(){document.getElementById('nameInput').value=user==='游客'?'':user;document.getElementById('reminderBtn').textContent=state.reminder?'关闭提醒':'开启提醒';document.getElementById('reminderStatus').textContent=state.reminder?'已开启':'未开启。';document.getElementById('settingsModal').classList.add('open')}
 function closeSettings(){document.getElementById('settingsModal').classList.remove('open')}
 function toggleReminder(){state.reminder=!state.reminder;save();openSettings()}
-function saveSettings(){const v=document.getElementById('nameInput').value.trim();if(v){user=v;localStorage.setItem('mos_user',user)}save();closeSettings();render();showToast('设置已保存')}
+function saveSettings(){const v=document.getElementById('nameInput').value.trim();if(v){user=v;localStorage.setItem('mos_user',user)}save();closeSettings();render();showToast('已保存')}
 load();
 </script>
 </body>
