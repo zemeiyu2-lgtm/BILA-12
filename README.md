@@ -1,10 +1,28 @@
-# MOS-DIS Platform V1.0｜经文读取修正版
+# MOS-DIS 平台 V1.4｜信息架构冻结 + 单项选择修复版
 
-运行文件：
+## 本版定位
+V1.4 信息架构冻结版，另外修复 CSV 单字段“①②③”选项解析问题。
+
+## 结构
+- 今天：今日入口
+- 本周：7日节奏
+- 全年：四阶段 → 周 → 日
+- 我的：记录与设置
+- 每日：经文 → 反思 → 选择 → 实践 → 完成
+
+## 单项选择修复
+平台兼容两种数据：
+1. option_a / option_b / option_c 三独立字段
+2. 今日自我选择字段中使用“①…②…③…”的单字段格式
+
+选择采用真正 radio 交互：同一日只能保留一项；重新选择会切换当前选项；选择会保存；进入“完成”前必须已有选择。
+
+## 内容与平台
+平台只读取 CSV，不在 HTML 内维护全年内容。内容可以替换，页面逻辑保持独立。
+
+## 文件
 - index.html
-- mos-52w.csv
-- mos-364d.csv
 - bible-engine.js
 - bila-cuv-pdf-database.json
-
-本版 Bible Engine 直接读取仓库根目录的 `bila-cuv-pdf-database.json`，不再依赖 `bible/` 子目录，也不依赖旧 `52-weeks.csv`。
+- mos-52w.csv
+- mos-364d.csv
