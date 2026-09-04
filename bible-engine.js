@@ -73,6 +73,8 @@ async function loadBibleDatabase() {
   if (BILA_DB) return BILA_DB;
   if (BILA_DB_PROMISE) return BILA_DB_PROMISE;
 
+  if (window.__MOS_BIBLE_DB) { BILA_DB = window.__MOS_BIBLE_DB; return Promise.resolve(BILA_DB); }
+
   const url = BILA_BIBLE_CONFIG.databaseUrl;
   console.log("📖 正在加载本地圣经数据库：", url);
 
@@ -153,6 +155,11 @@ function parseCSV(text) {
 async function loadCurriculum() {
   if (BILA_CURRICULUM) return BILA_CURRICULUM;
   if (BILA_CURRICULUM_PROMISE) return BILA_CURRICULUM_PROMISE;
+
+  if (window.__MOS_52W_CSV) {
+    const rows = parseCSV(window.__MOS_52W_CSV);
+    if (rows.length >= 52) { BILA_CURRICULUM = rows; return Promise.resolve(rows); }
+  }
 
   console.log("📚 正在加载52周课程：", BILA_BIBLE_CONFIG.curriculumUrl);
 
@@ -467,7 +474,7 @@ window.BilaBible = {
   loadDatabase: loadBibleDatabase,
   loadCurriculum,
   getBook,
-  getWeek,
+  getWeek: async function(weekNumber) { return getWeekBible(weekNumber); },
   chapter: getBibleChapter,
   verse: getBibleVerse,
   passage: getBiblePassage,
