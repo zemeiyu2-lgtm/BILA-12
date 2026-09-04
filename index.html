@@ -164,9 +164,14 @@ function isBibleRef(v){return /^.+?\d+(?::\d+(?:-\d+)?)?$/.test(String(v||'').tr
 async function openDayBy(w,d){selectedDay={week:Number(w),dow:Number(d),id:dayId(Number(w),Number(d))};selectedChoice=state.choices[selectedDay.id]||'';const wk=getWeek(w),data=getDay(w,d)||{};const bibleRef=isBibleRef(data.reference)?data.reference:wk.reference;document.getElementById('dayKicker').textContent=`第${w}周 · ${DOW[d]} · ${stageFor(w)}`;document.getElementById('dayTitle').textContent=data.day_title||data.title||(d===0?wk.sunday_theme:`${wk.sunday_theme||'本周主题'} · ${DOW[d]}`);document.getElementById('dayRef').textContent=bibleRef||'—';document.getElementById('dayCore').textContent=data.core||data.daily_core||wk.bila_theme||'—';document.getElementById('dayQuestion').textContent=data.question||data.reflection||'今天，这段经文最接近我生活中的什么？';document.getElementById('dayAction').textContent=data.life_action||data.action||wk.practice||'选择一件今天可以忠心做的小事。';document.getElementById('dayShare').textContent=data.share||data.group_prompt||wk.group_feedback||'找一个可信任的人，分享你今天的一个回应。';document.getElementById('dayChoices').innerHTML=choicesFor(data);bindChoices();document.getElementById('dayScripture').textContent='正在读取经文…';document.getElementById('dayModal').classList.add('open');await loadBible(bibleRef);}
 function choicesFor(d){
   const raw=(d.choices||d.options||'').trim();
-  const arr=raw
-    ? raw.split(/[|｜;]/).map(x=>x.trim()).filter(Boolean)
-    : ['我先停下来看看自己','我愿意做一个具体行动','我需要与一个人谈谈','我暂时还说不清'];
+  let arr=[];
+  if(raw){
+    // 支持 CSV 中常见的“①… ②… ③…”单项选择格式，
+    // 同时兼容 |、｜、; 分隔格式。
+    const numbered=raw.split(/(?=[①②③④⑤⑥⑦⑧⑨⑩]\s*)/).map(x=>x.trim()).filter(Boolean);
+    arr=(numbered.length>1?numbered:raw.split(/[|｜;]/).map(x=>x.trim()).filter(Boolean));
+  }
+  if(!arr.length) arr=['我先停下来看看自己','我愿意做一个具体行动','我需要与一个人谈谈','我暂时还说不清'];
 
   return arr.map((x,i)=>`
     <button type="button" class="choice ${x===selectedChoice?'selected':''}" data-choice="${esc(x)}">
@@ -174,7 +179,6 @@ function choicesFor(d){
     </button>
   `).join('');
 }
-
 function bindChoices(){
   document.querySelectorAll('#dayChoices .choice').forEach(btn=>{
     btn.addEventListener('click',()=>{
@@ -182,7 +186,6 @@ function bindChoices(){
     });
   });
 }
-
 function pickChoice(el,x){
   selectedChoice=x;
   document.querySelectorAll('#dayChoices .choice').forEach(b=>b.classList.remove('selected'));
